@@ -94,14 +94,25 @@ int main(int argc, char* argv[]) {
             }
 
             std::string keyboardResponse(tmpoutstr);
+            int a;
+            int b;
             
             int pos = keyboardResponse.find(" ");
 
             std::string a_str = keyboardResponse.substr(0, pos);
             std::string b_str = keyboardResponse.substr(pos + 1);
 
-            int a = std::stoi(a_str);
-            int b = std::stoi(b_str);
+            bool a_result = calculator.contains_number(a_str);
+            bool b_result = calculator.contains_number(b_str);
+
+            if (a_result && b_result){
+                a = std::stoi(a_str);
+                b = std::stoi(b_str);
+            }
+            else {
+                std::cout << "Any letters or symbols are not numbers. Please use numbers." << "\n";
+                break;
+            }
 
             int answer = calculator.CalculateInt(operation, a, b);
 
