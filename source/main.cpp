@@ -3,12 +3,54 @@
 #include <chrono>
 #include <thread>
 #include <string>
+#include <stdexcept>
+#include <exception>
+#include <new>
 #include "calculator.hpp"
 
 // Include additional libraries for the Switch program
 #include <cstdio>
 #include <cstdlib>
 #include <switch.h>
+
+std::string compareNumberString(bool result, std::string str, int decider) {
+    MathCalculator math{};
+
+    if (result){
+        int newInt = std::stoi(str);
+        int& newNewInt = newInt;
+        math.setAorB(decider, newNewInt);
+        std::cout << math.getAorB(decider) << "\n";
+        return "NUMBER";
+    }
+    else return "LETTER";
+    
+
+    return "NULL";
+}
+
+constexpr void assert_that(bool condition, const char* message) {
+    if (!condition) throw std::runtime_error{ message };
+}
+
+void run_test(void(*unit_test)(), const char* name) {
+    try {
+        unit_test();
+        std::cout << "[+] Test " << name << " successful.\n";
+    } catch (const std::exception& e) {
+        std::cout << "[-] Test failure in " << name << ". " << e.what() << "\n";
+    }
+}
+
+void testVariables() {
+    MathCalculator math{};
+    int a = math.getAorB(1);
+    int b = math.getAorB(2);
+
+    std::cout << a << " " << b << "\n";
+
+    return assert_that(a != 0 && b != 0, "Variable was set to 0 instead of a different number.");
+}
 
 int main(int argc, char* argv[]) {
     consoleInit(NULL);
@@ -21,7 +63,10 @@ int main(int argc, char* argv[]) {
     padInitializeDefault(&pad);
 
     Result rc = 0;
-    MathCalculator calculator{};
+
+    int a = 5;
+    int b = 5;
+    MathCalculator calculator{a, b};
     std::string operation{};
     char tmpoutstr[16] = {0};
 
@@ -94,8 +139,6 @@ int main(int argc, char* argv[]) {
             }
 
             std::string keyboardResponse(tmpoutstr);
-            int a;
-            int b;
             
             int pos = keyboardResponse.find(" ");
 
@@ -105,18 +148,22 @@ int main(int argc, char* argv[]) {
             bool a_result = calculator.contains_number(a_str);
             bool b_result = calculator.contains_number(b_str);
 
-            if (a_result && b_result){
-                a = std::stoi(a_str);
-                b = std::stoi(b_str);
-            }
-            else {
-                std::cout << "Any letters or symbols are not numbers. Please use numbers." << "\n";
-                break;
-            }
+            std::string compare_result_a = compareNumberString(a_result, a_str, 1);
+            std::string compare_result_b = compareNumberString(b_result, b_str, 2);
 
-            int answer = calculator.CalculateInt(operation, a, b);
+            /*if (compare_result_a == "NUMBER" && compare_result_b == "NUMBER") {
+                a = calculator.getAorB(1);
+                b = calculator.getAorB(2);
 
-            std::cout << "The answer to " << a << operation << b << " is " << answer << "." << "\n";
+                std::cout << a << " " << b << " " << operation << "\n";
+
+                int answer = calculator.CalculateInt(operation, a, b);
+                std::cout << "The answer to " << a << operation << b << " is " << answer << "." << "\n";
+            } else if (compare_result_a == "LETTER" || compare_result_b == "LETTER") {
+                std::cout << "Please use numbers instead of letters/symbols." << "\n";
+            } else {}*/
+
+            run_test(testVariables, "variables are set to what the user inputs");
 
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
             std::cout << "L to Calculate, Plus to exit" << "\n";
