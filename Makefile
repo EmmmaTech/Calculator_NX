@@ -28,7 +28,16 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <Project name>.jpg
 #     - icon.jpg
 #     - <libnx folder>/default_icon.jpg
-#
+#---------------------------------------------------------------------------------
+VERSION_MAJOR := 1
+VERSION_MINOR := 1
+VERSION_MICRO := 0
+
+APP_TITLE := Calculator_NX
+APP_AUTHOR := EmreTech
+APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}
+
+#---------------------------------------------------------------------------------
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
 #   If not set, it attempts to use one of the following (in this order):
 #     - <Project name>.json
