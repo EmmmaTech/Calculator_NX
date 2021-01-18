@@ -1,12 +1,15 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
+#include <cstdlib>
 
 struct MathCalculator {
     MathCalculator () {}
     MathCalculator (int newA, int newB) {
-        newA = this -> a;
-        newB = this -> b;
+        newA = a;
+        newB = b;
+
+        //std::cout << newA << " " << this -> a << " " << newB << " " << this -> b << "\n";
     }
 
     int a = 0;
@@ -37,21 +40,27 @@ struct MathCalculator {
         return 0;
     } 
 
-    void setAorB(int decider, int &new_int) {
-        if (decider == 1) setA(new_int);
-        else if (decider == 2)  setB(new_int);
-
-        std::cout << this -> a << " " << this -> b << "\n"; 
+    void setA(int new_int) {
+        this -> a = new_int;
     }
 
-    void setA(int &new_int) {
-        int& newA = a;
-        newA = new_int;
+    void setB(int new_int) {
+        this -> b = new_int;
     }
 
-    void setB(int &new_int) {
-        int& newB = b;
-        newB = new_int;
+    std::string compareNumberString(bool result, std::string str, MathCalculator* math, int decider) {
+        if (result){
+            int number = std::stoi(str);
+            if (decider == 1) math -> setA(number);
+            else if (decider == 2) math -> setB(number);
+            else return "NULL";
+
+            return "NUMBER";
+        }
+        else return "LETTER";
+        
+
+        return "NULL";
     }
 
 };
