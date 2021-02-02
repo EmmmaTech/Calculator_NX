@@ -50,6 +50,53 @@ char* SoftwareKeyboard(Result rc, const char * guideText) {
     return tmpoutstr;
 }
 
+void calculateVectorInts(std::string operation, MathCalculator& calculator, Result& rc) {
+    std::string number;
+    char * tmpoutstr;
+    bool inputComplete = false;
+
+    while(!inputComplete) {
+        tmpoutstr = SoftwareKeyboard(rc, "Enter one number at a time (q to stop)");
+        number = std::string(tmpoutstr);
+
+        if (number == "q") {
+            inputComplete = true;
+        } else {
+            if (calculator.contains_number(number)) {
+                    calculator.setVector(std::stoi(number));
+            } else inputComplete = true;
+    }
+
+    int answer = calculator.CalculateMoreInt(operation);
+    std::cout << "The answer is: " << answer << "\n";
+}
+}
+
+void calculateTwoInts(std::string operation, MathCalculator& calculator, Result& rc) {
+    std::string number1;
+    std::string number2;
+
+    char * tmpoutstr = SoftwareKeyboard(rc, "Enter two numbers with a space in-between");
+    std::string keyboardInput(tmpoutstr);
+
+    int pos = keyboardInput.find(" ");
+
+    number1 = keyboardInput.substr(0, pos);
+    number2 = keyboardInput.substr(pos + 1);
+
+    int num1;
+    int num2;
+
+    if (calculator.contains_number(number1) && calculator.contains_number(number2)) {
+        num1 = std::stoi(number1);
+        num2 = std::stoi(number2);
+
+        int answer = calculator.CalculateInt(operation, num1, num2);
+
+        std::cout << "The answer to " << num1 << " " << operation << " " << num2 << "is " << answer << "\n";
+    } else return;
+}
+
 int main(int argc, char* argv[]) {
     consoleInit(NULL);
 
@@ -66,7 +113,6 @@ int main(int argc, char* argv[]) {
 
     MathCalculator calculator{StoredInts};
     std::string operation{};
-    char * tmpoutstr;
 
     std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
     std::cout << "L to Calculate, Plus to exit" << "\n";
@@ -103,23 +149,12 @@ int main(int argc, char* argv[]) {
         }
 
         if (kDown & HidNpadButton_L && !operation.empty()) {
-            std::string number;
-            bool inputComplete = false;
-
-            while(!inputComplete) {
-                tmpoutstr = SoftwareKeyboard(rc, "Enter one number at a time (q to stop)");
-                number = std::string(tmpoutstr);
-
-                if (number == "q") {
-                    inputComplete = true;
-                } else {
-                    if (calculator.contains_number(number)) {
-                        calculator.setVector(std::stoi(number));
-                } else inputComplete = true;
+            std::cout << "A for calculating more than 2 numbers, B for calculating only 2 numbers\n";
+            if (kDown & HidNpadButton_A) {
+                calculateVectorInts(operation, calculator, rc);
+            } else if (kDown & HidNpadButton_B) {
+                calculateTwoInts(operation, calculator, rc);
             }
-
-            int answer = calculator.CalculateMoreInt(operation);
-            std::cout << "The answer is: " << answer << "\n";
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
@@ -138,5 +173,4 @@ int main(int argc, char* argv[]) {
 
 
     return 0;
-}
 }
