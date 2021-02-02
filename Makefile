@@ -32,10 +32,11 @@ include $(DEVKITPRO)/libnx/switch_rules
 VERSION_MAJOR := 1
 VERSION_MINOR := 1
 VERSION_MICRO := 0
+STABLE := Beta
 
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech
-APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}
+APP_VERSION := ${STABLE} ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}
 
 #---------------------------------------------------------------------------------
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
