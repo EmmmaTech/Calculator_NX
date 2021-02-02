@@ -1,17 +1,53 @@
 // Include libraries for the calculator program
 #include <iostream>
-#include <chrono>
-#include <thread>
 #include <string>
 #include <stdexcept>
 #include <exception>
-#include <new>
+#include <vector>
+#include <utility>
 #include "calculator.hpp"
 
 // Include additional libraries for the Switch program
 #include <cstdio>
 #include <cstdlib>
 #include <switch.h>
+
+char SoftwareKeyboard(char tmpoutstr, Result rc, const char * guideText) {
+    SwkbdConfig kbd;
+            
+    rc = swkbdCreate(&kbd, 0);
+    //printf("swkbdCreate(): 0x%x\n", rc);
+    if (R_SUCCEEDED(rc)) {
+        // Select a Preset to use, if any.
+        swkbdConfigMakePresetDefault(&kbd);
+
+        // Optional, set any text if you want (see swkbd.h).
+        //swkbdConfigSetOkButtonText(&kbd, "Submit");
+        //swkbdConfigSetLeftOptionalSymbolKey(&kbd, "a");
+        //swkbdConfigSetRightOptionalSymbolKey(&kbd, "b");
+        //swkbdConfigSetHeaderText(&kbd, "Header");
+        //swkbdConfigSetSubText(&kbd, "Sub");
+        swkbdConfigSetGuideText(&kbd, guideText);
+
+        //Optional, can be removed if not using TextCheck.
+
+        // Set the initial string if you want.
+        //swkbdConfigSetInitialText(&kbd, "Initial");
+
+        // You can also use swkbdConfigSet*() funcs if you want.
+
+        //printf("Running swkbdShow...\n");
+        rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
+        //printf("swkbdShow(): 0x%x\n", rc);
+
+        /*if (R_SUCCEEDED(rc)) {
+                    printf("out str: %s\n", tmpoutstr);
+        }*/
+        swkbdClose(&kbd);
+    }
+
+    return tmpoutstr;
+}
 
 int main(int argc, char* argv[]) {
     consoleInit(NULL);
@@ -25,10 +61,9 @@ int main(int argc, char* argv[]) {
 
     Result rc = 0;
 
-    int a = 0;
-    int b = 0;
+    std::vector<int> StoredInts{};
 
-    MathCalculator calculator{a, b};
+    MathCalculator calculator{StoredInts};
     std::string operation{};
     char tmpoutstr[16] = {0};
 
@@ -67,66 +102,24 @@ int main(int argc, char* argv[]) {
         }
 
         if (kDown & HidNpadButton_L && !operation.empty()) {
-            SwkbdConfig kbd;
-            
-            rc = swkbdCreate(&kbd, 0);
-            //printf("swkbdCreate(): 0x%x\n", rc);
-            if (R_SUCCEEDED(rc)) {
-                // Select a Preset to use, if any.
-                swkbdConfigMakePresetDefault(&kbd);
+            std::string number;
+            bool inputComplete = false;
 
-                // Optional, set any text if you want (see swkbd.h).
-                //swkbdConfigSetOkButtonText(&kbd, "Submit");
-                //swkbdConfigSetLeftOptionalSymbolKey(&kbd, "a");
-                //swkbdConfigSetRightOptionalSymbolKey(&kbd, "b");
-                //swkbdConfigSetHeaderText(&kbd, "Header");
-                //swkbdConfigSetSubText(&kbd, "Sub");
-                swkbdConfigSetGuideText(&kbd, "Type any two numbers with a space in-between (i.e. 10 10)");
+            while(!inputComplete) {
+                tmpoutstr = SoftwareKeyboard(tmpoutstr, rc, "Enter one number at a time (q to stop)");
+                number = std::string(tmpoutstr);
 
-                //Optional, can be removed if not using TextCheck.
-
-                // Set the initial string if you want.
-                //swkbdConfigSetInitialText(&kbd, "Initial");
-
-                // You can also use swkbdConfigSet*() funcs if you want.
-
-                //printf("Running swkbdShow...\n");
-                rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
-                //printf("swkbdShow(): 0x%x\n", rc);
-
-                /*if (R_SUCCEEDED(rc)) {
-                    printf("out str: %s\n", tmpoutstr);
-                }*/
-                swkbdClose(&kbd);
+                if (number == "q") {
+                    inputComplete = true;
+                } else {
+                    if (calculator.contains_number(number)) {
+                        calculator.setVector(std::stoi(number));
+                    } else inputComplete = true;
             }
 
-            std::string keyboardResponse(tmpoutstr);
-            
-            int pos = keyboardResponse.find(" ");
+            int answer = calculator.CalculateMoreInt(operation);
 
-            std::string a_str = keyboardResponse.substr(0, pos);
-            std::string b_str = keyboardResponse.substr(pos + 1);
-
-            bool a_result = calculator.contains_number(a_str);
-            bool b_result = calculator.contains_number(b_str);
-
-            std::string compare_result_a = calculator.compareNumberString(a_result, a_str, &calculator, 1);
-            std::string compare_result_b = calculator.compareNumberString(b_result, b_str, &calculator, 2);
-
-            if (compare_result_a == "NUMBER" && compare_result_b == "NUMBER") {
-                a = calculator.getAorB(1);
-                b = calculator.getAorB(2);
-
-                //std::cout << a << " " << b << " " << operation << "\n";
-
-                int answer = calculator.CalculateInt(operation);
-                std::cout << "The answer to " << a << operation << b << " is " << answer << "." << "\n";
-            } else if (compare_result_a == "LETTER" || compare_result_b == "LETTER") {
-                std::cout << "Please use numbers instead of letters/symbols." << "\n";
-            }
-
-            //std::cout << compare_result_a << " " << compare_result_b << "\n";
-
+            // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
             std::cout << "L to Calculate, Plus to exit" << "\n";
 
