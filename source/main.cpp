@@ -12,8 +12,9 @@
 #include <cstdlib>
 #include <switch.h>
 
-char SoftwareKeyboard(char tmpoutstr, Result rc, const char * guideText) {
+char* SoftwareKeyboard(Result rc, const char * guideText) {
     SwkbdConfig kbd;
+    char * tmpoutstr;
             
     rc = swkbdCreate(&kbd, 0);
     //printf("swkbdCreate(): 0x%x\n", rc);
@@ -65,7 +66,7 @@ int main(int argc, char* argv[]) {
 
     MathCalculator calculator{StoredInts};
     std::string operation{};
-    char tmpoutstr[16] = {0};
+    char * tmpoutstr;
 
     std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
     std::cout << "L to Calculate, Plus to exit" << "\n";
@@ -106,7 +107,7 @@ int main(int argc, char* argv[]) {
             bool inputComplete = false;
 
             while(!inputComplete) {
-                tmpoutstr = SoftwareKeyboard(tmpoutstr, rc, "Enter one number at a time (q to stop)");
+                tmpoutstr = SoftwareKeyboard(rc, "Enter one number at a time (q to stop)");
                 number = std::string(tmpoutstr);
 
                 if (number == "q") {
@@ -114,10 +115,11 @@ int main(int argc, char* argv[]) {
                 } else {
                     if (calculator.contains_number(number)) {
                         calculator.setVector(std::stoi(number));
-                    } else inputComplete = true;
+                } else inputComplete = true;
             }
 
             int answer = calculator.CalculateMoreInt(operation);
+            std::cout << "The answer is: " << answer << "\n";
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
@@ -136,4 +138,5 @@ int main(int argc, char* argv[]) {
 
 
     return 0;
+}
 }
