@@ -1,66 +1,43 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
-#include <cstdlib>
+#include <vector>
+#include <utility>
 
 struct MathCalculator {
+
     MathCalculator () {}
-    MathCalculator (int newA, int newB) {
-        newA = a;
-        newB = b;
-
-        //std::cout << newA << " " << this -> a << " " << newB << " " << this -> b << "\n";
-    }
-
-    int a = 0;
-    int b = 0;
-
+    MathCalculator (std::vector<int> Vector) : VectorCalculator{ Vector } {}
+    
+    // Smaller functions for solving problems. Used mostly in the function below
     int Addition(int a, int b);
     int Subtraction(int a, int b);
     int Mutiplication(int a, int b);
     int Division(int a, int b);
 
-    int Addition();
-    int Subtraction();
-    int Mutiplication();
-    int Division();
-
     // Function for solving a problem for addition, subtraction, mutiplication, and division
-    int CalculateInt (std::string Operator, int a, int b);
-    int CalculateInt (std::string Operator);
+    int CalculateInt(std::string Operator, int a, int b);
+    int CalculateMoreInt(std::string_view Operator);
 
     bool contains_number(std::string str) {
-    	return (str.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos);
+    	return (str.find_first_of("0123456789") != std::string::npos);
     }
 
-    int getAorB(int decider) {
-        if (decider == 1) return a;
-        else if (decider == 2) return b;
-        else return 0;
-        return 0;
-    } 
+    int turnStringToIntOperator (std::string_view string) {
+        if (string == "+" || string == "-" || string == "*" || string == "/") {
+            if (string == "+") return 1;
+            if (string == "-") return 2;
+            if (string == "*") return 3;
+            if (string == "/") return 4;
+        } else return 0;
 
-    void setA(int new_int) {
-        this -> a = new_int;
+        return 0; 
     }
 
-    void setB(int new_int) {
-        this -> b = new_int;
+    void setVector(int newInt){
+        VectorCalculator.emplace_back(newInt);
     }
 
-    std::string compareNumberString(bool result, std::string str, MathCalculator* math, int decider) {
-        if (result){
-            int number = std::stoi(str);
-            if (decider == 1) math -> setA(number);
-            else if (decider == 2) math -> setB(number);
-            else return "NULL";
-
-            return "NUMBER";
-        }
-        else return "LETTER";
-        
-
-        return "NULL";
-    }
-
+    private:
+    std::vector<int> VectorCalculator;
 };
