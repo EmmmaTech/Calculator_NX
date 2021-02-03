@@ -5,12 +5,13 @@
 #include <exception>
 #include <vector>
 #include <utility>
+#include <stdio.h>
+#include <stdlib.h>
 #include "calculator.hpp"
 
 // Include additional libraries for the Switch program
-#include <cstdio>
-#include <cstdlib>
 #include <switch.h>
+#include "borealis/library/include/borealis.hpp"
 
 char* SoftwareKeyboard(Result rc, const char * guideText) {
     SwkbdConfig kbd;
