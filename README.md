@@ -30,3 +30,5 @@ Switchbrew for making libnx
 The people on the ReSwitched server for helping me
 
 The people on the Switchroot server for helping me on my original Calculator program (this is based on that)
+
+natinusala and any contributors for making borealis (The License for borealis is in the borealis folder)
