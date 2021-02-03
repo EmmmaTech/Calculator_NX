@@ -1,5 +1,6 @@
-# Calculator_NX
+![Icon photo for Calculator_NX](Calculator_NX.jpg)
 
+# Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
 This is a console type application, so no GUI. This is my first program so I didn't want to mess around with GUIs yet. I might add a GUI in the future.
@@ -14,13 +15,13 @@ You can then `git clone` this repo to any folder on your computer. To compile on
 ### Complation troubleshooting
 
 When you ran the command `make` and it gives an error like: `Please set DEVKITPRO in your environment`, this means you have to edit the .bash_profile file (this file differs from versions of macOS/Linux) to add the following:
-`
+```bash
 export DEVKITPRO=/opt/devkitpro
 export DEVKITA64=/opt/devkitpro/devkitA64
 export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 export PATH=$DEVKITPPC/bin:$DEVKITPRO/tools/bin:$PATH
-`
+```
 
 ## CREDITS
 
