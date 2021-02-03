@@ -12,6 +12,7 @@
 // Include additional libraries for the Switch program
 #include <switch.h>
 #include <borealis.hpp>
+#include "gui.hpp"
 
 /*char* SoftwareKeyboard(Result rc, const char * guideText) {
     SwkbdConfig kbd;
@@ -56,7 +57,7 @@ int main(int argc, char* argv[]) {
     MathCalculator calculator{StoredInts};
     std::string operation{};
 
-
+    CalculatorGUI::Init::initGUI();
 
     return 0;
 }
