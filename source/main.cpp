@@ -13,7 +13,7 @@
 #include <switch.h>
 #include <borealis.hpp>
 
-char* SoftwareKeyboard(Result rc, const char * guideText) {
+/*char* SoftwareKeyboard(Result rc, const char * guideText) {
     SwkbdConfig kbd;
     char * tmpoutstr;
             
@@ -42,14 +42,14 @@ char* SoftwareKeyboard(Result rc, const char * guideText) {
         rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
         //printf("swkbdShow(): 0x%x\n", rc);
 
-        /*if (R_SUCCEEDED(rc)) {
+        if (R_SUCCEEDED(rc)) {
                     printf("out str: %s\n", tmpoutstr);
-        }*/
+        }
         swkbdClose(&kbd);
     }
 
     return tmpoutstr;
-}
+}*/
 
 void calculateVectorInts(std::string operation, MathCalculator& calculator, Result& rc) {
     std::string number;
@@ -69,7 +69,7 @@ void calculateVectorInts(std::string operation, MathCalculator& calculator, Resu
     }
 
     int answer = calculator.CalculateMoreInt(operation);
-    std::cout << "The answer is: " << answer << "\n";
+    //std::cout << "The answer is: " << answer << "\n";
 }
 }
 
@@ -94,84 +94,15 @@ void calculateTwoInts(std::string operation, MathCalculator& calculator, Result&
 
         int answer = calculator.CalculateInt(operation, num1, num2);
 
-        std::cout << "The answer to " << num1 << " " << operation << " " << num2 << "is " << answer << "\n";
+        //std::cout << "The answer to " << num1 << " " << operation << " " << num2 << "is " << answer << "\n";
     } else return;
 }
 
 int main(int argc, char* argv[]) {
-    consoleInit(NULL);
-
-    // Configure our supported input layout: a single player with standard controller styles
-    padConfigureInput(1, HidNpadStyleSet_NpadStandard);
-
-    // Initialize the default gamepad (which reads handheld mode inputs as well as the first connected controller)
-    PadState pad;
-    padInitializeDefault(&pad);
-
-    Result rc = 0;
-
     std::vector<int> StoredInts{};
 
     MathCalculator calculator{StoredInts};
     std::string operation{};
-
-    std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-    std::cout << "L to Calculate, Plus to exit" << "\n";
-
-    // Main loop
-    while (appletMainLoop())
-    {
-        // Scan the gamepad. This should be done once for each frame
-        padUpdate(&pad);
-
-        // padGetButtonsDown returns the set of buttons that have been
-        // newly pressed in this frame compared to the previous one
-        u64 kDown = padGetButtonsDown(&pad);
-
-        if (kDown & HidNpadButton_Plus) break; // break in order to return to hbmenu
-
-        // Your code goes here
-        
-        if (kDown & HidNpadButton_Up) {
-            operation = "+";
-            std::cout << "Operation set as: " << operation << "\n";
-        }
-        else if (kDown & HidNpadButton_Down) {
-            operation = "-";
-            std::cout << "Operation set as: " << operation << "\n";
-        }
-        else if (kDown & HidNpadButton_Left) {
-            operation = "*";
-            std::cout << "Operation set as: " << operation << "\n";
-        }
-        else if (kDown & HidNpadButton_Right) {
-            operation = "/";
-            std::cout << "Operation set as: " << operation << "\n";
-        }
-
-        if (kDown & HidNpadButton_L && !operation.empty()) {
-            std::cout << "A for calculating more than 2 numbers, B for calculating only 2 numbers\n";
-            if (kDown & HidNpadButton_A) {
-                calculateVectorInts(operation, calculator, rc);
-            } else if (kDown & HidNpadButton_B) {
-                calculateTwoInts(operation, calculator, rc);
-            }
-
-            // I just noticed that the string below says \nand at some point
-            std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-            std::cout << "L to Calculate, Plus to exit" << "\n";
-
-        }
-        
-        //std::cout << operation << "\n";
-
-        // Update the console, sending a new frame to the display
-        consoleUpdate(NULL);
-    }
-
-    // Deinitialize and clean up resources used by the console (important!)
-    consoleExit(NULL);
-
 
     return 0;
 }
