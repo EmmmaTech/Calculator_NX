@@ -12,4 +12,14 @@
 #include <switch.h>
 #include <borealis.hpp>
 
-brls::Application::init("Calculator_NX");
+namespace CalculatorGUI {
+
+    struct Init {
+
+        static void initGUI() {
+            brls::Application::init("Calculator_NX");
+        }
+        
+    };
+
+}
