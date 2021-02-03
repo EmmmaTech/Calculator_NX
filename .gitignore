@@ -1,3 +1,9 @@
 
 *.o
 *.d
+*.out
+*.lst
+*.map
+*.elf
+*.nacp
+*.nro
