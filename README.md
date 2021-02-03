@@ -9,6 +9,7 @@ You can now download this app with the up-to-date version on the HB App Store! I
 ## COMPLATION INSTRUCTIONS
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)
+It also requires installing required libraries needed for borealis, which include `switch-glfw switch-mesa switch-glm`.
 
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
@@ -22,6 +23,12 @@ export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 export PATH=$DEVKITPPC/bin:$DEVKITPRO/tools/bin:$PATH
 ```
+
+Any errors relating to borealis should be reported.
+
+## PLANNED FEATURES
+
+Planned features include making an GUI, making an updater inside of the app, and making a credits screen. Check the projects tab for the progress on these.
 
 ## CREDITS
 
