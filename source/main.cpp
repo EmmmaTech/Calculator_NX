@@ -11,7 +11,7 @@
 
 // Include additional libraries for the Switch program
 #include <switch.h>
-#include "borealis/library/include/borealis.hpp"
+#include <borealis.hpp>
 
 char* SoftwareKeyboard(Result rc, const char * guideText) {
     SwkbdConfig kbd;
