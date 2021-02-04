@@ -10,7 +10,7 @@
         <brls:Box
             width="auto"
             height="auto"
-            axis="column"
+            axis="row"
             paddingLeft="10px"
             paddingRight="10px"
             paddingTop="5px"
@@ -21,6 +21,17 @@
                 height="auto"
                 text="nxgui/welcome"
                 marginBottom="10px" />
+
+            <brls:Box
+                width="100%"
+                height="auto"
+                axis="row"
+                marginTop="30px"
+                marginBottom="30px">
+
+                
+
+            </brls:Box>
 
         </brls:Box>
 

@@ -11,4 +11,4 @@ struct CalculatorTab : public brls::Box {
     bool onSubtractionButtonClicked(brls::View* view);
     bool onMutiplicationButtonClicked(brls::View* view);
     bool onDivisionButtonClicked(brls::View* view);
-}
+};

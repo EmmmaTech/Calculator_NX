@@ -12,29 +12,24 @@
 // Include additional libraries for the Switch program
 #include <switch.h>
 #include <borealis.hpp>
-
-/*truct MainActivity : public brls::Activity {
-    CONTENT_FROM_XML_RES("activity/main.xml");
-};*/
+#include "calculatorTab.hpp"
+#include "mainActivity.hpp"
 
 int main(int argc, char* argv[]) {
     std::vector<int> StoredInts{};
     MathCalculator calculator{StoredInts};
     std::string operation{};
-    std::string App_Version = "v1.3.0 Developer GUI";
 
-    //brls::Application::registerXMLView("CaptionedImage", CaptionedImage::create);
-    //brls::Application::registerXMLView("RecyclingListTab", RecyclingListTab::create);
-    //brls::Application::registerXMLView("ComponentsTab", ComponentsTab::create);
+    brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
 
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
-    if (!brls::Application::init("Calculator_NX " + App_Version)) {
+    if (!brls::Application::init("Calculator_NX")) {
         brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
     }
 
-    //brls::Application::pushActivity();
+    brls::Application::pushActivity(new MainActivity());
 
     while (brls::Application::mainLoop());
 
