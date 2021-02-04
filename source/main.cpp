@@ -100,10 +100,7 @@ int main(int argc, char* argv[]) {
     brls::Application::registerXMLView("RecyclingListTab", RecyclingListTab::create);
     brls::Application::registerXMLView("ComponentsTab", ComponentsTab::create);
 
-    brls::getLightTheme().addColor("captioned_image/caption", nvgRGB(2, 176, 183));
-    brls::getDarkTheme().addColor("captioned_image/caption", nvgRGB(51, 186, 227));
-
-    brils::Logger::setLogLevel(brls::LogLevel::DEBUG);
+    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
     if (!brls::Application::init("Calculator_NX " + App_Version)) {
         brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");
