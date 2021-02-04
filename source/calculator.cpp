@@ -1,4 +1,4 @@
-#include "calculator.hpp"
+#include <calculator.hpp>
 
 int MathCalculator::Addition(int a, int b) {
         int answer{};
