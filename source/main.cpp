@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     std::string operation{};
     std::string App_Version = "v1.3.0 Developer GUI";
 
-    auto Frame = brls::AppletFrame::AppletFrame();
+    brls::AppletFrame Frame;
     Frame.setTitle("Calculator_NX " + App_Version);
 
     if (!brls::Application::init("Calculator_NX")) {
