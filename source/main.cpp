@@ -56,8 +56,12 @@ int main(int argc, char* argv[]) {
     MathCalculator calculator{StoredInts};
     std::string operation{};
 
-    brls::Application::init("Calculator_NX");
-    brls::Application::mainLoop();
+    if (!brls::Application::init("Calculator_NX")) {
+        brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");
+        return EXIT_FAILURE;
+    }
 
-    return 0;
+    while (brls::Application::mainLoop());
+
+    return EXIT_SUCCESS;
 }
