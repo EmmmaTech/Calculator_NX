@@ -55,6 +55,10 @@ int main(int argc, char* argv[]) {
     std::vector<int> StoredInts{};
     MathCalculator calculator{StoredInts};
     std::string operation{};
+    std::string App_Version = "v1.3.0 Developer GUI";
+
+    auto Frame = brls::AppletFrame::AppletFrame();
+    Frame.setTitle("Calculator_NX " + App_Version);
 
     if (!brls::Application::init("Calculator_NX")) {
         brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");

@@ -68,7 +68,7 @@ CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
 
 CFLAGS	+=	$(INCLUDE) -D__SWITCH__
 
-CXXFLAGS	:= $(CFLAGS) -std=c++1z -fexceptions -Wmaybe-uninitialized -O2 -Wno-volatile
+CXXFLAGS	:= $(CFLAGS) -std=c++1z -fexceptions -Wmaybe-uninitialized -O2 -Wno-volatile -fpermissive
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
