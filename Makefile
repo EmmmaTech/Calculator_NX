@@ -37,7 +37,7 @@ STABLE := Developer GUI
 
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech
-APP_VERSION := ${STABLE} ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}
+APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO} ${STABLE}
 
 #---------------------------------------------------------------------------------
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
@@ -68,7 +68,7 @@ CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
 
 CFLAGS	+=	$(INCLUDE) -D__SWITCH__
 
-CXXFLAGS	:= $(CFLAGS) -std=c++1z -fexceptions -Wmaybe-uninitialized -O2 -Wno-volatile -fpermissive
+CXXFLAGS	:= $(CFLAGS) -std=c++1z -fexceptions -Wmaybe-uninitialized -O2 -Wno-volatile
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
