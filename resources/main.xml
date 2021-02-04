@@ -1,0 +1,10 @@
+<brls:TabFrame
+    title="nxgui/title">
+
+    <brls:Tab label="nxgui/tabs/calculator" >
+        <CalculatorTab />
+    </brls:Tab>
+
+
+    
+</brls:TabFrame>

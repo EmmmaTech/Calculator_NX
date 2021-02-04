@@ -1,0 +1,29 @@
+<brls:Box
+    width="auto"
+    height="auto" >
+
+    <brls:ScrollingFrame
+        width="auto"
+        height="auto"
+        grow="1.0" >
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column"
+            paddingLeft="10px"
+            paddingRight="10px"
+            paddingTop="5px"
+            paddingBottom="5px" >
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                text="nxgui/welcome"
+                marginBottom="10px" />
+
+        </brls:Box>
+
+    </brls:ScrollingFrame>
+
+</brls:Box>

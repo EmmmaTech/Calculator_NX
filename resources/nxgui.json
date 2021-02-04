@@ -1,0 +1,26 @@
+{
+    "title": "Calculator_NX GUI",
+
+    "tabs": {
+        "calculator": "Calculator Home",
+        "about": "About"
+    },
+
+    "welcome": "Welcome to Calculator_NX! Start calculating below:",
+
+    "components": {
+        "labels_header": "Calculator",
+
+         "buttons_addition": "+",
+         "buttons_subtraction": "-",
+         "buttons_mutiplication": "*",
+         "buttons_division": "/",
+         
+         "labels_appname": "Calculator_NX",
+         "labels_developer": "EmreTech",
+         "labels_credits1": "Switchbrew for making libnx",
+         "labels_credits2": "People from the ReSwitched and Switchroot servers for helping me make this",
+         "labels_credits3": "natinusala and other contributors for making the borealis library",
+         "labels_version": "v3.0.0 Developer GUI"
+    }
+}
