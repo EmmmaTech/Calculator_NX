@@ -13,43 +13,82 @@
 #include <switch.h>
 #include <borealis.hpp>
 
-/*char* SoftwareKeyboard(Result rc, const char * guideText) {
-    SwkbdConfig kbd;
-    char * tmpoutstr;
-            
-    rc = swkbdCreate(&kbd, 0);
-    //printf("swkbdCreate(): 0x%x\n", rc);
-    if (R_SUCCEEDED(rc)) {
-        // Select a Preset to use, if any.
-        swkbdConfigMakePresetDefault(&kbd);
+struct MainActivity : public brls::Activity {
+    CONTENT_FROM_XML_RES("activity/main.xml");
+};
 
-        // Optional, set any text if you want (see swkbd.h).
-        //swkbdConfigSetOkButtonText(&kbd, "Submit");
-        //swkbdConfigSetLeftOptionalSymbolKey(&kbd, "a");
-        //swkbdConfigSetRightOptionalSymbolKey(&kbd, "b");
-        //swkbdConfigSetHeaderText(&kbd, "Header");
-        //swkbdConfigSetSubText(&kbd, "Sub");
-        swkbdConfigSetGuideText(&kbd, guideText);
-
-        //Optional, can be removed if not using TextCheck.
-
-        // Set the initial string if you want.
-        //swkbdConfigSetInitialText(&kbd, "Initial");
-
-        // You can also use swkbdConfigSet*() funcs if you want.
-
-        //printf("Running swkbdShow...\n");
-        rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
-        //printf("swkbdShow(): 0x%x\n", rc);
-
-        if (R_SUCCEEDED(rc)) {
-                    printf("out str: %s\n", tmpoutstr);
-        }
-        swkbdClose(&kbd);
+struct RecyclingListTab : public brls::Box {
+    RecyclingListTab(){
+        this->inflateFromXMLRes("xml/tabs/recycling_list.xml");
     }
 
-    return tmpoutstr;
-}*/
+    static brls::View* create(){
+        return new RecyclingListTab();
+    }
+};
+
+struct ComponentsTab : public brls::Box {
+    ComponentsTab(){
+        this->inflateFromXMLRes("xml/tabs/components.xml");
+
+        BRLS_REGISTER_CLICK_BY_ID("button_primary", this->onPrimaryButtonClicked);
+
+        brls::Button* highlightButton = (brls::Button*)this->getView("button_highlight");
+        highlightButton->registerAction(
+        "Honk", brls::BUTTON_A, [](brls::View* view) { return true; }, false, brls::SOUND_HONK);
+    }
+
+    static brls::View* create(){
+        return new ComponentsTab();
+    }
+
+    private:
+    bool onPrimaryButtonClicked(brls::View* view){
+        brls::Logger::info("Clicked");
+        return true;
+    }
+};
+
+struct CaptionedImage : public brls::Box {
+    CaptionedImage() {
+        this->inflateFromXMLRes("xml/views/captioned_image.xml");
+
+        this->image = (brls::Image*)this->getView("image");
+        this->label = (brls::Label*)this->getView("label");
+
+        this->label->hide([] {});
+
+        this->forwardXMLAttribute("scalingType", this->image);
+        this->forwardXMLAttribute("image", this->image);
+        this->forwardXMLAttribute("focusUp", this->image);
+        this->forwardXMLAttribute("focusRight", this->image);
+        this->forwardXMLAttribute("focusDown", this->image);
+        this->forwardXMLAttribute("focusLeft", this->image);
+        this->forwardXMLAttribute("imageWidth", this->image, "width");
+        this->forwardXMLAttribute("imageHeight", this->image, "height");
+
+        this->forwardXMLAttribute("caption", this->label, "text");
+    }
+ 
+    void onChildFocusGained(brls::View* directChild, brls::View* focusedView) override {
+        Box::onChildFocusGained(directChild, focusedView);
+
+        this->label->show([] {});
+    }
+    void onChildFocusLost(brls::View* directChild, brls::View* focusedView) override {
+        Box::onChildFocusLost(directChild, focusedView);
+
+        this->label->hide([] {});
+    }
+
+    static brls::View* create() {
+        return new CaptionedImage();
+    }
+
+    private:
+    brls::Image* image;
+    brls::Label* label;
+};
 
 int main(int argc, char* argv[]) {
     std::vector<int> StoredInts{};
@@ -57,13 +96,21 @@ int main(int argc, char* argv[]) {
     std::string operation{};
     std::string App_Version = "v1.3.0 Developer GUI";
 
-    brls::AppletFrame Frame;
-    Frame.setTitle("Calculator_NX " + App_Version);
+    brls::Application::registerXMLView("CaptionedImage", CaptionedImage::create);
+    brls::Application::registerXMLView("RecyclingListTab", RecyclingListTab::create);
+    brls::Application::registerXMLView("ComponentsTab", ComponentsTab::create);
 
-    if (!brls::Application::init("Calculator_NX")) {
+    brls::getLightTheme().addColor("captioned_image/caption", nvgRGB(2, 176, 183));
+    brls::getDarkTheme().addColor("captioned_image/caption", nvgRGB(51, 186, 227));
+
+    brils::Logger::setLogLevel(brls::LogLevel::DEBUG);
+
+    if (!brls::Application::init("Calculator_NX " + App_Version)) {
         brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
     }
+
+    brls::Application::pushActivity(new MainActivity());
 
     while (brls::Application::mainLoop());
 
