@@ -1,4 +1,4 @@
-![Icon photo for Calculator_NX](Calculator_NX.jpg)
+![Icon photo for Calculator_NX](resources/Calculator_NX.jpg)
 
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
