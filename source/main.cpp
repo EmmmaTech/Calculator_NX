@@ -7,7 +7,7 @@
 #include <utility>
 #include <stdio.h>
 #include <stdlib.h>
-#include <calculator.hpp>
+#include "calculator.hpp"
 
 // Include additional libraries for the Switch program
 #include <switch.h>
@@ -17,7 +17,7 @@
 
 int main(int argc, char* argv[]) {
     std::vector<int> StoredInts{};
-    MathCalculator calculator{StoredInts};
+    MathCalculator calculator{StoredInts}; 
     std::string operation{};
 
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);

@@ -23,7 +23,7 @@ struct MathCalculator {
     	return (str.find_first_of("0123456789") != std::string::npos);
     }
 
-    int turnStringToIntOperator (std::string_view string) {
+    int turnStringToIntOperator(std::string_view string) {
         if (string == "+" || string == "-" || string == "*" || string == "/") {
             if (string == "+") return 1;
             if (string == "-") return 2;
