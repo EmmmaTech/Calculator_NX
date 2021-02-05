@@ -1,5 +1,7 @@
 #include "calculatorTab.hpp"
 
+// Code taken and modified from the borealis example
+
 CalculatorTab::CalculatorTab() {
     this->inflateFromXMLRes("calculator.xml");
 
