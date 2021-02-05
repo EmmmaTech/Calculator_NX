@@ -1,5 +1,6 @@
 {
     "title": "Calculator_NX GUI",
+    "icon": "@res/Calculator_NX.jpg",
 
     "tabs": {
         "calculator": "Calculator Home",
