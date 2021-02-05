@@ -19,7 +19,7 @@
             <brls:Label
                 width="auto"
                 height="auto"
-                text="nxgui/welcome"
+                text="@i18n/nxgui/welcome"
                 marginBottom="10px" />
 
             <brls:Box

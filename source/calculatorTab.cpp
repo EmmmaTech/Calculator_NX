@@ -3,7 +3,7 @@
 // Code taken and modified from the borealis example
 
 CalculatorTab::CalculatorTab() {
-    this->inflateFromXMLRes("calculator.xml");
+    this->inflateFromXMLRes("tabs/calculator.xml");
 
     BRLS_REGISTER_CLICK_BY_ID("buttons_addition", this->onAdditionButtonClicked);
     BRLS_REGISTER_CLICK_BY_ID("buttons_subtraction", this->onSubtractionButtonClicked);
