@@ -5,6 +5,15 @@
         <CalculatorTab />
     </brls:Tab>
 
+    <brls:Separator />
 
+    <brls:Tab label="@i18n/nxgui/tabs/about">
+
+        <brls:Rectangle
+            width="auto"
+            height="auto"
+            color="#FF0000" />
+
+    </brls:Tab>
     
 </brls:TabFrame>
