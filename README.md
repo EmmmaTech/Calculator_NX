@@ -9,7 +9,7 @@ You can now download this app with the up-to-date version on the HB App Store! I
 ## COMPLATION INSTRUCTIONS
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)
-It also requires installing required libraries needed for borealis, which include `switch-glfw switch-mesa switch-glm`.
+It also requires installing required libraries needed for borealis, by running `sudo (dkp-)pacman -S switch-glfw switch-mesa switch-glm`.
 
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
@@ -39,3 +39,9 @@ The people on the ReSwitched server for helping me
 The people on the Switchroot server for helping me on my original Calculator program (this is based on that)
 
 natinusala and any contributors for making borealis (The License for borealis is in the borealis folder)
+
+## LICENSE
+
+Calculator_NX uses the MIT License. Read the license for more details.
+
+Borealis uses the GPLv3 License. Read the license contained in the borealis folder for more details.
