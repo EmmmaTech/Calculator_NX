@@ -8,9 +8,4 @@ struct CalculatorTab : public brls::Box {
 
     static brls::View* create();
 
-    private:
-    bool onAdditionButtonClicked(brls::View* view);
-    bool onSubtractionButtonClicked(brls::View* view);
-    bool onMutiplicationButtonClicked(brls::View* view);
-    bool onDivisionButtonClicked(brls::View* view);
 };
