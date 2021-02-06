@@ -15,6 +15,8 @@
 #include "calculatorTab.hpp"
 #include "mainActivity.hpp"
 
+// The program is currently not working at the moment
+
 int main(int argc, char* argv[]) {
     // Define important variables for the actual calculation
     std::vector<int> StoredInts{};
