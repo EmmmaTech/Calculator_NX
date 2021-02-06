@@ -1,19 +1,16 @@
 <brls:TabFrame
     title="@i18n/nxgui/title">
 
+    <!-- Home/Calculator Page -->
     <brls:Tab label="@i18n/nxgui/tabs/calculator" >
         <CalculatorTab />
     </brls:Tab>
 
     <brls:Separator />
 
+    <!-- About Page --> 
     <brls:Tab label="@i18n/nxgui/tabs/about">
-
-        <brls:Rectangle
-            width="auto"
-            height="auto"
-            color="#FF0000" />
-
+        <AboutTab />
     </brls:Tab>
     
 </brls:TabFrame>

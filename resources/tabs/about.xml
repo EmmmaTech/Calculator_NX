@@ -1,0 +1,44 @@
+<brls:Box
+    width="auto"
+    height="auto"/>
+
+    <brls:Header
+        width="auto"
+        height="auto"
+        text="@i18n/nxgui/components/labels_appname"/>
+
+    <brls:Label
+        width="auto"
+        height="auto"
+        text="@i18n/nxgui/components/labels_developer"/>
+
+    <brls:Label
+        width="auto"
+        height="auto"
+        text="@i18n/nxgui/components/labels_version"/>
+
+    <brls:Box
+        width="auto"
+        height="auto"
+        axis="row"
+        marginTop="20px"
+        marginBottom="20px">
+
+        <brls:Header
+            width="auto"
+            height="auto"
+            text="@i18n/nxgui/components/labels_credits1"/>
+
+        <brls:Header
+            width="auto"
+            height="auto"
+            text="@i18n/nxgui/components/labels_credits2"/>
+
+        <brls:Header
+            width="auto"
+            height="auto"
+            text="@i18n/nxgui/components/labels_credits3"/>
+
+    </brls:Box>
+
+</brls:Box>

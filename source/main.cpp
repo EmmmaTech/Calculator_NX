@@ -14,6 +14,7 @@
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
 #include "mainActivity.hpp"
+#include "aboutTab.hpp"
 
 // The program is currently not working at the moment
 
@@ -25,6 +26,7 @@ int main(int argc, char* argv[]) {
 
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
+    brls::Application::registerXMLView("AboutTab", AboutTab::create);
 
     // Set everything up for the borealis GUI
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);

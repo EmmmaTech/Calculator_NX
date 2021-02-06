@@ -2,39 +2,67 @@
     width="auto"
     height="auto" >
 
-    <brls:ScrollingFrame
+    <brls:Box
         width="auto"
         height="auto"
-        grow="1.0" >
+        axis="row"
+        paddingLeft="10px"
+        paddingRight="10px"
+        paddingTop="5px"
+        paddingBottom="5px" >
 
-        <brls:Box
+        <brls:Header
             width="auto"
             height="auto"
-            axis="row"
-            paddingLeft="10px"
-            paddingRight="10px"
-            paddingTop="5px"
-            paddingBottom="5px" >
+            text="@i18n/nxgui/welcome"
+            marginBottom="10px" />
 
-            <brls:Label
+        <brls:Box
+            width="100%"
+            height="auto"
+            axis="row"
+            marginTop="30px"
+            marginBottom="30px">
+
+            
+            <brls:Button
+                id="button_add"
                 width="auto"
                 height="auto"
-                text="@i18n/nxgui/welcome"
-                marginBottom="10px" />
+                style="primary"
+                grow="1.0"
+                marginLeft="20px"
+                marginRight="20px"/>
 
-            <brls:Box
-                width="100%"
+            <brls:Button
+                id="button_subtract"
+                width="auto"
                 height="auto"
-                axis="row"
-                marginTop="30px"
-                marginBottom="30px">
+                style="primary"
+                grow="1.0"
+                marginLeft="20px"
+                marginRight="20px"/>
 
-                
+            <brls:Button
+                id="button_mutiply"
+                width="auto"
+                height="auto"
+                style="primary"
+                grow="1.0"
+                marginLeft="20px"
+                marginRight="20px"/>
 
-            </brls:Box>
+            <brls:Button
+                id="button_divide"
+                width="auto"
+                height="auto"
+                style="primary"
+                grow="1.0"
+                marginLeft="20px"
+                marginRight="20px"/>
 
         </brls:Box>
 
-    </brls:ScrollingFrame>
+    </brls:Box>
 
 </brls:Box>
