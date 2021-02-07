@@ -45,13 +45,17 @@ int main(int argc, char* argv[]) {
         // If the program fails init process, it reports this and stops
         brls::Logger::error("Unable to init the Calculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
+    } else {
+        brls::Logger::debug("Successfully completed the init process");
     }
 
     // If the program is sucessfull with the init process, it pushes the whole GUI
     brls::Application::pushActivity(new MainActivity());
+    brls::Logger::debug("Successfully completed the Push Activity function");
 
     // Main application loop
-    while (brls::Application::mainLoop());
+    while (brls::Application::mainLoop())
+        ;
 
     // When the loop exits, it reports a successful exit
     return EXIT_SUCCESS;

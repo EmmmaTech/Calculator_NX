@@ -38,7 +38,7 @@ STABLE := GUI
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech
 APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO} ${STABLE}
-ICON := resources/Calculator_NX_Icon.jpg
+ICON := resources/icon/Calculator_NX_Icon.jpg
 #---------------------------------------------------------------------------------
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
 #   If not set, it attempts to use one of the following (in this order):

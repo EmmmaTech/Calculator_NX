@@ -1,6 +1,6 @@
 <brls:TabFrame
     title="@i18n/nxgui/title"
-    icon="@res/Calculator_NX_Icon.jpg">
+    icon="@res/icon/Calculator_NX_Icon.jpg">
 
     <!-- Home/Calculator Page -->
     <brls:Tab label="@i18n/nxgui/tabs/calculator" >

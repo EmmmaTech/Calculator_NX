@@ -1,4 +1,5 @@
 #pragma once
+
 #include <borealis.hpp>
 
 // Code taken and modified from the borealis example
