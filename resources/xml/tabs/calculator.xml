@@ -1,26 +1,22 @@
 <brls:Box
     width="auto"
-    height="auto" >
+    height="auto">
 
-    <brls:Box
+    <brls:ScrollingFrame
         width="auto"
         height="auto"
-        axis="row"
-        paddingLeft="10px"
-        paddingRight="10px"
-        paddingTop="5px"
-        paddingBottom="5px" >
-
+        grow="1.0">
+    
         <brls:Header
             width="auto"
             height="auto"
             text="@i18n/nxgui/welcome"
-            marginBottom="10px" />
+            marginBottom="10px"
+            textAlign="center"/>
 
         <brls:Box
-            width="100%"
+            width="auto"
             height="auto"
-            axis="row"
             marginTop="30px"
             marginBottom="30px">
 
@@ -32,7 +28,8 @@
                 style="primary"
                 grow="1.0"
                 marginLeft="20px"
-                marginRight="20px"/>
+                marginRight="20px"
+                text="@i18n/nxgui/components/buttons_addition"/>
 
             <brls:Button
                 id="button_subtract"
@@ -41,7 +38,8 @@
                 style="primary"
                 grow="1.0"
                 marginLeft="20px"
-                marginRight="20px"/>
+                marginRight="20px"
+                text="@i18n/nxgui/components/buttons_addition"/>
 
             <brls:Button
                 id="button_mutiply"
@@ -50,7 +48,8 @@
                 style="primary"
                 grow="1.0"
                 marginLeft="20px"
-                marginRight="20px"/>
+                marginRight="20px"
+                text="@i18n/nxgui/components/buttons_addition"/>
 
             <brls:Button
                 id="button_divide"
@@ -59,10 +58,11 @@
                 style="primary"
                 grow="1.0"
                 marginLeft="20px"
-                marginRight="20px"/>
+                marginRight="20px"
+                text="@i18n/nxgui/components/buttons_addition"/>
 
         </brls:Box>
 
-    </brls:Box>
+    </brls:ScrollingFrame>
 
 </brls:Box>
