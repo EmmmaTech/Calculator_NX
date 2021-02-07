@@ -10,7 +10,10 @@
 //#include "calculator.hpp"
 
 // Include additional libraries for the Switch program
+#ifdef __SWITCH__
 #include <switch.h>
+#endif
+
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
 #include "mainActivity.hpp"
@@ -18,7 +21,14 @@
 
 // The program is currently not working at the moment
 
+namespace i18n = brls::i18n;
+using namespace i18n::literals;
+
 int main(int argc, char* argv[]) {
+    #ifdef __SWITCH__
+    appletInitializeGamePlayRecording();
+    #endif
+
     // Define important variables for the actual calculation
     std::vector<int> StoredInts{};
     //MathCalculator calculator{StoredInts}; 
@@ -31,9 +41,9 @@ int main(int argc, char* argv[]) {
     // Set everything up for the borealis GUI
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
-    if (!brls::Application::init("Calculator_NX")) {
+    if (!brls::Application::init("nxgui/title"_i18n)) {
         // If the program fails init process, it reports this and stops
-        brls::Logger::error("Unable to init the Cakculator_NX gui. Please report this to EmreTech");
+        brls::Logger::error("Unable to init the Calculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
     }
 
