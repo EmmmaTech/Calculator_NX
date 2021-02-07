@@ -7,3 +7,6 @@
 *.elf
 *.nacp
 *.nro
+*.ttf
+resources/inter/LICENSE.txt
+*.dksh

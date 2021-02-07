@@ -7,7 +7,7 @@
 #include <utility>
 #include <stdio.h>
 #include <stdlib.h>
-#include "calculator.hpp"
+//#include "calculator.hpp"
 
 // Include additional libraries for the Switch program
 #include <switch.h>
@@ -21,7 +21,7 @@
 int main(int argc, char* argv[]) {
     // Define important variables for the actual calculation
     std::vector<int> StoredInts{};
-    MathCalculator calculator{StoredInts}; 
+    //MathCalculator calculator{StoredInts}; 
     std::string operation{};
 
     // Initlize the XML configs
