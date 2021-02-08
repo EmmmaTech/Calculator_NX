@@ -2,16 +2,20 @@
     title="@i18n/nxgui/title"
     icon="@res/icon/Calculator_NX_Icon.jpg">
 
+    <brls:Separator/>
+
     <!-- Home/Calculator Page -->
-    <brls:Tab label="@i18n/nxgui/tabs/calculator" >
+    <brls:Tab label="Calculator Home" >
         <CalculatorTab/>
     </brls:Tab>
 
-    <brls:Separator />
+    <brls:Separator/>
 
     <!-- About Page --> 
-    <brls:Tab label="@i18n/nxgui/tabs/about">
+    <brls:Tab label="About">
         <AboutTab/>
     </brls:Tab>
     
+    <brls:Separator/>
+
 </brls:TabFrame>

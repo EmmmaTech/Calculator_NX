@@ -5,6 +5,7 @@
 
 struct AboutTab : public brls::Box {
     AboutTab();
+    ~AboutTab();
 
     static brls::View* create();
 };

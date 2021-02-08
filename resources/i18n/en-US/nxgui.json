@@ -1,12 +1,12 @@
 {
     "title": "Calculator_NX GUI",
 
+    "welcome": "Welcome to Calculator_NX! Start calculating below:",
+
     "tabs": {
         "calculator": "Calculator Home",
         "about": "About"
     },
-
-    "welcome": "Welcome to Calculator_NX! Start calculating below:",
 
     "components": {
         "labels_header": "Calculator",

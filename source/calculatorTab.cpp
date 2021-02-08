@@ -3,7 +3,11 @@
 // Code taken and modified from the borealis example
 
 CalculatorTab::CalculatorTab() {
-    this->inflateFromXMLRes("tabs/calculator.xml");
+    this->inflateFromXMLRes("xml/tabs/calculator.xml");
+}
+
+CalculatorTab::~CalculatorTab() {
+    brls::Logger::debug("CalculatorTab struct destroyed");
 }
 
 brls::View* CalculatorTab::create() {

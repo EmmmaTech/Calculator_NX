@@ -5,6 +5,7 @@
 
 struct CalculatorTab : public brls::Box {
     CalculatorTab();
+    ~CalculatorTab();
 
     static brls::View* create();
 
