@@ -11,5 +11,4 @@
 resources/inter/LICENSE.txt
 *.dksh
 build/*
-meson.build
 Calculator_NX
