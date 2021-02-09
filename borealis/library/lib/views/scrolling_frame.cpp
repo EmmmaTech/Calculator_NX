@@ -67,6 +67,8 @@ ScrollingFrame::ScrollingFrame()
             { "natural", ScrollingBehavior::NATURAL },
             { "centered", ScrollingBehavior::CENTERED },
         });
+
+    this->setMaximumAllowedXMLElements(1);
 }
 
 void ScrollingFrame::draw(NVGcontext* vg, float x, float y, float width, float height, Style style, FrameContext* ctx)
@@ -102,7 +104,7 @@ void ScrollingFrame::setContentView(View* view)
 {
     if (this->contentView)
     {
-        this->removeView(this->contentView); // will delete and call willDisappear
+        Box::removeView(this->contentView); // will delete and call willDisappear
         this->contentView = nullptr;
     }
 
