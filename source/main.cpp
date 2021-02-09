@@ -21,8 +21,7 @@
 
 // The program is working, but in a broken state
 
-namespace i18n = brls::i18n;
-using namespace i18n::literals;
+using namespace brls::literals;
 
 int main(int argc, char* argv[]) {
     // Define important variables for the actual calculation
@@ -30,20 +29,23 @@ int main(int argc, char* argv[]) {
     MathCalculator calculator{StoredInts}; 
     std::string operation{};
 
-    // Initlize the XML configs
-    brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
-    brls::Application::registerXMLView("AboutTab", AboutTab::create);
-
-    // Set everything up for the borealis GUI
+    // Set up the logger 
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
-    if (!brls::Application::init("Calculator_NX")) {
+    // Init the app and i18n
+    if (!brls::Application::init()) {
         // If the program fails init process, it reports this and stops
         brls::Logger::error("Unable to init the Calculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
     } else {
         brls::Logger::debug("Successfully completed the init process");
     }
+
+    brls::Application::createWindow("nxgui/title"_i18n);
+
+    // Initlize the XML configs
+    brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
+    brls::Application::registerXMLView("AboutTab", AboutTab::create);
 
     // If the program is sucessfull with the init process, it pushes the whole GUI
     brls::Application::pushActivity(new MainActivity());
