@@ -2,66 +2,59 @@
     width="auto"
     height="auto">
 
-        <brls:ScrollingFrame
+        <brls:Box
             width="auto"
             height="auto"
-            grow="1.0">
+            marginTop="20px"
+            marginBottom="20px"
+            marginLeft="20px"
+            marginRight="20px">
     
-            <brls:Header
-                width="auto"
-                height="auto"
-                title="@i18n/nxgui/welcome"
-                marginBottom="10px"/>
-
-            <brls:Box
-                width="auto"
-                height="auto"
-                marginTop="30px"
-                marginBottom="30px">
+                <brls:Header
+                    width="auto"
+                    height="auto"
+                    title="Welcome to Calculator_NX! Start calculating below:"
+                    marginBottom="10px"/>
 
             
-                    <brls:Button
-                        id="button_add"
-                        width="auto"
-                        height="auto"
-                        style="highlight"
-                        grow="1.0"
-                        marginLeft="20px"
-                        marginRight="20px"
-                        text="@i18n/nxgui/components/buttons_addition"/>
+                <brls:Button
+                    id="button_add"
+                    width="auto"
+                    height="auto"
+                    style="highlight"
+                    grow="1.0"
+                    marginLeft="20px"
+                    marginRight="20px"
+                    text="@i18n/nxgui/components/buttons_addition"/>
 
-                    <brls:Button
-                        id="button_subtract"
-                        width="auto"
-                        height="auto"
-                        style="highlight"
-                        grow="1.0"
-                        marginLeft="20px"
-                        marginRight="20px"
-                        text="@i18n/nxgui/components/buttons_subtraction"/>
+                <brls:Button
+                    id="button_subtract"
+                    width="auto"
+                    height="auto"
+                    style="highlight"
+                    grow="1.0"
+                    marginLeft="20px"
+                    marginRight="20px"
+                    text="@i18n/nxgui/components/buttons_subtraction"/>
 
-                    <brls:Button
-                        id="button_mutiply"
-                        width="auto"
-                        height="auto"
-                        style="highlight"
-                        grow="1.0"
-                        marginLeft="20px"
-                        marginRight="20px"
-                        text="@i18n/nxgui/components/buttons_mutiplication"/>
+                <brls:Button
+                    id="button_mutiply"
+                    width="auto"
+                    height="auto"
+                    style="highlight"
+                    grow="1.0"
+                    marginLeft="20px"
+                    marginRight="20px"
+                    text="@i18n/nxgui/components/buttons_mutiplication"/>
 
-                    <brls:Button
-                        id="button_divide"
-                        width="auto"
-                        height="auto"
-                        style="highlight"
-                        grow="1.0"
-                        marginLeft="20px"
-                        marginRight="20px"
-                        text="@i18n/nxgui/components/buttons_division"/>
-
-            </brls:Box>
-
-        </brls:ScrollingFrame>
-
+                <brls:Button
+                    id="button_divide"
+                    width="auto"
+                    height="auto"
+                    style="highlight"
+                    grow="1.0"
+                    marginLeft="20px"
+                    marginRight="20px"
+                    text="@i18n/nxgui/components/buttons_division"/>
+        </brls:Box>
 </brls:Box>
