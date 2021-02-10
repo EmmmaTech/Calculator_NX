@@ -4,11 +4,7 @@
 
         <brls:Box
             width="auto"
-            height="auto"
-            marginTop="20px"
-            marginBottom="20px"
-            marginLeft="20px"
-            marginRight="20px">
+            height="auto">
     
                 <brls:Header
                     width="auto"
@@ -23,8 +19,6 @@
                     height="auto"
                     style="highlight"
                     grow="1.0"
-                    marginLeft="20px"
-                    marginRight="20px"
                     text="@i18n/nxgui/components/buttons_addition"/>
 
                 <brls:Button
@@ -33,8 +27,6 @@
                     height="auto"
                     style="highlight"
                     grow="1.0"
-                    marginLeft="20px"
-                    marginRight="20px"
                     text="@i18n/nxgui/components/buttons_subtraction"/>
 
                 <brls:Button
@@ -43,8 +35,6 @@
                     height="auto"
                     style="highlight"
                     grow="1.0"
-                    marginLeft="20px"
-                    marginRight="20px"
                     text="@i18n/nxgui/components/buttons_mutiplication"/>
 
                 <brls:Button
@@ -53,8 +43,6 @@
                     height="auto"
                     style="highlight"
                     grow="1.0"
-                    marginLeft="20px"
-                    marginRight="20px"
                     text="@i18n/nxgui/components/buttons_division"/>
         </brls:Box>
 </brls:Box>
