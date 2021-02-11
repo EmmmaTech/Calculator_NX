@@ -17,7 +17,7 @@
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
 #include "mainActivity.hpp"
-#include "aboutTab.hpp"
+//#include "aboutTab.hpp"
 
 // The program is working, but in a broken state
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
-    brls::Application::registerXMLView("AboutTab", AboutTab::create);
+    //brls::Application::registerXMLView("AboutTab", AboutTab::create);
 
     // If the program is sucessfull with the init process, it pushes the whole GUI
     brls::Application::pushActivity(new MainActivity());

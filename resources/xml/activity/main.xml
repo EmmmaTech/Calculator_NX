@@ -1,6 +1,6 @@
 <brls:TabFrame
     title="@i18n/nxgui/title"
-    icon="@res/icon/Calculator_NX_Icon.jpg">
+    icon="@res/icon/Calculator_NX_Icon_Alt.jpg">
 
     <brls:Separator/>
 
@@ -9,11 +9,11 @@
         <CalculatorTab/>
     </brls:Tab>
 
-    <brls:Separator/>
+    <!-- <brls:Separator/> -->
 
     <!-- About Page --> 
     <brls:Tab label="About">
-        <AboutTab/>
+        <brls:View xml="@res/xml/tabs/about.xml"/>
     </brls:Tab>
     
     <brls:Separator/>

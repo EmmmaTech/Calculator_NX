@@ -7,7 +7,7 @@ AboutTab::AboutTab() {
 }
 
 AboutTab::~AboutTab() {
-    brls::Logger::debug("CalculatorTab struct destroyed");
+    brls::Logger::debug("AboutTab struct destroyed");
 }
 
 brls::View* AboutTab::create() {

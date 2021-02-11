@@ -4,45 +4,44 @@
 
         <brls:Box
             width="auto"
-            height="auto">
-    
-                <brls:Header
-                    width="auto"
-                    height="auto"
-                    title="Welcome to Calculator_NX! Start calculating below:"
-                    marginBottom="10px"/>
+            height="auto"
+            axis="row">
 
-            
                 <brls:Button
                     id="button_add"
                     width="auto"
-                    height="auto"
+                    height="10%"
                     style="highlight"
-                    grow="1.0"
                     text="@i18n/nxgui/components/buttons_addition"/>
 
                 <brls:Button
                     id="button_subtract"
                     width="auto"
-                    height="auto"
+                    height="10%"
                     style="highlight"
-                    grow="1.0"
                     text="@i18n/nxgui/components/buttons_subtraction"/>
 
                 <brls:Button
                     id="button_mutiply"
                     width="auto"
-                    height="auto"
+                    height="10%"
                     style="highlight"
-                    grow="1.0"
                     text="@i18n/nxgui/components/buttons_mutiplication"/>
 
                 <brls:Button
                     id="button_divide"
                     width="auto"
-                    height="auto"
+                    height="10%"
                     style="highlight"
-                    grow="1.0"
                     text="@i18n/nxgui/components/buttons_division"/>
+
+                <brls:Button
+                    id="button_equal"
+                    width="auto"
+                    height="10%"
+                    style="highlight"
+                    text="@i18n/nxgui/components/buttons_equal"/>
+
         </brls:Box>
+
 </brls:Box>

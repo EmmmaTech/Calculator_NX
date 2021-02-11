@@ -10,32 +10,36 @@
         <brls:Label
             width="auto"
             height="auto"
+            textAlign="center"
             text="@i18n/nxgui/components/labels_developer"/>
 
         <brls:Label
             width="auto"
             height="auto"
+            textAlign="center"
             text="@i18n/nxgui/components/labels_version"/>
 
         <brls:Box
             width="auto"
             height="auto"
-            marginTop="20px"
-            marginBottom="20px">
+            marginBottom="5px">
 
             <brls:Label
                 width="auto"
                 height="auto"
+                textAlign="center"
                 text="@i18n/nxgui/components/labels_credits1"/>
 
             <brls:Label
                 width="auto"
                 height="auto"
+                textAlign="center"
                 text="@i18n/nxgui/components/labels_credits2"/>
 
             <brls:Label
                 width="auto"
                 height="auto"
+                textAlign="center"
                 text="@i18n/nxgui/components/labels_credits3"/>
 
         </brls:Box>
