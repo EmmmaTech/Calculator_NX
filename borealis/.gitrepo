@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/natinusala/borealis.git
 	branch = yoga
-	commit = 30da1a8f5b7e150ffcb1a39ae3bf307278f2869f
-	parent = 9b5591f3825c810a59c3e781a184c84330a99c8f
+	commit = f77aa1bae746c77f8ed026db9d7eb907b1ac4897
+	parent = ac4e82ca43c185d1d63a83b113c46c59d5fce8e4
 	method = merge
 	cmdver = 0.4.3
