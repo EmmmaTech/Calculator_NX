@@ -8,10 +8,7 @@
             width="10%"
             height="100%"
             axis="row"
-            shrink="1.0"
-            justifyContent="flexEnd"
-            alignItems="flexEnd"
-            flexWrap="wrap">
+            shrink="1.0">
 
                 <brls:Button
                     id="button_add"
