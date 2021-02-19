@@ -38,7 +38,9 @@ The people on the ReSwitched server for helping me
 
 The people on the Switchroot server for helping me on my original Calculator program (this is based on that)
 
-natinusala and any contributors for making borealis
+The people on the RetroNX server for helping me with the GUI
+
+natinusala and any contributors for creating the borealis library
 
 ## LICENSE
 
