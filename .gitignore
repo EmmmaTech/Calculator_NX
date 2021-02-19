@@ -1,12 +1,5 @@
-
-*.o
-*.d
-*.out
-*.lst
-*.map
 *.elf
 *.nacp
 *.nro
 *.dksh
 build/*
-Calculator_NX
