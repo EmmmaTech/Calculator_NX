@@ -3,8 +3,9 @@
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
-This is a console type application, so no GUI. This is my first program so I didn't want to mess around with GUIs yet. I might add a GUI in the future.
-You can now download this app with the up-to-date version on the HB App Store! If it is not updated right away, come here to get a new version.
+This branch (GUI) contains the code for the GUI version of this app. The main branch contains the code for the Command-Line version of this app.
+
+When the GUI version is finished, the main branch code will no longer have binaries in Releases.
 
 ## COMPLATION INSTRUCTIONS
 
