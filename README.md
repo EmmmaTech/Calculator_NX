@@ -46,4 +46,4 @@ natinusala and any contributors for creating the borealis library
 
 Calculator_NX uses the MIT License. Read the license for more details.
 
-Borealis uses the GPLv3 License. Read the license contained in the borealis folder for more details.
+Borealis uses the Apache V2.0 License. Read the license contained in the borealis folder for more details.
