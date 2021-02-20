@@ -1,101 +1,15 @@
 // Include libraries for the calculator program
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <exception>
-#include <vector>
-#include <utility>
-#include "calculator.hpp"
+#include <iostream> // For output to the user
+#include <sstream> // For converting whitespace into elements for a std::vector
+#include <string> // For std::string (used a lot in this program)
+#include <vector> // For std::vector (storing numbers yet to be calculated)
+#include <utility> 
+#include "calculator.hpp" // For the actual Calculating meat
 
 // Include additional libraries for the Switch program
-#include <cstdio>
-#include <cstdlib>
-#include <switch.h>
-
-char* SoftwareKeyboard(Result rc, const char * guideText) {
-    SwkbdConfig kbd;
-    char * tmpoutstr;
-            
-    rc = swkbdCreate(&kbd, 0);
-    //printf("swkbdCreate(): 0x%x\n", rc);
-    if (R_SUCCEEDED(rc)) {
-        // Select a Preset to use, if any.
-        swkbdConfigMakePresetDefault(&kbd);
-
-        // Optional, set any text if you want (see swkbd.h).
-        //swkbdConfigSetOkButtonText(&kbd, "Submit");
-        //swkbdConfigSetLeftOptionalSymbolKey(&kbd, "a");
-        //swkbdConfigSetRightOptionalSymbolKey(&kbd, "b");
-        //swkbdConfigSetHeaderText(&kbd, "Header");
-        //swkbdConfigSetSubText(&kbd, "Sub");
-        swkbdConfigSetGuideText(&kbd, guideText);
-
-        //Optional, can be removed if not using TextCheck.
-
-        // Set the initial string if you want.
-        //swkbdConfigSetInitialText(&kbd, "Initial");
-
-        // You can also use swkbdConfigSet*() funcs if you want.
-
-        //printf("Running swkbdShow...\n");
-        rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
-        //printf("swkbdShow(): 0x%x\n", rc);
-
-        /*if (R_SUCCEEDED(rc)) {
-                    printf("out str: %s\n", tmpoutstr);
-        }*/
-        swkbdClose(&kbd);
-    }
-
-    return tmpoutstr;
-}
-
-void calculateVectorInts(std::string operation, MathCalculator& calculator, Result& rc) {
-    std::string number;
-    char * tmpoutstr;
-    bool inputComplete = false;
-
-    while(!inputComplete) {
-        tmpoutstr = SoftwareKeyboard(rc, "Enter one number at a time (q to stop)");
-        number = std::string(tmpoutstr);
-
-        if (number == "q") {
-            inputComplete = true;
-        } else {
-            if (calculator.contains_number(number)) {
-                    calculator.setVector(std::stoi(number));
-            } else inputComplete = true;
-    }
-
-    int answer = calculator.CalculateMoreInt(operation);
-    std::cout << "The answer is: " << answer << "\n";
-}
-}
-
-void calculateTwoInts(std::string operation, MathCalculator& calculator, Result& rc) {
-    std::string number1;
-    std::string number2;
-
-    char * tmpoutstr = SoftwareKeyboard(rc, "Enter two numbers with a space in-between");
-    std::string keyboardInput(tmpoutstr);
-
-    int pos = keyboardInput.find(" ");
-
-    number1 = keyboardInput.substr(0, pos);
-    number2 = keyboardInput.substr(pos + 1);
-
-    int num1;
-    int num2;
-
-    if (calculator.contains_number(number1) && calculator.contains_number(number2)) {
-        num1 = std::stoi(number1);
-        num2 = std::stoi(number2);
-
-        int answer = calculator.CalculateInt(operation, num1, num2);
-
-        std::cout << "The answer to " << num1 << " " << operation << " " << num2 << "is " << answer << "\n";
-    } else return;
-}
+#include <cstdio> // C library (might be unused)
+#include <cstdlib> // C library (might be unused)
+#include <switch.h> // The important header for working the Switch
 
 int main(int argc, char* argv[]) {
     consoleInit(NULL);
@@ -109,13 +23,12 @@ int main(int argc, char* argv[]) {
 
     Result rc = 0;
 
-    std::vector<int> StoredInts{};
+    std::vector<float> vec;    
+    std::string operation;
+    char tmpoutstr[16] = {0};
 
-    MathCalculator calculator{StoredInts};
-    std::string operation{};
-
-    std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-    std::cout << "L to Calculate, Plus to exit" << "\n";
+    std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << std::endl;
+    std::cout << "L to Calculate, Plus to exit" << std::endl;
 
     // Main loop
     while (appletMainLoop())
@@ -149,17 +62,52 @@ int main(int argc, char* argv[]) {
         }
 
         if (kDown & HidNpadButton_L && !operation.empty()) {
-            std::cout << "A for calculating more than 2 numbers, B for calculating only 2 numbers\n";
-            if (kDown & HidNpadButton_A) {
-                calculateVectorInts(operation, calculator, rc);
-            } else if (kDown & HidNpadButton_B) {
-                calculateTwoInts(operation, calculator, rc);
+            std::string fullNums;
+
+            SwkbdConfig kbd;
+            rc = swkbdCreate(&kbd, 0);
+
+            if (R_SUCCEEDED(rc)) {
+                // Select a Preset to use, if any.
+                swkbdConfigMakePresetDefault(&kbd);
+                //swkbdConfigMakePresetPassword(&kbd);
+                //swkbdConfigMakePresetUserName(&kbd);
+                //swkbdConfigMakePresetDownloadCode(&kbd);
+
+                // Optional, set any text if you want (see swkbd.h).
+                //swkbdConfigSetOkButtonText(&kbd, "Submit");
+                //swkbdConfigSetLeftOptionalSymbolKey(&kbd, "a");
+                //swkbdConfigSetRightOptionalSymbolKey(&kbd, "b");
+                //swkbdConfigSetHeaderText(&kbd, "Header");
+                //swkbdConfigSetSubText(&kbd, "Sub");
+                swkbdConfigSetGuideText(&kbd, "Enter all numbers with a space in-between: ");
+
+                // Set the initial string if you want.
+                //swkbdConfigSetInitialText(&kbd, "Initial");
+
+                // You can also use swkbdConfigSet*() funcs if you want.
+
+                //printf("Running swkbdShow...\n");
+                rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
+                //printf("swkbdShow(): 0x%x\n", rc);
+
+                swkbdClose(&kbd);
             }
+
+            std::istringstream iss(tmpoutstr);
+            std::string Num;
+
+            while (iss >> Num) {
+                vec.emplace_back(std::stof(Num));
+            }
+
+            std::cout << "The answer is: " << Calculator::solve(vec, operation) << std::endl;
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
             std::cout << "L to Calculate, Plus to exit" << "\n";
 
+            vec.clear();
         }
         
         //std::cout << operation << "\n";

@@ -31,13 +31,13 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
 VERSION_MAJOR := 1
-VERSION_MINOR := 3
+VERSION_MINOR := 2
 VERSION_MICRO := 0
-STABLE := Developer GUI
+STABLE := Stable
 
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech
-APP_VERSION := ${STABLE} ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO}
+APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO} ${STABLE}
 
 #---------------------------------------------------------------------------------
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
@@ -53,10 +53,10 @@ BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
-ROMFS	:=	borealis/resources
-BOREALIS_PATH := borealis
+#ROMFS	:=	borealis/resources
+#BOREALIS_PATH := borealis
 
-OUT_SHADERS := shaders
+#OUT_SHADERS := shaders
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -81,7 +81,7 @@ LIBS	:= -lnx
 #---------------------------------------------------------------------------------
 LIBDIRS	:= $(PORTLIBS) $(LIBNX)
 
-include $(TOPDIR)/borealis/library/borealis.mk
+#include $(TOPDIR)/borealis/library/borealis.mk
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional

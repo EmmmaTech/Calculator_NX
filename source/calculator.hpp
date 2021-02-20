@@ -161,7 +161,7 @@ namespace Calculator {
     float solve(std::vector<float>& vec, std::string_view operation) {
         float result = vec[0];
 
-        for (int i = 1; i < vec.size(); i++) {
+        for (std::vector<float>::size_type i{ 1 }; i < vec.size(); i++) {
             auto current_num = vec[i];
 
             switch (turnStringToIntOperator(operation)) {
