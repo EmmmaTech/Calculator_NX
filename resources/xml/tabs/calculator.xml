@@ -1,7 +1,7 @@
 <brls:Box
     width="auto"
     height="auto"
-    axis="row"
+    axis="column"
     justifyContent="center">
 
         <brls:Box
@@ -11,17 +11,18 @@
 
             <brls:Button
                 id="cal_screen"
-                width="50%"
+                width="auto"
                 height="auto"
                 shrink="1.0"
-                style="primary">           
+                style="primary"
+                text="Calculate!"/>           
 
         </brls:Box>
 
         <brls:Box
             width="auto"
             height="auto"
-            axis="row">
+            axis="column">
 
                 <brls:Button
                     id="button_add"

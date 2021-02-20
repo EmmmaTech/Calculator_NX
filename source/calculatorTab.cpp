@@ -9,6 +9,7 @@ CalculatorTab::CalculatorTab() {
     BRLS_REGISTER_CLICK_BY_ID("button_subtract", this->onSubtractButtonClicked);
     BRLS_REGISTER_CLICK_BY_ID("button_mutiply", this->onMultiplyButtonClicked);
     BRLS_REGISTER_CLICK_BY_ID("button_divide", this->onDivideButtonClicked);
+    BRLS_REGISTER_CLICK_BY_ID("cal_screen", this->onScreenButtonClicked);
 }
 
 CalculatorTab::~CalculatorTab() {
@@ -46,7 +47,9 @@ bool CalculatorTab::onDivideButtonClicked(brls::View* view) {
 bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
     brls::Logger::debug("Screen button clicked");
 
-    
+    brls::Logger::info("Operation is set as: " + operation);
+
+    //TODO: Actually calculate the answer
     return true;
 }
 
