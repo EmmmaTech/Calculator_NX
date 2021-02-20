@@ -43,6 +43,13 @@ bool CalculatorTab::onDivideButtonClicked(brls::View* view) {
     return true;
 }
 
+bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
+    brls::Logger::debug("Screen button clicked");
+
+    
+    return true;
+}
+
 brls::View* CalculatorTab::create() {
     return new CalculatorTab();
 }

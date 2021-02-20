@@ -16,5 +16,7 @@ struct CalculatorTab : public brls::Box {
     bool onMultiplyButtonClicked(brls::View* view);
     bool onDivideButtonClicked(brls::View* view);
 
+    bool onScreenButtonClicked(brls::View* view);
+
     std::string operation;
 };
