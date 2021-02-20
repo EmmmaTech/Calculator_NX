@@ -1,19 +1,17 @@
 /*
-    Borealis, a Nintendo Switch UI Library
-    Copyright (C) 2020-2021  natinusala
+    Copyright 2020-2021 natinusala
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+        http://www.apache.org/licenses/LICENSE-2.0
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 */
 
 #include <borealis/core/application.hpp>
@@ -25,7 +23,6 @@ namespace brls
 
 // TODO: don't forget absolute positioning
 // TODO: RestoreFocus flag in Box to remember focus (sidebar...)
-// TODO: image (showcase + put in appletframe/tabframe header)
 // TODO: use a menu timer in tabframe to defer the tab loading on input like HOS does
 // TODO: fancy pants scrolling
 // TODO: clarify addView / removeView -> setContentView, add it for everything or remove it
@@ -39,7 +36,6 @@ namespace brls
 
 // TODO: it's time to do proper documentation using doxygen or whatever
 
-// TODO: fix shitty frame pacer - try cpp high precision clock - see if it works fine on Switch, in which case only enable it there
 // TODO: recycling, asynctask
 
 // TODO: translate everything in fr
@@ -213,15 +209,22 @@ void ScrollingFrame::scrollAnimationTick()
 
 void ScrollingFrame::onChildFocusGained(View* directChild, View* focusedView)
 {
+    this->childFocused = true;
+
     // Start scrolling
     this->updateScrolling(true);
 
     Box::onChildFocusGained(directChild, focusedView);
 }
 
+void ScrollingFrame::onChildFocusLost(View* directChild, View* focusedView)
+{
+    this->childFocused = false;
+}
+
 bool ScrollingFrame::updateScrolling(bool animated)
 {
-    if (!this->contentView)
+    if (!this->contentView || !this->childFocused)
         return false;
 
     float contentHeight = this->getContentHeight();

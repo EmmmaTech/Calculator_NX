@@ -14,25 +14,28 @@
     limitations under the License.
 */
 
-#pragma once
-
-#include <switch.h>
-
-#include <borealis/core/input.hpp>
+#include <borealis/core/task.hpp>
 
 namespace brls
 {
 
-// InputManager that uses the hid sysmodule to get inputs
-class SwitchInputManager : public InputManager
+RepeatingTask::RepeatingTask(Time period)
 {
-  public:
-    SwitchInputManager();
+    this->setPeriod(period);
 
-    void updateControllerState(ControllerState* state);
+    this->setCallback([this]() {
+        this->run();
+    });
+}
 
-  private:
-    PadState padState;
-};
+void RepeatingTask::start()
+{
+    RepeatingTimer::start();
+}
+
+void RepeatingTask::stop()
+{
+    RepeatingTimer::stop();
+}
 
 } // namespace brls
