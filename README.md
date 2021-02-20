@@ -3,13 +3,13 @@
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
-This is a console type application, so no GUI. This is my first program so I didn't want to mess around with GUIs yet. I might add a GUI in the future.
-You can now download this app with the up-to-date version on the HB App Store! If it is not updated right away, come here to get a new version.
+This branch (main) contains the code for the Command-Line version of the app, while the GUI branch contains the code for the GUI version of the app.
+
+Once the GUI version of the app is finished, this branch (main) will no longer have binaries in Releases.
 
 ## COMPLATION INSTRUCTIONS
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)
-It also requires installing required libraries needed for borealis, which include `switch-glfw switch-mesa switch-glm`.
 
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
@@ -37,5 +37,3 @@ Switchbrew for making libnx
 The people on the ReSwitched server for helping me
 
 The people on the Switchroot server for helping me on my original Calculator program (this is based on that)
-
-natinusala and any contributors for making borealis (The License for borealis is in the borealis folder)
