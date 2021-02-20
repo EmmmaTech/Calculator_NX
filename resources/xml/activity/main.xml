@@ -13,7 +13,7 @@
 
     <!-- About Page --> 
     <brls:Tab label="About">
-        <brls:View xml="@res/xml/tabs/about.xml"/>
+        <AboutTab/>
     </brls:Tab>
     
     <brls:Separator/>

@@ -24,11 +24,6 @@
 using namespace brls::literals;
 
 int main(int argc, char* argv[]) {
-    // Define important variables for the actual calculation
-    std::vector<float> StoredInts{};
-    MathCalculator<float> calculator{StoredInts}; 
-    std::string operation{};
-
     // Set up the logger 
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 

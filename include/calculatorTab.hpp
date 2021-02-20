@@ -1,5 +1,6 @@
 #pragma once
 #include <borealis.hpp>
+#include <string>
 
 // Code taken and modified from the borealis example
 
@@ -9,4 +10,11 @@ struct CalculatorTab : public brls::Box {
 
     static brls::View* create();
 
+    private:
+    bool onAdditionButtonClicked(brls::View* view);
+    bool onSubtractButtonClicked(brls::View* view);
+    bool onMultiplyButtonClicked(brls::View* view);
+    bool onDivideButtonClicked(brls::View* view);
+
+    std::string operation;
 };
