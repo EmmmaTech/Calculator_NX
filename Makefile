@@ -81,7 +81,7 @@ LIBS	:= -lnx
 #---------------------------------------------------------------------------------
 LIBDIRS	:= $(PORTLIBS) $(LIBNX)
 
-include $(TOPDIR)/borealis/library/borealis.mk
+include $(TOPDIR)/$(BOREALIS_PATH)/library/borealis.mk
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional

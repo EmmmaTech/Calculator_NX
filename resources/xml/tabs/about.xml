@@ -1,6 +1,7 @@
 <brls:Box
     width="auto"
-    height="auto"/>
+    height="auto"
+    axis="row">
 
         <brls:Header
             width="auto"
@@ -19,9 +20,16 @@
             textAlign="center"
             text="@i18n/nxgui/components/labels_version"/>
 
+        <brls:Label
+            width="auto"
+            height="auto"
+            textAlign="center"
+            text="@i18n/nxgui/components/labels_guiversion"/>
+
         <brls:Box
             width="auto"
             height="auto"
+            marginTop="5px"
             marginBottom="5px">
 
             <brls:Label
@@ -43,5 +51,6 @@
                 text="@i18n/nxgui/components/labels_credits3"/>
 
         </brls:Box>
+
 
 </brls:Box>

@@ -5,22 +5,22 @@
 
     "tabs": {
         "calculator": "Calculator Home",
-        "about": "About"
+        "about": "About",
+        "help": "Help"
     },
 
     "components": {
-        "labels_header": "Calculator",
-
          "buttons_addition": "+",
          "buttons_subtraction": "-",
          "buttons_mutiplication": "*",
          "buttons_division": "/",
          
          "labels_appname": "Calculator_NX",
-         "labels_developer": "EmreTech",
+         "labels_developer": "Made by EmreTech",
          "labels_credits1": "Switchbrew for making libnx",
-         "labels_credits2": "People from the ReSwitched and Switchroot servers for helping me make this",
+         "labels_credits2": "People from the ReSwitched, Switchroot, and RetroNX servers for helping me make this",
          "labels_credits3": "natinusala and other contributors for making the borealis library",
-         "labels_version": "v3.0.0 GUI"
+         "labels_version": "v1.3.0",
+         "labels_guiversion": "GUI v1.0.0"
     }
 }

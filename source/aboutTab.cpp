@@ -1,9 +1,9 @@
 #include "aboutTab.hpp"
 
-// Code taken and modified from the borealis example
+// Code taken and modified from the borealis example and unused
 
 AboutTab::AboutTab() {
-    this->inflateFromXMLRes("xml/tabs/about.xml");
+    this->inflateFromXMLRes("fu");
 }
 
 AboutTab::~AboutTab() {
