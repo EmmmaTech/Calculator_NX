@@ -1,3 +1,4 @@
+#pragma once
 #include <borealis.hpp>
 
 #include <switch.h>
