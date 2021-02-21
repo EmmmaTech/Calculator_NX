@@ -1,6 +1,16 @@
 #pragma once
 #include <borealis.hpp>
+
+#ifdef __SWITCH__
+#include <switch.h>
+#include <cstdio>
+#include <cstdlib>
+#endif
+
+#include "calculator.hpp"
 #include <string>
+#include <sstream>
+#include <vector>
 
 // Code taken and modified from the borealis example
 

@@ -49,7 +49,32 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
 
     brls::Logger::info("Operation is set as: " + operation);
 
-    //TODO: Actually calculate the answer
+    std::vector<float> vec;
+
+    char tmpoutstr[16] = {0};
+    SwkbdConfig kbd;
+    Result rc = swkbdCreate(&kbd, 0);
+
+    if (R_SUCCEEDED(rc)) {
+        swkbdConfigMakePresetDefault(&kbd);
+        swkbdConfigSetGuideText(&kbd, "Enter all numbers with a space in-between: ");
+
+        rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
+
+        swkbdClose(&kbd);
+    }
+
+    std::istringstream iss(tmpoutstr);
+    std::string Num;
+
+    while (iss >> Num) {
+        vec.emplace_back(std::stof(Num));
+    }
+    
+    float answer = Calculator::solve(vec, operation);
+
+    std::cout << "The answer is: " << answer << std::endl;
+
     return true;
 }
 

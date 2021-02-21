@@ -4,6 +4,7 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <string_view>
 #include <type_traits>
 
 namespace Calculator {
