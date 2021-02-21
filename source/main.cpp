@@ -5,14 +5,9 @@
 #include <exception>
 #include <vector>
 #include <utility>
-#include <stdio.h>
-#include <stdlib.h>
-#include "calculator.hpp"
 
 // Include additional libraries for the Switch program
-#ifdef __SWITCH__
 #include <switch.h>
-#endif
 
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
