@@ -1,12 +1,10 @@
 #pragma once
+
 #include <borealis.hpp>
-
 #include <switch.h>
-#include <cstdio>
-#include <cstdlib>
-
 #include "calculator.hpp"
 #include <string>
+#include <iostream>
 #include <sstream>
 #include <vector>
 
