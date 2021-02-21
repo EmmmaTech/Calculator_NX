@@ -54,7 +54,7 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 ROMFS	:=	resources
-BOREALIS_PATH := borealis
+BOREALIS_PATH := lib/borealis
 
 OUT_SHADERS := shaders
 
