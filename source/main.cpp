@@ -6,21 +6,20 @@
 #include <vector>
 #include <utility>
 
-// Include additional libraries for the Switch program PLEASE WORK
+// Include additional libraries for the Switch program
+#ifdef __SWITCH__
 #include <switch.h>
+#endif
 
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
 #include "mainActivity.hpp"
-//#include "aboutTab.hpp" This is now a static link in the MainActivity XML
-
-// The program is working, but in a broken state
 
 using namespace brls::literals;
 
 int main(int argc, char* argv[]) {
     // Set up the logger 
-    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
+    brls::Logger::setLogLevel(brls::LogLevel::INFO);
 
     // Init the app and i18n
     if (!brls::Application::init()) {

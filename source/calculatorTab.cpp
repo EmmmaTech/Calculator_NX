@@ -44,6 +44,47 @@ bool CalculatorTab::onDivideButtonClicked(brls::View* view) {
     return true;
 }
 
+bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
+        brls::Logger::debug("Screen button clicked");
+
+        brls::Logger::info("Operation is set as: " + operation);
+
+        std::vector<float> vec;
+
+        char tmpoutstr[16] = {0};
+        #ifdef __SWITCH__
+        SwkbdConfig kbd;
+        Result rc = swkbdCreate(&kbd, 0);
+
+        if (R_SUCCEEDED(rc)) {
+            swkbdConfigMakePresetDefault(&kbd);
+            swkbdConfigSetGuideText(&kbd, "Enter all numbers with a space in-between: ");
+
+            rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
+
+            swkbdClose(&kbd);
+        }
+        #else
+
+        std::cout << "Enter all numbers with a space in-between: " << std::endl;
+        std::cin.getline(tmpoutstr, 16);
+
+        #endif
+
+        std::istringstream iss(tmpoutstr);
+        std::string Num;
+
+        while (iss >> Num) {
+            vec.emplace_back(std::stof(Num));
+        }
+        
+        float answer = Calculator::solve(vec, operation);
+
+        std::cout << "The answer is: " << answer << std::endl;
+
+        return true;
+}
+
 brls::View* CalculatorTab::create() {
     return new CalculatorTab();
 }

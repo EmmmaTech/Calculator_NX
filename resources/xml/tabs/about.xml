@@ -27,10 +27,8 @@
             text="@i18n/nxgui/components/labels_guiversion"/>
 
         <brls:Box
-            width="auto"
-            height="auto"
-            marginTop="5px"
-            marginBottom="5px">
+            width="50%"
+            height="auto">
 
             <brls:Label
                 width="auto"
