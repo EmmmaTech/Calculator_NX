@@ -19,7 +19,7 @@
     <!-- Help Page (will be red for now) -->
     <brls:Tab label="@i18n/nxgui/tabs/help">
 
-        <Brls:Rectangle
+        <brls:Rectangle
             width="100%"
             height="100%"
             color="#FF0000"/>

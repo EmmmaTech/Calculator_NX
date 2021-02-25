@@ -2,6 +2,12 @@
 
 // Code taken and modified from the borealis example
 
+template < typename Type > std::string to_str (const Type & t) {
+  std::ostringstream os;
+  os << t;
+  return os.str();
+}
+
 CalculatorTab::CalculatorTab() {
     this->inflateFromXMLRes("xml/tabs/calculator.xml");
 
@@ -51,7 +57,7 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
 
         std::vector<float> vec;
 
-        char tmpoutstr[16] = {0};
+        char tmpoutstr[32] = {0};
         #ifdef __SWITCH__
         SwkbdConfig kbd;
         Result rc = swkbdCreate(&kbd, 0);
@@ -67,7 +73,7 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
         #else
 
         std::cout << "Enter all numbers with a space in-between: " << std::endl;
-        std::cin.getline(tmpoutstr, 16);
+        std::cin.getline(tmpoutstr, 32);
 
         #endif
 
@@ -80,7 +86,9 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
         
         float answer = Calculator::solve(vec, operation);
 
-        std::cout << "The answer is: " << answer << std::endl;
+        //std::cout << "The answer is: " << answer << std::endl;
+
+        this->cal_button_label->setText("The answer is " + to_str(answer));
 
         return true;
 }

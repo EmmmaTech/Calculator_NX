@@ -29,4 +29,6 @@ struct CalculatorTab : public brls::Box {
     bool onScreenButtonClicked(brls::View* view);
 
     std::string operation;
+
+    BRLS_BIND(brls::Label, cal_button_label, "cal_screen");
 };
