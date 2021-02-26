@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/EmreTech/borealis.git
+	branch = yoga
+	commit = f761760bde6e499e8f87071f5a10230e281a44ac
+	parent = 4437783d779e03dfd0e81640a5afc684d12e07f1
+	method = merge
+	cmdver = 0.4.3
