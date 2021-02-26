@@ -2,3 +2,7 @@
 	path = lib/borealis
 	url = https://github.com/EmreTech/borealis.git
 	branch = yoga
+[submodule "lib/borealis"]
+	path = lib/borealis
+	url = https://github.com/EmreTech/borealis.git
+	branch = yoga
