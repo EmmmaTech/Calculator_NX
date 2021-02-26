@@ -1,4 +1,4 @@
 [submodule "borealis"]
 	path = lib/borealis
-	url = https://github.com/EmreTech/borealis.git
+	url = https://github.com/natinusala/borealis.git
 	branch = yoga
