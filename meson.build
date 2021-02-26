@@ -3,7 +3,7 @@ project('Calculator_NX', ['c', 'cpp'],
     default_options: [ 'buildtype=release', 'strip=true', 'b_ndebug=if-release', 'cpp_std=c++1z' ],
 )
 
-subdir('lib/borealis/library')
+subdir('borealis/library')
 
 demo_files = files(
     'source/main.cpp',
