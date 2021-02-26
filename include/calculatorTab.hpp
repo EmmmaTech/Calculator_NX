@@ -30,5 +30,5 @@ struct CalculatorTab : public brls::Box {
 
     std::string operation;
 
-    BRLS_BIND(brls::Label, cal_button_label, "cal_screen");
+    BRLS_BIND(brls::Button, cal_button, "cal_screen");
 };

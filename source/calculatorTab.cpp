@@ -86,9 +86,8 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
         
         float answer = Calculator::solve(vec, operation);
 
-        //std::cout << "The answer is: " << answer << std::endl;
-
-        this->cal_button_label->setText("The answer is " + to_str(answer));
+        std::cout << "The answer is: " << answer << std::endl;
+        this->cal_button->setText("The answer is: " + to_str(answer));
 
         return true;
 }
