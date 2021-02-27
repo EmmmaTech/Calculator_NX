@@ -1,0 +1,31 @@
+<brls:TabFrame
+    title="@i18n/nxgui/title"
+    icon="@res/icon/Calculator_NX_Icon_Alt.jpg">
+
+    <brls:Separator/>
+
+    <!-- Home/Calculator Page -->
+    <brls:Tab label="@i18n/nxgui/tabs/calculator" >
+        <CalculatorTab/>
+    </brls:Tab>
+
+    <!-- About Page --> 
+    <brls:Tab label="@i18n/nxgui/tabs/about">
+        <brls:View xml="@res/xml/tabs/about.xml" />
+    </brls:Tab>
+    
+    <brls:Separator/>
+
+    <!-- Help Page (will be red for now) -->
+    <brls:Tab label="@i18n/nxgui/tabs/help">
+
+        <brls:Rectangle
+            width="100%"
+            height="100%"
+            color="#FF0000"/>
+
+    </brls:Tab>
+
+    <brls:Separator/>
+
+</brls:TabFrame>

@@ -1,0 +1,61 @@
+<brls:Box
+    width="auto"
+    height="auto"
+    axis="column"
+    justifyContent="center">
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column">
+
+            <brls:Button
+                id="cal_screen"
+                width="auto"
+                height="auto"
+                shrink="1.0"
+                style="primary"
+                text="Calculate!"/>           
+
+        </brls:Box>
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column">
+
+                <brls:Button
+                    id="button_add"
+                    width="auto"
+                    height="auto"
+                    shrink="1.0"
+                    style="highlight"
+                    text="@i18n/nxgui/components/buttons_addition"/>
+
+                <brls:Button
+                    id="button_subtract"
+                    width="auto"
+                    height="auto"
+                    shrink="1.0"
+                    style="highlight"
+                    text="@i18n/nxgui/components/buttons_subtraction"/>
+
+                <brls:Button
+                    id="button_mutiply"
+                    width="auto"
+                    height="auto"
+                    shrink="1.0"
+                    style="highlight"
+                    text="@i18n/nxgui/components/buttons_mutiplication"/>
+
+                <brls:Button
+                    id="button_divide"
+                    width="auto"
+                    height="auto"
+                    shrink="1.0"
+                    style="highlight"
+                    text="@i18n/nxgui/components/buttons_division"/>
+
+        </brls:Box>
+
+</brls:Box>
