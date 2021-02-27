@@ -1,6 +1,6 @@
 #pragma once
 
-#include "main.hpp"
+#include "app.hpp"
 #include <borealis.hpp>
 
 struct SwitchToCMD : public brls::Box {

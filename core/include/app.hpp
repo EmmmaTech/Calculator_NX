@@ -11,7 +11,7 @@
 #include <cstdlib> // C library (might be unused)
 #include <switch.h> // The important header for working the Switch
 
-void run_app() {
+void run_app(); /*{
     consoleInit(NULL);
 
     // Configure our supported input layout: a single player with standard controller styles
@@ -118,4 +118,4 @@ void run_app() {
 
     // Deinitialize and clean up resources used by the console (important!)
     consoleExit(NULL);
-}
+}*/
