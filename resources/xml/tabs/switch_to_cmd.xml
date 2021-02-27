@@ -1,0 +1,14 @@
+<brls:Box
+    width="auto"
+    height="auto"
+    axis="column">
+
+    <brls:Button
+        id="main_button"
+        width="auto"
+        height="auto"
+        shrink="1.0"
+        style="primary"
+        text="Switch over to the GUI Version"/>
+
+</brls:Box>

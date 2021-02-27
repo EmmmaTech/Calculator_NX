@@ -13,6 +13,7 @@
 
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
+#include "switchToGUI.hpp"
 #include "mainActivity.hpp"
 
 using namespace brls::literals;
@@ -27,22 +28,21 @@ int main(int argc, char* argv[]) {
         brls::Logger::error("Unable to init the Calculator_NX gui. Please report this to EmreTech");
         return EXIT_FAILURE;
     } else {
-        brls::Logger::debug("Successfully completed the init process");
+        //brls::Logger::debug("Successfully completed the init process");
     }
 
     brls::Application::createWindow("nxgui/title"_i18n);
 
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
-    //brls::Application::registerXMLView("AboutTab", AboutTab::create);
+    brls::Application::registerXMLView("SwitchToCMD", SwitchToCMD::create);
 
     // If the program is sucessfull with the init process, it pushes the whole GUI
     brls::Application::pushActivity(new MainActivity());
-    brls::Logger::debug("Successfully completed the Push Activity function");
+    //brls::Logger::debug("Successfully completed the Push Activity function");
 
     // Main application loop
-    while (brls::Application::mainLoop())
-        ;
+    while (brls::Application::mainLoop());
 
     // When the loop exits, it reports a successful exit
     return EXIT_SUCCESS;

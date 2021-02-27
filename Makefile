@@ -49,13 +49,13 @@ APP_VERSION := ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_MICRO} ${STABLE}
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	core/source #gui/source
+SOURCES		:=	core/source gui/source
 DATA		:=	data
-INCLUDES	:=	core/include #gui/include
-#ROMFS	:=	borealis/resources
-#BOREALIS_PATH := borealis
+INCLUDES	:=	core/include gui/include
+ROMFS	:=	resources
+BOREALIS_PATH := borealis
 
-#OUT_SHADERS := shaders
+OUT_SHADERS := shaders
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -80,7 +80,7 @@ LIBS	:= -lnx
 #---------------------------------------------------------------------------------
 LIBDIRS	:= $(PORTLIBS) $(LIBNX)
 
-#include $(TOPDIR)/borealis/library/borealis.mk
+include $(TOPDIR)/$(BOREALIS_PATH)/library/borealis.mk
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional

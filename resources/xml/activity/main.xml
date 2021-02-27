@@ -16,14 +16,9 @@
     
     <brls:Separator/>
 
-    <!-- Help Page (will be red for now) -->
-    <brls:Tab label="@i18n/nxgui/tabs/help">
-
-        <brls:Rectangle
-            width="100%"
-            height="100%"
-            color="#FF0000"/>
-
+    <!-- Switching to GUI Mode -->
+    <brls:Tab label="Switch to GUI Mode">
+        <SwitchToCMD/>
     </brls:Tab>
 
     <brls:Separator/>
