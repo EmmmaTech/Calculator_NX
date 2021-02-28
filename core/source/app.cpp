@@ -1,5 +1,7 @@
 #include "app.hpp"
 
+#include "gui_app.hpp"
+
 void run_app() {
     consoleInit(NULL);
 
@@ -17,7 +19,7 @@ void run_app() {
     char tmpoutstr[16] = {0};
 
     std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << std::endl;
-    std::cout << "L to Calculate, Plus to exit" << std::endl;
+    std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << std::endl;
 
     // Main loop
     while (appletMainLoop())
@@ -31,7 +33,9 @@ void run_app() {
 
         if (kDown & HidNpadButton_Plus) break; // break in order to return to hbmenu
 
-        // Your code goes here
+        if (kDown & HidNpadButton_Y) {
+            run_gui_app();
+        }
         
         if (kDown & HidNpadButton_Up) {
             operation = "+";
@@ -94,7 +98,7 @@ void run_app() {
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-            std::cout << "L to Calculate, Plus to exit" << "\n";
+            std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
 
             vec.clear();
         }
