@@ -3,9 +3,7 @@
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
-This branch (GUI) contains the code for the GUI version of this app. The main branch contains the code for the Command-Line version of this app.
-
-When the GUI version is finished, the main branch code will no longer have binaries in Releases.
+Note: This branch will no longer be getting any updates due to the recent merge of the code here and the main branch code. If you have git cloned this branch, git clone the other branch.
 
 ## COMPLATION INSTRUCTIONS
 
