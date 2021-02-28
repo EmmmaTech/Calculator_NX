@@ -3,13 +3,13 @@
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
-This branch (main) contains the code for the Command-Line version of the app, while the GUI branch contains the code for the GUI version of the app.
-
-Once the GUI version of the app is finished, this branch (main) will no longer have binaries in Releases.
+This app can now be used in a GUI way, or the normal Command-Line looking way. The app by default uses the GUI version.
 
 ## COMPLATION INSTRUCTIONS
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)
+
+You also need borealis, which needs some additional libraries from devkitpro. Use `(sudo) (dkp-)pacman -S switch-glfw switch-mesa switch-glm` to download those libraries.
 
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
@@ -28,16 +28,22 @@ Any errors relating to borealis should be reported.
 
 ## PLANNED FEATURES
 
-Planned features include making an GUI, making an updater inside of the app, and making a credits screen. Check the projects tab for the progress on these.
+There aren't any planned features at the moment.
 
 ## CREDITS
 
 Switchbrew for making libnx
 
-The people on the ReSwitched server for helping me
+The people on the ReSwitched Discord server for helping me
 
-The people on the Switchroot server for helping me on my original Calculator program (this is based on that)
+The people on the Switchroot Discord server for helping me on my original Calculator program (this is based on that)
+
+natinusala and any contributors for creating the borealis library
+
+The people on the RetroNX Discord server for helping me on using borealis
 
 ## LICENSE
 
 Calculator_NX uses the MIT License. Read the license for more details.
+
+borealis uses the Apache v2.0 License. Read the license in borealis/LICENSE for more details.
