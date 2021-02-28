@@ -1,4 +1,4 @@
-![Icon photo for Calculator_NX](Calculator_NX.jpg)
+![Icon photo for Calculator_NX](./resources/Calculator_NX.jpg)
 
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
@@ -9,7 +9,7 @@ This app can now be used in a GUI way, or the normal Command-Line looking way. T
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)
 
-You also need borealis, which needs some additional libraries from devkitpro. Use `(sudo) (dkp-)pacman -S switch-glfw switch-mesa switch-glm` to download those libraries.
+You also need some additional libraries for Borealis from devkitpro. Use `(sudo) (dkp-)pacman -S switch-glfw switch-mesa switch-glm` to download those libraries.
 
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
