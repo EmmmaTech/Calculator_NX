@@ -52,7 +52,7 @@ BUILD		:=	build
 SOURCES		:=	core/source gui/source
 DATA		:=	data
 INCLUDES	:=	core/include gui/include
-ROMFS	:=	resources
+ROMFS	    :=	resources
 BOREALIS_PATH := borealis
 
 OUT_SHADERS := shaders
