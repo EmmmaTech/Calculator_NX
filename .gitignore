@@ -4,4 +4,4 @@ build/*
 *.nro
 *.dksh
 *.dksh
-resources/shaders/fill_vsh.dksh
+resources/shaders/*
