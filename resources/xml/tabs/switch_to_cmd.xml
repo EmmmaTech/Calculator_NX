@@ -9,6 +9,6 @@
         height="auto"
         shrink="1.0"
         style="primary"
-        text="Switch over to the GUI Version"/>
+        text="@i18n/nxgui/components/switch_gui"/>
 
 </brls:Box>

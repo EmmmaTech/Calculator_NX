@@ -21,6 +21,8 @@
          "labels_credits2": "People from the ReSwitched, Switchroot, and RetroNX Discord servers for helping me make this",
          "labels_credits3": "natinusala and other contributors for making the borealis library",
          "labels_version": "v1.3.0",
-         "labels_guiversion": "GUI v1.0.0"
+         "labels_guiversion": "GUI v1.0.0",
+
+         "switch_gui": "Switch over to the GUI Version"
     }
 }
