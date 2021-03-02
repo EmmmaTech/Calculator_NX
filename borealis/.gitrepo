@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/EmreTech/borealis.git
 	branch = yoga
-	commit = f761760bde6e499e8f87071f5a10230e281a44ac
-	parent = 388d6a3039725242c4d925e2146fb24311fb8d23
+	commit = bd909930598cc8e6259bf0454f694f5e755303ed
+	parent = a2b99577bdac99673166ef88d48fb55be81316bd
 	method = merge
 	cmdver = 0.4.3
