@@ -5,7 +5,7 @@ This is my C++ Calculator program, ported to the Nintendo Switch.
 
 This app can now be used in a GUI way, or the normal Command-Line looking way. The app by default uses the GUI version.
 
-[Join the Discord Server!](#)
+[Join the Discord Server!](https://discord.gg/WXKMvK2NRe)
 
 ## COMPLATION INSTRUCTIONS
 
