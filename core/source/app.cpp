@@ -13,8 +13,7 @@ void run_app() {
     padInitializeDefault(&pad);
 
     Result rc = 0;
-
-    std::vector<float> vec;    
+  
     std::string operation;
     char tmpoutstr[16] = {0};
 
@@ -87,20 +86,13 @@ void run_app() {
                 swkbdClose(&kbd);
             }
 
-            std::istringstream iss(tmpoutstr);
-            std::string Num;
+            std::string full_nums = std::string(tmpoutstr);
 
-            while (iss >> Num) {
-                vec.emplace_back(std::stof(Num));
-            }
-
-            std::cout << "The answer is: " << Calculator::solve(vec, operation) << std::endl;
+            std::cout << "The answer is: " << Calculator::solve(full_nums, operation) << std::endl;
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
             std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
-
-            vec.clear();
         }
         
         //std::cout << operation << "\n";

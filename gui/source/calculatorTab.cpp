@@ -55,8 +55,6 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
 
         brls::Logger::info("Operation is set as: " + operation);
 
-        std::vector<float> vec;
-
         char tmpoutstr[32] = {0};
         #ifdef __SWITCH__
         SwkbdConfig kbd;
@@ -76,15 +74,10 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
         std::cin.getline(tmpoutstr, 32);
 
         #endif
-
-        std::istringstream iss(tmpoutstr);
-        std::string Num;
-
-        while (iss >> Num) {
-            vec.emplace_back(std::stof(Num));
-        }
         
-        float answer = Calculator::solve(vec, operation);
+        std::string full_nums = std::string(tmpoutstr);
+
+        float answer = Calculator::solve(full_nums, operation);
 
         std::cout << "The answer is: " << answer << std::endl;
         this->cal_button->setText("The answer is: " + to_str(answer));

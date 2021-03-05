@@ -1,7 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include <vector>
+#include <deque>
 #include <utility>
 #include <string>
 #include <type_traits>
@@ -134,4 +136,6 @@ namespace Calculator {
     // Instead of deleting the first number in the std::vector, this approach loops through all the elements in the std::vector
     // This in the end is easier to use
     float solve(std::vector<float>& vec, std::string_view operation);
+
+    float solve(std::string numbers, std::string_view operation);
 }
