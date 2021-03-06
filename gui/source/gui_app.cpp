@@ -1,8 +1,26 @@
 #include "gui_app.hpp"
 
+#include <filesystem>
+#include <fstream>
+#include "constants.hpp"
+#include "app.hpp"
+
 using namespace brls::literals;
 
 void run_gui_app() {
+    std::filesystem::path gui_default{ CONFIG_PATH };
+    gui_default.append(GUI_DEFAULT_FILE);
+    std::filesystem::path cmd_default{ CONFIG_PATH };
+    cmd_default.append(CMD_DEFAULT_FILE);
+
+    if (!std::filesystem::exists(CONFIG_PATH)) {
+        std::filesystem::create_directory(CONFIG_PATH);
+    }
+
+    if (std::filesystem::exists(cmd_default)) {
+        return;
+    }
+
     // Set up the logger 
     brls::Logger::setLogLevel(brls::LogLevel::INFO);
 
@@ -27,6 +45,22 @@ void run_gui_app() {
 
     // Main application loop
     while (brls::Application::mainLoop());
+
+    if (std::filesystem::exists(cmd_default)) {
+        try {
+            std::filesystem::remove(gui_default);
+        } catch (const std::filesystem::filesystem_error& e) {
+            std::string str = "Filesystem error: " + std::string(e.what());
+            brls::Logger::error(str);
+        }
+        brls::Application::quit();
+
+        std::fstream cmd_file;
+        cmd_file.open(cmd_default.c_str(), std::ios::out|std::ios::app);
+        cmd_file.close();
+
+        return;
+    }
 
     // When the loop exits, it reports a successful exit
     return;

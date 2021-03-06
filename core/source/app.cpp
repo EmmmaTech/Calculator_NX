@@ -1,8 +1,20 @@
 #include "app.hpp"
 
 #include "gui_app.hpp"
+#include <filesystem>
+#include <fstream>
+#include "constants.hpp"
 
 void run_app() {
+    std::filesystem::path gui_default{ CONFIG_PATH };
+    gui_default.append(GUI_DEFAULT_FILE);
+    std::filesystem::path cmd_default{ CONFIG_PATH };
+    cmd_default.append(CMD_DEFAULT_FILE);
+
+    if (!std::filesystem::exists(CONFIG_PATH)) {
+        std::filesystem::create_directory(CONFIG_PATH);
+    }
+
     consoleInit(NULL);
 
     // Configure our supported input layout: a single player with standard controller styles
@@ -33,7 +45,19 @@ void run_app() {
         if (kDown & HidNpadButton_Plus) break; // break in order to return to hbmenu
 
         if (kDown & HidNpadButton_Y) {
-            run_gui_app();
+            if (std::filesystem::exists(cmd_default)) {
+                try {
+                    std::filesystem::remove(cmd_default);
+                } catch (const std::filesystem::filesystem_error& e) {
+                    std::cout << "Filesystem error: " << e.what() << std::endl;
+                }
+
+                std::fstream gui_file;
+                gui_file.open(gui_default.c_str(), std::ios::out|std::ios::app);
+                gui_file.close();
+
+                run_gui_app();
+            }
         }
         
         if (kDown & HidNpadButton_Up) {
