@@ -55,34 +55,39 @@ bool CalculatorTab::onScreenButtonClicked(brls::View* view) {
 
         brls::Logger::info("Operation is set as: " + operation);
 
-        char tmpoutstr[32] = {0};
-        #ifdef __SWITCH__
-        SwkbdConfig kbd;
-        Result rc = swkbdCreate(&kbd, 0);
+        if (!operation.empty()) {
+            char tmpoutstr[32] = {0};
+            #ifdef __SWITCH__
+            SwkbdConfig kbd;
+            Result rc = swkbdCreate(&kbd, 0);
 
-        if (R_SUCCEEDED(rc)) {
-            swkbdConfigMakePresetDefault(&kbd);
-            swkbdConfigSetGuideText(&kbd, "Enter all numbers with a space in-between: ");
+            if (R_SUCCEEDED(rc)) {
+                swkbdConfigMakePresetDefault(&kbd);
+                swkbdConfigSetGuideText(&kbd, "Enter all numbers with a space in-between: ");
 
-            rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
+                rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
 
-            swkbdClose(&kbd);
+                swkbdClose(&kbd);
+            }
+            #else
+
+            std::cout << "Enter all numbers with a space in-between: " << std::endl;
+            std::cin.getline(tmpoutstr, 32);
+
+            #endif
+            
+            std::string full_nums = std::string(tmpoutstr);
+
+            float answer = Calculator::solve(full_nums, operation);
+
+            std::cout << "The answer is: " << answer << std::endl;
+            this->cal_button->setText("The answer is: " + to_str(answer));
+
+            return true;
+        } else {
+            this->cal_button->setText("Please select an operation first.");
+            return true;
         }
-        #else
-
-        std::cout << "Enter all numbers with a space in-between: " << std::endl;
-        std::cin.getline(tmpoutstr, 32);
-
-        #endif
-        
-        std::string full_nums = std::string(tmpoutstr);
-
-        float answer = Calculator::solve(full_nums, operation);
-
-        std::cout << "The answer is: " << answer << std::endl;
-        this->cal_button->setText("The answer is: " + to_str(answer));
-
-        return true;
 }
 
 brls::View* CalculatorTab::create() {
