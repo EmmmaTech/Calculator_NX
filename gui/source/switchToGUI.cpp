@@ -16,6 +16,9 @@ bool SwitchToCMD::onButtonClicked(brls::View* view) {
 
     cmd_file.open(cmd_default.c_str(), std::ios::out|std::ios::app);
     cmd_file.close();
+
+    this->main_button->setText("Reopen the app to apply the changes.");
+
     return true;
 }
 

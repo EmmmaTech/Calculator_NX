@@ -53,13 +53,13 @@ void run_gui_app() {
             std::string str = "Filesystem error: " + std::string(e.what());
             brls::Logger::error(str);
         }
-        brls::Application::quit();
+        //brls::Application::quit();
 
         std::fstream cmd_file;
         cmd_file.open(cmd_default.c_str(), std::ios::out|std::ios::app);
         cmd_file.close();
 
-        return;
+        //return;
     }
 
     // When the loop exits, it reports a successful exit

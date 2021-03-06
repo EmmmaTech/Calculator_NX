@@ -56,7 +56,7 @@ void run_app() {
                 gui_file.open(gui_default.c_str(), std::ios::out|std::ios::app);
                 gui_file.close();
 
-                run_gui_app();
+                std::cout << "Reopen the app to apply the changes." << std::endl;
             }
         }
         

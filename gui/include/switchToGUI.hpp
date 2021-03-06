@@ -10,4 +10,5 @@ struct SwitchToCMD : public brls::Box {
 
     private:
     bool onButtonClicked(brls::View* view);
+    BRLS_BIND(brls::Button, main_button, "main_button");
 };
