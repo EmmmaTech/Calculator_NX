@@ -8,7 +8,7 @@
 using namespace brls::literals;
 
 void run_gui_app() {
-    std::filesystem::path gui_default{ CONFIG_PATH };
+    /*std::filesystem::path gui_default{ CONFIG_PATH };
     gui_default.append(GUI_DEFAULT_FILE);
     std::filesystem::path cmd_default{ CONFIG_PATH };
     cmd_default.append(CMD_DEFAULT_FILE);
@@ -19,7 +19,7 @@ void run_gui_app() {
 
     if (std::filesystem::exists(cmd_default)) {
         return;
-    }
+    }*/
 
     // Set up the logger 
     brls::Logger::setLogLevel(brls::LogLevel::INFO);
@@ -44,9 +44,14 @@ void run_gui_app() {
     //brls::Logger::debug("Successfully completed the Push Activity function");
 
     // Main application loop
-    while (brls::Application::mainLoop());
+    while (brls::Application::mainLoop()) {
+        if (!guiAppRunning) {
+            brls::Application::quit();
+            return;
+        }
+    }
 
-    if (std::filesystem::exists(cmd_default)) {
+    /*if (std::filesystem::exists(cmd_default)) {
         try {
             std::filesystem::remove(gui_default);
         } catch (const std::filesystem::filesystem_error& e) {
@@ -60,7 +65,7 @@ void run_gui_app() {
         cmd_file.close();
 
         //return;
-    }
+    }*/
 
     // When the loop exits, it reports a successful exit
     return;
