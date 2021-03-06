@@ -2,6 +2,6 @@
 #include "app.hpp"
 
 int main(int argc, char* argv[]) {
-    run_gui_app();
     run_app();
+    run_gui_app();
 }

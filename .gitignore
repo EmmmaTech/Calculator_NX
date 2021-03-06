@@ -6,3 +6,4 @@ build/*
 *.dksh
 resources/shaders/*
 .vscode/*
+*.dksh
