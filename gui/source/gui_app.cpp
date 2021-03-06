@@ -21,7 +21,7 @@ void run_gui_app() {
         return;
     }*/
 
-    while (guiAppRunning) {
+    while (AppsRunning::guiAppRunning) {
 
         // Set up the logger 
         brls::Logger::setLogLevel(brls::LogLevel::INFO);
@@ -47,7 +47,7 @@ void run_gui_app() {
 
         // Main application loop
         while (brls::Application::mainLoop()) {
-            if (!guiAppRunning) {
+            if (!AppsRunning::guiAppRunning) {
                 brls::Application::quit();
             }
         }

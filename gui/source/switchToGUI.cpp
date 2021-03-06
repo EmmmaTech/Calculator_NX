@@ -1,7 +1,7 @@
 #include "switchToGUI.hpp"
 #include <filesystem>
 #include <fstream>
-#include "constants.hpp"
+
 
 SwitchToCMD::SwitchToCMD() {
     this->inflateFromXMLRes("xml/tabs/switch_to_cmd.xml");
@@ -19,8 +19,8 @@ bool SwitchToCMD::onButtonClicked(brls::View* view) {
 
     this->main_button->setText("Reopen the app to apply the changes.");*/
 
-    guiAppRunning = false;
-    cmdAppRunning = true;
+    AppsRunning::guiAppRunning = false;
+    AppsRunning::cmdAppRunning = true;
 
     return true;
 }

@@ -15,7 +15,7 @@ void run_app() {
         std::filesystem::create_directory(CONFIG_PATH);
     }*/
 
-    while (cmdAppRunning) {
+    while (AppsRunning::cmdAppRunning) {
         consoleInit(NULL);
 
         // Configure our supported input layout: a single player with standard controller styles
@@ -44,7 +44,7 @@ void run_app() {
             u64 kDown = padGetButtonsDown(&pad);
 
             if (kDown & HidNpadButton_Plus) {
-                cmdAppRunning = false;
+                AppsRunning::cmdAppRunning = false;
                 break; // break in order to return to hbmenu
             }
 
@@ -62,8 +62,8 @@ void run_app() {
 
                     std::cout << "Reopen the app to apply the changes." << std::endl;
                 }*/
-                cmdAppRunning = false;
-                guiAppRunning = true;
+                AppsRunning::cmdAppRunning = false;
+                AppsRunning::guiAppRunning = true;
             }
             
             if (kDown & HidNpadButton_Up) {

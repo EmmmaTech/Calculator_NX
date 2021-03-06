@@ -2,6 +2,7 @@
 
 #include "app.hpp"
 #include <borealis.hpp>
+#include "constants.hpp"
 
 struct SwitchToCMD : public brls::Box {
     SwitchToCMD();
