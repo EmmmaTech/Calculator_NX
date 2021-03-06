@@ -19,8 +19,8 @@ bool SwitchToCMD::onButtonClicked(brls::View* view) {
 
     this->main_button->setText("Reopen the app to apply the changes.");*/
 
-    AppsRunning::guiAppRunning = false;
-    AppsRunning::cmdAppRunning = true;
+    AppsRunning::setGUIApp(false);
+    AppsRunning::setCMDApp(true);
 
     return true;
 }

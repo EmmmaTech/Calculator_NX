@@ -6,6 +6,9 @@
 #define CMD_DEFAULT_FILE "cmd_default.txt"
 
 namespace AppsRunning {
-    bool guiAppRunning = true;
-    bool cmdAppRunning = false;
+    void setGUIApp(bool newValue);
+    bool getGUIApp();
+
+    void setCMDApp(bool newValue);
+    bool getCMDApp();
 }

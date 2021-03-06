@@ -8,6 +8,9 @@
 using namespace brls::literals;
 
 void run_gui_app() {
+
+    AppsRunning::setGUIApp(true);
+
     /*std::filesystem::path gui_default{ CONFIG_PATH };
     gui_default.append(GUI_DEFAULT_FILE);
     std::filesystem::path cmd_default{ CONFIG_PATH };
@@ -21,7 +24,7 @@ void run_gui_app() {
         return;
     }*/
 
-    while (AppsRunning::guiAppRunning) {
+    while (AppsRunning::getGUIApp()) {
 
         // Set up the logger 
         brls::Logger::setLogLevel(brls::LogLevel::INFO);
@@ -47,7 +50,7 @@ void run_gui_app() {
 
         // Main application loop
         while (brls::Application::mainLoop()) {
-            if (!AppsRunning::guiAppRunning) {
+            if (!AppsRunning::getGUIApp()) {
                 brls::Application::quit();
             }
         }
