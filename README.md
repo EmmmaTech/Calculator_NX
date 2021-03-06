@@ -5,6 +5,8 @@ This is my C++ Calculator program, ported to the Nintendo Switch.
 
 This app can now be used in a GUI way, or the normal Command-Line looking way. The app by default uses the GUI version.
 
+[Join the Discord Server!](https://discord.gg/WXKMvK2NRe)
+
 ## COMPLATION INSTRUCTIONS
 
 Compiling this program requires the libnx library and any other libraries required by libnx. These can be installed via [devkitpro.](https://devkitpro.org/wiki/Getting_Started)

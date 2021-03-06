@@ -1,8 +1,20 @@
 #include "app.hpp"
 
 #include "gui_app.hpp"
+#include <filesystem>
+#include <fstream>
+#include "constants.hpp"
 
 void run_app() {
+    std::filesystem::path gui_default{ CONFIG_PATH };
+    gui_default.append(GUI_DEFAULT_FILE);
+    std::filesystem::path cmd_default{ CONFIG_PATH };
+    cmd_default.append(CMD_DEFAULT_FILE);
+
+    if (!std::filesystem::exists(CONFIG_PATH)) {
+        std::filesystem::create_directory(CONFIG_PATH);
+    }
+
     consoleInit(NULL);
 
     // Configure our supported input layout: a single player with standard controller styles
@@ -13,8 +25,7 @@ void run_app() {
     padInitializeDefault(&pad);
 
     Result rc = 0;
-
-    std::vector<float> vec;    
+  
     std::string operation;
     char tmpoutstr[16] = {0};
 
@@ -34,7 +45,19 @@ void run_app() {
         if (kDown & HidNpadButton_Plus) break; // break in order to return to hbmenu
 
         if (kDown & HidNpadButton_Y) {
-            run_gui_app();
+            if (std::filesystem::exists(cmd_default)) {
+                try {
+                    std::filesystem::remove(cmd_default);
+                } catch (const std::filesystem::filesystem_error& e) {
+                    std::cout << "Filesystem error: " << e.what() << std::endl;
+                }
+
+                std::fstream gui_file;
+                gui_file.open(gui_default.c_str(), std::ios::out|std::ios::app);
+                gui_file.close();
+
+                std::cout << "Reopen the app to apply the changes." << std::endl;
+            }
         }
         
         if (kDown & HidNpadButton_Up) {
@@ -87,20 +110,13 @@ void run_app() {
                 swkbdClose(&kbd);
             }
 
-            std::istringstream iss(tmpoutstr);
-            std::string Num;
+            std::string full_nums = std::string(tmpoutstr);
 
-            while (iss >> Num) {
-                vec.emplace_back(std::stof(Num));
-            }
-
-            std::cout << "The answer is: " << Calculator::solve(vec, operation) << std::endl;
+            std::cout << "The answer is: " << Calculator::solve(full_nums, operation) << std::endl;
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
             std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
-
-            vec.clear();
         }
         
         //std::cout << operation << "\n";

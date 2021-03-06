@@ -31,7 +31,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #---------------------------------------------------------------------------------
 VERSION_MAJOR := 1
 VERSION_MINOR := 3
-VERSION_MICRO := 0
+VERSION_MICRO := 1
 STABLE := Stable
 
 APP_TITLE := Calculator_NX
