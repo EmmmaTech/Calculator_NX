@@ -11,9 +11,9 @@ void run_app() {
     std::filesystem::path cmd_default{ CONFIG_PATH };
     cmd_default.append(CMD_DEFAULT_FILE);
 
-    if (!std::filesystem::exists(CONFIG_PATH)) {
-        std::filesystem::create_directory(CONFIG_PATH);
-    }
+    if (!std::filesystem::exists(CONFIG_PATH)) std::filesystem::create_directory(CONFIG_PATH);
+    
+    bool changeToGUI = false;
 
     consoleInit(NULL);
 
@@ -30,7 +30,7 @@ void run_app() {
     char tmpoutstr[16] = {0};
 
     std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << std::endl;
-    std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << std::endl;
+    std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
 
     // Main loop
     while (appletMainLoop())
@@ -56,7 +56,9 @@ void run_app() {
                 gui_file.open(gui_default.c_str(), std::ios::out|std::ios::app);
                 gui_file.close();
 
-                std::cout << "Reopen the app to apply the changes." << std::endl;
+                //std::cout << "Reopen the app to apply the changes." << std::endl;
+                changeToGUI = true;
+                break;
             }
         }
         
@@ -77,7 +79,7 @@ void run_app() {
             std::cout << "Operation set as: " << operation << "\n";
         }
 
-        if (kDown & HidNpadButton_L && !operation.empty()) {
+        if ((kDown & HidNpadButton_L || kDown & HidNpadButton_ZL) && !operation.empty()) {
             std::string fullNums;
 
             SwkbdConfig kbd;
@@ -116,7 +118,7 @@ void run_app() {
 
             // I just noticed that the string below says \nand at some point
             std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-            std::cout << "L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
+            std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
         }
         
         //std::cout << operation << "\n";
@@ -124,6 +126,8 @@ void run_app() {
         // Update the console, sending a new frame to the display
         consoleUpdate(NULL);
     }
+
+    if (changeToGUI) run_gui_app();
 
     // Deinitialize and clean up resources used by the console (important!)
     consoleExit(NULL);
