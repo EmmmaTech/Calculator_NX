@@ -1,7 +1,8 @@
 <brls:Box
     width="auto"
     height="auto"
-    axis="column">
+    axis="column"
+    alignItems="center">
 
     <brls:Button
         id="main_button"

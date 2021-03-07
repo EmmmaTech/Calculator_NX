@@ -6,7 +6,8 @@
     "tabs": {
         "calculator": "Calculator Home",
         "about": "About",
-        "help": "Help"
+        "help": "Help",
+        "switch_gui_tab": "Switch to GUI Mode"
     },
 
     "components": {

@@ -17,7 +17,7 @@
     <brls:Separator/>
 
     <!-- Switching to GUI Mode -->
-    <brls:Tab label="Switch to GUI Mode">
+    <brls:Tab label="@i18n/nxgui/tabs/switch_gui_tab">
         <SwitchToCMD/>
     </brls:Tab>
 
