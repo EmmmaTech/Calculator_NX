@@ -32,7 +32,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 VERSION_MAJOR := 1
 VERSION_MINOR := 3
 VERSION_MICRO := 2
-STABLE := Stable
+STABLE := Beta
 
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech
@@ -53,7 +53,7 @@ SOURCES		:=	core/source gui/source
 DATA		:=	data
 INCLUDES	:=	core/include gui/include
 ROMFS	    :=	resources
-BOREALIS_PATH := borealis
+BOREALIS_PATH := lib/borealis
 
 OUT_SHADERS := shaders
 
