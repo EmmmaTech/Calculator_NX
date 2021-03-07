@@ -127,8 +127,8 @@ void run_app() {
         consoleUpdate(NULL);
     }
 
-    if (changeToGUI) run_gui_app();
-
     // Deinitialize and clean up resources used by the console (important!)
     consoleExit(NULL);
+
+    if (changeToGUI) run_gui_app();
 }
