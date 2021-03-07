@@ -7,7 +7,7 @@
 
 using namespace brls::literals;
 
-void run_gui_app() {
+bool run_gui_app() {
     std::filesystem::path gui_default{ CONFIG_PATH };
     gui_default.append(GUI_DEFAULT_FILE);
     std::filesystem::path cmd_default{ CONFIG_PATH };
@@ -18,7 +18,7 @@ void run_gui_app() {
     }
 
     if (std::filesystem::exists(cmd_default)) {
-        return;
+        return true;
     }
 
     // Set up the logger 
@@ -28,7 +28,7 @@ void run_gui_app() {
     if (!brls::Application::init()) {
         // If the program fails init process, it reports this and stops
         brls::Logger::error("Unable to init the Calculator_NX gui. Please report this to EmreTech");
-        return;
+        return false;
     } else {
         //brls::Logger::debug("Successfully completed the init process");
     }
@@ -37,6 +37,7 @@ void run_gui_app() {
 
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
+    brls::Application::registerXMLView("AboutTab", AboutTab::create); //
     brls::Application::registerXMLView("SwitchToCMD", SwitchToCMD::create);
 
     // If the program is sucessfull with the init process, it pushes the whole GUI
@@ -59,9 +60,9 @@ void run_gui_app() {
         cmd_file.open(cmd_default.c_str(), std::ios::out|std::ios::app);
         cmd_file.close();
 
-        //return;
+        return true;
     }
 
     // When the loop exits, it reports a successful exit
-    return;
+    return false;
 }

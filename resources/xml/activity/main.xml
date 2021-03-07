@@ -11,7 +11,8 @@
 
     <!-- About Page --> 
     <brls:Tab label="@i18n/nxgui/tabs/about">
-        <brls:View xml="@res/xml/tabs/about.xml" />
+        <!--<brls:View xml="@res/xml/tabs/about.xml" />-->
+        <AboutTab/>
     </brls:Tab>
     
     <brls:Separator/>

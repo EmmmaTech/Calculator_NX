@@ -1,54 +1,47 @@
 <brls:Box
     width="auto"
     height="auto"
-    axis="row">
+    alignItems="center"
+    justifyContent="center">
 
-        <brls:Header
+    <brls:Box
+        width="auto"
+        height="auto"
+        axis="column"
+        paddingLeft="@style/brls/tab_frame/content_padding_sides"
+        paddingRight="@style/brls/tab_frame/content_padding_sides"
+        paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
+        paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
+
+        <brls:Image
+            id="image"
             width="auto"
             height="auto"
-            title="@i18n/nxgui/components/labels_appname"/>
+            focusable="false"
+            marginBottom="20px"/>
 
         <brls:Label
             width="auto"
             height="auto"
             textAlign="center"
-            text="@i18n/nxgui/components/labels_developer"/>
+            fontSize="40"
+            marginBottom="10px"
+            text="@i18n/nxgui/components/labels_appname"/>
 
         <brls:Label
             width="auto"
             height="auto"
             textAlign="center"
+            fontSize="15"
             text="@i18n/nxgui/components/labels_version"/>
 
         <brls:Label
             width="auto"
             height="auto"
             textAlign="center"
-            text="@i18n/nxgui/components/labels_guiversion"/>
+            fontSize="15"
+            text="@i18n/nxgui/components/labels_developer"/>
 
-        <brls:Box
-            width="50%"
-            height="auto">
-
-            <brls:Label
-                width="auto"
-                height="auto"
-                textAlign="center"
-                text="@i18n/nxgui/components/labels_credits1"/>
-
-            <brls:Label
-                width="auto"
-                height="auto"
-                textAlign="center"
-                text="@i18n/nxgui/components/labels_credits2"/>
-
-            <brls:Label
-                width="auto"
-                height="auto"
-                textAlign="center"
-                text="@i18n/nxgui/components/labels_credits3"/>
-
-        </brls:Box>
-
+    </brls:Box>
 
 </brls:Box>

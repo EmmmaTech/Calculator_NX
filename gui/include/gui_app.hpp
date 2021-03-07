@@ -15,5 +15,6 @@
 #include "calculatorTab.hpp"
 #include "switchToGUI.hpp"
 #include "mainActivity.hpp"
+#include "aboutTab.hpp"
 
-void run_gui_app();
+bool run_gui_app();

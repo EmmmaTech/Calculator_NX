@@ -1,7 +1,10 @@
 #include "gui_app.hpp"
 #include "app.hpp"
 
+#include <filesystem>
+#include "constants.hpp"
+
 int main(int argc, char* argv[]) {
-    run_gui_app();
-    run_app();
+    if (run_gui_app()) run_app();
+    return EXIT_SUCCESS;
 }
