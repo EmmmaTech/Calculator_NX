@@ -7,7 +7,7 @@
         "calculator": "Calculator Home",
         "about": "About",
         "help": "Help",
-        "switch_gui_tab": "Switch to GUI Mode"
+        "switch_gui_tab": "Switch to CMD Mode"
     },
 
     "components": {
@@ -23,6 +23,6 @@
          "labels_credits3": "natinusala and other contributors for making the borealis library",
          "labels_version": "Version 1.3.2",
 
-         "switch_gui": "Switch over to the GUI Version"
+         "switch_gui": "Switch over to the CMD Version"
     }
 }
