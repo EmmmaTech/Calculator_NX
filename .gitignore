@@ -4,5 +4,6 @@ build/*
 *.nro
 *.dksh
 *.dksh
-resources/shaders/*
 .vscode/*
+./resources/shaders/**
+resources/shaders/fill_vsh.dksh
