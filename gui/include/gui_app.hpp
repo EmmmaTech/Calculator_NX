@@ -16,5 +16,7 @@
 #include "switchToGUI.hpp"
 #include "mainActivity.hpp"
 #include "aboutTab.hpp"
+#include "updateActivity.hpp"
+#include "updaterTab.hpp"
 
 bool run_gui_app();

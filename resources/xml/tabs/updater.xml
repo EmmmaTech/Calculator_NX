@@ -1,0 +1,51 @@
+<brls:Box
+    width="auto"
+    height="auto"
+    axis="column"
+    justifyContent="center">
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column"
+            paddingLeft="@style/brls/tab_frame/content_padding_sides"
+            paddingRight="@style/brls/tab_frame/content_padding_sides"
+            paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
+            paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
+        
+            <brls:Label
+                width="auto"
+                height="auto"
+                textAlign="center"
+                fontSize="20"
+                marginBottom="25px"
+                text="@i18n/nxgui/components/update_reminder"/>
+
+            <brls:Button
+                id="yes"
+                width="auto"
+                height="auto"
+                shrink="1.0"
+                style="primary"
+                text="@i18n/nxgui/components/yes"/>
+
+            <brls:Button
+                id="no"
+                width="auto"
+                height="auto"
+                shrink="1.0"
+                style="primary"
+                text="@i18n/nxgui/components/no"/>
+
+            <brls:Label
+                id="verbose_label" 
+                width="auto"
+                height="auto"
+                textAlign="center"
+                fontSize="20"
+                marginBottom="25px"
+                text="Waiting for response from user..."/>
+        
+        </brls:Box>
+
+</brls:Box>

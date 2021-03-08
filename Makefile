@@ -63,16 +63,16 @@ OUT_SHADERS := shaders
 ARCH	:=	-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -fPIE
 
 CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
-			$(ARCH) $(DEFINES)
+			$(ARCH) $(DEFINES) `curl-config --cflags`
 
-CFLAGS	+=	$(INCLUDE) -D__SWITCH__
+CFLAGS	+=	$(INCLUDE) -D__SWITCH__ 
 
-CXXFLAGS	:= $(CFLAGS) -std=c++1z -fexceptions -Wmaybe-uninitialized -O2 -Wno-volatile
+CXXFLAGS	:= $(CFLAGS) -std=c++17 -fexceptions -O2 -Wno-volatile
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lnx
+LIBS	:= -lnx `curl-config --libs`
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing

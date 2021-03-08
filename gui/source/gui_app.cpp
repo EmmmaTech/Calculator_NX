@@ -3,11 +3,14 @@
 #include <filesystem>
 #include <fstream>
 #include "constants.hpp"
-#include "app.hpp"
+#include "utils.hpp"
+//#include "app.hpp"
 
 using namespace brls::literals;
 
 bool run_gui_app() {
+    bool versionsSame;
+
     std::filesystem::path gui_default{ CONFIG_PATH };
     gui_default.append(GUI_DEFAULT_FILE);
     std::filesystem::path cmd_default{ CONFIG_PATH };
@@ -16,8 +19,14 @@ bool run_gui_app() {
     if (!std::filesystem::exists(CONFIG_PATH)) std::filesystem::create_directory(CONFIG_PATH);
     if (std::filesystem::exists(cmd_default)) return true;  
 
+    socketInitializeDefault();
+
     // Set up the logger 
     brls::Logger::setLogLevel(brls::LogLevel::INFO);
+
+    std::string version_from_api = getLatestTag(std::string(API_URL));
+    std::string currentVersion = std::string(APP_VERSION);
+    versionsSame = version_from_api == currentVersion;
 
     // Init the app and i18n
     if (!brls::Application::init()) {
@@ -32,11 +41,17 @@ bool run_gui_app() {
 
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
-    brls::Application::registerXMLView("AboutTab", AboutTab::create); //
+    brls::Application::registerXMLView("AboutTab", AboutTab::create);
     brls::Application::registerXMLView("SwitchToCMD", SwitchToCMD::create);
 
+    if (!versionsSame)
+        brls::Application::registerXMLView("UpdaterTab", UpdaterTab::create);
+
     // If the program is sucessfull with the init process, it pushes the whole GUI
-    brls::Application::pushActivity(new MainActivity());
+    if (versionsSame)
+        brls::Application::pushActivity(new MainActivity());
+    else
+        brls::Application::pushActivity(new updateActivity());
     //brls::Logger::debug("Successfully completed the Push Activity function");
 
     // Main application loop
@@ -57,6 +72,8 @@ bool run_gui_app() {
             brls::Application::quit();
         }
     }
+
+    socketExit();
 
     if (std::filesystem::exists(cmd_default)) return true;
 

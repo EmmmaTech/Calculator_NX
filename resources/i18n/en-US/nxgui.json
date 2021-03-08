@@ -7,7 +7,9 @@
         "calculator": "Calculator Home",
         "about": "About",
         "help": "Help",
-        "switch_gui_tab": "Switch to CMD Mode"
+        "switch_gui_tab": "Switch to CMD Mode",
+
+        "update": "Updater"
     },
 
     "components": {
@@ -23,6 +25,10 @@
          "labels_credits3": "natinusala and other contributors for making the borealis library",
          "labels_version": "Version 1.3.2",
 
-         "switch_gui": "Switch over to the CMD Version"
+         "switch_gui": "Switch over to the CMD Version",
+
+         "update_reminder": "There is a new version of Calculator_NX avaiable! Would you like to update?",
+         "yes": "Yes",
+         "no": "No"
     }
 }

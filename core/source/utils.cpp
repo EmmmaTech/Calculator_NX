@@ -1,5 +1,4 @@
 #include "utils.hpp"
-#include "constants.hpp"
 
 void downloadFile(const char *url, const char *filename) {
     CURL *curl;
@@ -30,10 +29,10 @@ void downloadFile(const char *url, const char *filename) {
 }
 
 std::string getLatestTag(std::string url) {
-    downloadFile(url.c_str(), DOWNLOAD_PATH + "latest-tag.json");
+    downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
 
     json api_data;
-    std::ifstream api_file(DOWNLOAD_PATH + "latest-tag.json");
+    std::ifstream api_file(JSON_DOWNLOAD_PATH);
 
     api_file >> api_data;
     api_file.close();
@@ -42,11 +41,11 @@ std::string getLatestTag(std::string url) {
 }
 
 std::string getLatestDownload(std::string url) {
-    const char *full_filename = DOWNLOAD_PATH + "latest-tag.json";
+    const char *full_filename = JSON_DOWNLOAD_PATH;
     downloadFile(url.c_str(), full_filename);
 
     json api_data;
-    std::ifstream api_file(DOWNLOAD_PATH + "latest-tag.json");
+    std::ifstream api_file(JSON_DOWNLOAD_PATH);
 
     api_file >> api_data;
     api_file.close();
