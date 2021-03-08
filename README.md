@@ -13,6 +13,8 @@ Compiling this program requires the libnx library and any other libraries requir
 
 You also need some additional libraries for Borealis from devkitpro. Use `(sudo) (dkp-)pacman -S switch-glfw switch-mesa switch-glm` to download those libraries.
 
+You also need switch-curl, which is also from devkitpro. Use `(sudo) (dkp-)pacman -S switch-curl` to download it.
+
 You can then `git clone` this repo to any folder on your computer. To compile on Unix-based distros (these instructions are mostly for macOS & Linux), run `make` while in the root of the repo. To compile on Windows is unknown to me, so feel free to change this for instructions on Windows.
 
 ### Complation troubleshooting
