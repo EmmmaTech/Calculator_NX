@@ -51,7 +51,7 @@ TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	core/source gui/source
 DATA		:=	data
-INCLUDES	:=	core/include gui/include
+INCLUDES	:=	core/include gui/include lib/json
 ROMFS	    :=	resources
 BOREALIS_PATH := lib/borealis
 
