@@ -125,10 +125,8 @@ void run_app() {
 
         // Update the console, sending a new frame to the display
         consoleUpdate(NULL);
-    }
-
-    // Deinitialize and clean up resources used by the console (important!)
-    consoleExit(NULL);
+    }   
 
     if (changeToGUI) run_gui_app();
+    else consoleExit(NULL);
 }
