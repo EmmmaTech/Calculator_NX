@@ -1,6 +1,6 @@
 #include "updaterTab.hpp"
 
-#include "utils.hpp"
+#include "download.hpp"
 #include "constants.hpp"
 #include <string>
 #include <filesystem>

@@ -1,3 +1,4 @@
+#pragma once
 #define ROOT_PATH "/"
 
 #define NRO_PATH_1 "/switch/Calculator_NX.nro" // This is for if the user manually got this app from my GitHub

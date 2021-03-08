@@ -1,4 +1,9 @@
-#include "utils.hpp"
+#include "download.hpp"
+
+size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
+    size_t written = fwrite(ptr, size, nmemb, stream);
+    return written;
+}
 
 void downloadFile(const char *url, const char *filename) {
     CURL *curl;
@@ -16,7 +21,7 @@ void downloadFile(const char *url, const char *filename) {
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
 
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 
         res = curl_easy_perform(curl);
