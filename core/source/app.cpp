@@ -30,7 +30,8 @@ void run_app() {
     char tmpoutstr[16] = {0};
 
     std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << std::endl;
-    std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
+    std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << std::endl;
+    std::cout << "Note: You should use the GUI version of this app. This version will no longer get updates." << std::endl;
 
     // Main loop
     while (appletMainLoop())
@@ -117,8 +118,8 @@ void run_app() {
             std::cout << "The answer is: " << Calculator::solve(full_nums, operation) << std::endl;
 
             // I just noticed that the string below says \nand at some point
-            std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << "\n";
-            std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << "\n";
+            std::cout << "Press up for Addition, \ndown for Subtraction, \nleft for Mutiplication, \nand right for Division." << std::endl;
+            std::cout << "ZL/L to Calculate, Y to switch to GUI mode, Plus to exit" << std::endl;
         }
         
         //std::cout << operation << "\n";
