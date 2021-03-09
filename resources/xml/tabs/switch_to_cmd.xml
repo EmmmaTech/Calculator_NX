@@ -12,4 +12,12 @@
         style="primary"
         text="@i18n/nxgui/components/switch_gui"/>
 
+    <brls:Label
+        width="auto"
+        height="auto"
+        textAlign="center"
+        fontSize="40"
+        marginBottom="10px"
+        text="@i18n/nxgui/components/switch_gui_warning"/>
+
 </brls:Box>

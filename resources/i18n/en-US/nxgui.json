@@ -26,6 +26,7 @@
          "labels_version": "Version 1.3.2",
 
          "switch_gui": "Switch over to the CMD Version",
+         "switch_gui_warning": "NOTE: The CMD version is depercated since the GUI version looks better.\nYou can still use it, but it'll be fully gone in Version 1.4.0.",
 
          "update_reminder": "There is a new version of Calculator_NX avaiable! Would you like to update?",
          "yes": "Yes",
