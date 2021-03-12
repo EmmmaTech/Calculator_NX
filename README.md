@@ -3,7 +3,7 @@
 # Calculator_NX
 This is my C++ Calculator program, ported to the Nintendo Switch.
 
-This app can now be used in a GUI way, or the normal Command-Line looking way. The app by default uses the GUI version.
+This app can now be used in a GUI way, or the normal Command-Line looking way. The app by default uses the GUI version. The command-line version (or CMD for short) has been deprecated. You should instead use the GUI version.
 
 [Join the Discord Server!](https://discord.gg/WXKMvK2NRe)
 
@@ -32,7 +32,7 @@ Any errors relating to borealis should be reported.
 
 ## PLANNED FEATURES
 
-There aren't any planned features at the moment.
+Some planned features include translating the app. If you know English and another language (it doesn't have to be well), then join my Discord Server and we can discuss the translating part!
 
 ## CREDITS
 
