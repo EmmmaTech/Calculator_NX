@@ -5,9 +5,6 @@
 #define NRO_PATH_2 "/switch/Calculator_NX/Calculator_NX.nro" // This is for if the user downloaded this app from HB App Store
 
 #define CONFIG_PATH "/config/Calculator_NX/"
-#define GUI_DEFAULT_FILE "gui_default.txt"
-#define CMD_DEFAULT_FILE "cmd_default.txt"
-
 #define DOWNLOAD_PATH "/config/Calculator_NX/download/"
 
 #define JSON_DOWNLOAD_FILE "latest-tag.json"

@@ -98,25 +98,21 @@ namespace Calculator {
             switch (turnStringToIntOperator(operation)) {
             case 1: {
                     answer = Addition(answer, num_deque[i]);
-                    //std::cout << answer << "\n";
                     break;
             }
 
             case 2: {
                     answer = Subtraction(answer, num_deque[i]);
-                    //std::cout << answer << "\n";
                     break;
             }
 
             case 3: {
                     answer = Mutiplication(answer, num_deque[i]);
-                    //std::cout << answer << "\n";
                     break;
             }
 
             case 4: {
                     answer = Division(answer, num_deque[i]);
-                    //std::cout << answer << "\n";
                     break;
             }
 

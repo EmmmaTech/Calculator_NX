@@ -11,16 +11,15 @@
 
     <!-- About Page --> 
     <brls:Tab label="@i18n/nxgui/tabs/about">
-        <!--<brls:View xml="@res/xml/tabs/about.xml" />-->
         <AboutTab/>
     </brls:Tab>
     
     <brls:Separator/>
 
-    <!-- Switching to GUI Mode -->
-    <brls:Tab label="@i18n/nxgui/tabs/switch_gui_tab">
-        <SwitchToCMD/>
-    </brls:Tab>
+    <!-- Settings page (coming soon) -->
+    <!-- <brls:Tab label="@i18n/nxgui/tabs/settings"> -->
+        <!-- <SettingsTab/> -->
+    <!-- </brls:Tab> -->
 
     <brls:Separator/>
 

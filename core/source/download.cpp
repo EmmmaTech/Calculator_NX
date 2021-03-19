@@ -5,7 +5,7 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
     return written;
 }
 
-void downloadFile(const char *url, const char *filename) {
+CURLcode downloadFile(const char *url, const char *filename) {
     CURL *curl;
     FILE *fp;
     CURLcode res;
@@ -30,11 +30,11 @@ void downloadFile(const char *url, const char *filename) {
         fclose(fp);
     }
 
-    return;
+    return res;
 }
 
 std::string getLatestTag(std::string url) {
-    downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
+    CURLcode code = downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
 
     json api_data;
     std::ifstream api_file(JSON_DOWNLOAD_PATH);
@@ -46,8 +46,7 @@ std::string getLatestTag(std::string url) {
 }
 
 std::string getLatestDownload(std::string url) {
-    const char *full_filename = JSON_DOWNLOAD_PATH;
-    downloadFile(url.c_str(), full_filename);
+    CURLcode code = downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
 
     json api_data;
     std::ifstream api_file(JSON_DOWNLOAD_PATH);
