@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/natinusala/borealis.git
 	branch = main
-	commit = a918867c92f1ae36fb66d084394cf9b473c839c9
-	parent = 3d80b92476c87f276fd6c07e88fd0466106ffa64
+	commit = 7a9a085b9850e56291d71511bc78680e0a5ef5d2
+	parent = e51a6b40f2d4234f274d49c05c202314c9494d97
 	method = merge
 	cmdver = 0.4.3
