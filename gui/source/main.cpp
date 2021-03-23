@@ -22,15 +22,7 @@
     SOFTWARE.
 */
 
-// Include libraries for the calculator program
-#include <iostream>
 #include <string>
-#include <stdexcept>
-#include <exception>
-#include <vector>
-#include <utility>
-
-// Include additional libraries for the Switch program
 #include <switch.h>
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
