@@ -61,6 +61,8 @@ int main(int argc, char* argv[]) {
 
     brls::Application::createWindow("nxgui/title"_i18n);
 
+    brls::Application::setGlobalQuit(true);
+
     // Initlize the XML configs
     brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
     brls::Application::registerXMLView("AboutTab", AboutTab::create);
