@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CORE_CALCULATOR_INCLUDED
+#define CORE_CALCULATOR_INCLUDED
 
 #include <iostream>
 #include <sstream>
@@ -9,6 +10,7 @@
 #include <type_traits>
 
 namespace Calculator {
+
     template <typename T>
     struct MathCalculator {
 
@@ -19,22 +21,22 @@ namespace Calculator {
         }
         
         // Smaller functions for solving problems. Used mostly in the function below
-        static T Addition(T a, T b) {
+        T OldAddition(T a, T b) {
             T answer{};
             answer = a + b;
             return answer;
         }
-        static T Subtraction(T a, T b) {
+        T OldSubtraction(T a, T b) {
             T answer{};
             answer = a - b;
             return answer;
         }
-        static T Mutiplication(T a, T b) {
+        T OldMutiplication(T a, T b) {
             T answer{};
             answer = a * b;
             return answer;
         }
-        static T Division(T a, T b) {
+        T OldDivision(T a, T b) {
             T answer{};
             answer = a / b;
             return answer;
@@ -43,22 +45,22 @@ namespace Calculator {
         // Older method that solves only 2 numbers at a time
         T CalculateInt(std::string Operator, T a, T b) {
             // Find out what operator the user is using, then solve
-            if (Operator == "+" || Operator == "addition") return this->Addition(a, b);
-            if (Operator == "-" || Operator == "subtraction") return this->Subtraction(a, b);
-            if (Operator == "*" || Operator == "mutiplication") return this->Mutiplication(a, b);
-            if (Operator == "/" || Operator == "division") return this->Division(a, b);
+            if (Operator == "+" || Operator == "addition") return this->OldAddition(a, b);
+            if (Operator == "-" || Operator == "subtraction") return this->OldSubtraction(a, b);
+            if (Operator == "*" || Operator == "mutiplication") return this->OldMutiplication(a, b);
+            if (Operator == "/" || Operator == "division") return this->OldDivision(a, b);
 
             // Returns the answer for another variable
             return 0;
         }
 
         // Alternative method using std::vectors, newer one is recommended
-        T CalculateMoreInt(std::string_view Operator) {
+        /*T CalculateMoreInt(const std::string& Operator) {
             T answer = VectorCalculator[0];
             VectorCalculator.erase(VectorCalculator.begin());
 
             while (!VectorCalculator.empty()) {
-                switch (turnStringToIntOperator(Operator)) {
+                switch (Calculator::Convert::turnStringToIntOperator(Operator)) {
                 case 1:
                 answer += VectorCalculator[0];
                 break;
@@ -83,21 +85,10 @@ namespace Calculator {
             }
 
             return answer;
-        }
+        } TODO: Restore*/
 
         bool contains_number(std::string str) {
             return (str.find_first_of("0123456789") != std::string::npos);
-        }
-
-        static int turnStringToIntOperator (std::string_view string) {
-            if (string == "+" || string == "-" || string == "*" || string == "/") {
-                if (string == "+") return 1;
-                if (string == "-") return 2;
-                if (string == "*") return 3;
-                if (string == "/") return 4;
-            } else return 0;
-
-            return 0; 
         }
 
         void setVector(T newInt){
@@ -108,34 +99,15 @@ namespace Calculator {
         std::vector<T> VectorCalculator;
     };
 
-    // New methods involving Variadic Templates
-    static float Addition();
-
-    static float Subtraction();
-
-    static float Mutiplication();
-
-    static float Division();
-
-
-    template <typename T, typename... Types>
-    static float Addition(T var, Types... rest);
-
-    template <typename T, typename... Types>
-    static float Subtraction(T var, Types... rest);
-
-    template <typename T, typename... Types>
-    static float Mutiplication(T var, Types... rest);
-
-    template <typename T, typename... Types>
-    static float Division(T var, Types... rest);
-
-    static int turnStringToIntOperator (std::string_view string);
+    namespace Convert {
+        int turnStringToIntOperator (const std::string& string);
+    }
 
     // Newer method for solving "infinite" amount of numbers, still involves std::vector
     // Instead of deleting the first number in the std::vector, this approach loops through all the elements in the std::vector
     // This in the end is easier to use
-    float solve(std::vector<float>& vec, std::string_view operation);
+    float solve(std::vector<float>& vec, const std::string& operation);
 
-    float solve(std::string numbers, std::string_view operation);
+    float solve(std::string numbers, const std::string& operation);
 }
+#endif // #ifndef CORE_CALCULATOR_INCLUDED

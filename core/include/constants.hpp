@@ -37,4 +37,4 @@
 #define NRO_DOWNLOAD_PATH "/config/Calculator_NX/download/Calculator_NX.nro"
 
 #define API_URL "https://api.github.com/repos/EmreTech/Calculator_NX/releases/latest"
-#define APP_VERSION "v1.3.2-beta"
+#define APP_VERSION "v1.3.2-beta2"

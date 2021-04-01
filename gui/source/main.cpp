@@ -23,6 +23,7 @@
 */
 
 #include <string>
+#include <filesystem>
 #include <switch.h>
 #include <borealis.hpp>
 #include "calculatorTab.hpp"
@@ -30,8 +31,6 @@
 #include "aboutTab.hpp"
 #include "updateActivity.hpp"
 #include "updaterTab.hpp"
-#include <filesystem>
-#include <fstream>
 #include "constants.hpp"
 #include "download.hpp"
 
@@ -40,8 +39,7 @@ using namespace brls::literals;
 int main(int argc, char* argv[]) {
     bool versionsSame;
 
-    if (!std::filesystem::exists(CONFIG_PATH)) std::filesystem::create_directory(CONFIG_PATH);
-    if (!std::filesystem::exists(DOWNLOAD_PATH)) std::filesystem::create_directory(DOWNLOAD_PATH);
+    if (!std::filesystem::exists(DOWNLOAD_PATH)) std::filesystem::create_directories(DOWNLOAD_PATH);
 
     socketInitializeDefault();
 
@@ -74,7 +72,7 @@ int main(int argc, char* argv[]) {
     if (versionsSame)
         brls::Application::pushActivity(new MainActivity());
     else
-        brls::Application::pushActivity(new updateActivity());
+        brls::Application::pushActivity(new UpdateActivity());
 
     // Main application loop
     while (brls::Application::mainLoop());

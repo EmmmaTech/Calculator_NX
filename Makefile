@@ -30,7 +30,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
 VERSION := 1.3.2
-STABLE := Beta
+STABLE := Beta 2
 
 APP_TITLE := Calculator_NX
 APP_AUTHOR := EmreTech

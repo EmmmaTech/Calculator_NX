@@ -37,9 +37,8 @@
 #include "constants.hpp"
 
 #define API_AGENT "EmreTech"
-using json = nlohmann::json;
 
 size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream);
 CURLcode downloadFile(const char *url, const char *filename);
-std::string getLatestTag(std::string url);
-std::string getLatestDownload(std::string url);
+std::string getLatestTag(const std::string url);
+std::string getLatestDownload(const std::string url);

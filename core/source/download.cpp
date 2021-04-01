@@ -57,10 +57,10 @@ CURLcode downloadFile(const char *url, const char *filename) {
     return res;
 }
 
-std::string getLatestTag(std::string url) {
-    CURLcode code = downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
+std::string getLatestTag(const std::string url) {
+    downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
 
-    json api_data;
+    nlohmann::json api_data;
     std::ifstream api_file(JSON_DOWNLOAD_PATH);
 
     api_file >> api_data;
@@ -69,10 +69,10 @@ std::string getLatestTag(std::string url) {
     return api_data["tag_name"];
 }
 
-std::string getLatestDownload(std::string url) {
-    CURLcode code = downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
+std::string getLatestDownload(const std::string url) {
+    downloadFile(url.c_str(), JSON_DOWNLOAD_PATH);
 
-    json api_data;
+    nlohmann::json api_data;
     std::ifstream api_file(JSON_DOWNLOAD_PATH);
 
     api_file >> api_data;
