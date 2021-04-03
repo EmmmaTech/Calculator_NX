@@ -28,6 +28,19 @@
 #include "constants.hpp"
 #include <string>
 #include <filesystem>
+#include <fstream>
+#include <switch.h>
+
+bool copyFile(const std::string &from, const std::string &to){
+        std::ifstream src(from, std::ios::binary);
+        std::ofstream dst(to, std::ios::binary);
+
+        if (src.good() && dst.good()) {
+            dst << src.rdbuf();
+            return true;
+        }
+        return false;
+}
 
 UpdaterTab::UpdaterTab() {
     this->inflateFromXMLRes("xml/tabs/updater.xml");
@@ -37,18 +50,31 @@ UpdaterTab::UpdaterTab() {
 }
 
 bool UpdaterTab::onYesButtonClicked(brls::View* view) {
-    //TODO: Actually update the app
-    this->verboseLabel->setText("Finding the URL for the app...");
+    brls::Logger::debug("Grabbing URL...");
+
+    //this->verboseLabel->setText("Finding the URL for the app...");
     std::string url_download = getLatestDownload(API_URL);
+    brls::Logger::debug("Found URL! It's {}.", url_download);
 
-    this->verboseLabel->setText("URL found! Downloading from URL...");
+    //this->verboseLabel->setText("URL found! Downloading from URL...");
     downloadFile(url_download.c_str(), NRO_DOWNLOAD_PATH);
+    brls::Logger::debug("File downloaded!");
 
-    this->verboseLabel->setText("File downloaded! Moving to the /switch folder...");
-    if (std::filesystem::exists(NRO_PATH_1))
-        std::filesystem::copy_file(NRO_DOWNLOAD_PATH, NRO_PATH_1);
-    else
-        std::filesystem::copy_file(NRO_DOWNLOAD_PATH, NRO_PATH_2);
+    //this->verboseLabel->setText("File downloaded! Moving to the /switch folder...");
+    if (std::filesystem::exists(NRO_PATH_1)) {
+        brls::Logger::debug("{} exists!", NRO_PATH_1);
+        copyFile(NRO_DOWNLOAD_PATH, std::string(SWITCH_PATH) + "Calculator_NX_New.nro");
+        std::filesystem::remove(NRO_PATH_1);
+        std::filesystem::rename(std::string(SWITCH_PATH) + "Calculator_NX_New.nro", NRO_PATH_1);
+        return true;
+    }
+    else {
+        brls::Logger::debug("{} exists!", NRO_PATH_2);
+        copyFile(NRO_DOWNLOAD_PATH, std::string(CALCULATOR_NX_PATH) + "Calculator_NX_New.nro");
+        std::filesystem::remove(NRO_PATH_2);
+        std::filesystem::rename(std::string(CALCULATOR_NX_PATH) + "Calculator_NX_New.nro", NRO_PATH_2);
+        return true;
+    }
 
     return true;
 }

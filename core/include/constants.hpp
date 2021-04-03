@@ -24,6 +24,8 @@
 
 #pragma once
 #define ROOT_PATH "/"
+#define SWITCH_PATH "/switch/"
+#define CALCULATOR_NX_PATH "/switch/Calculator_NX/"
 
 #define NRO_PATH_1 "/switch/Calculator_NX.nro" // This is for if the user manually got this app from my GitHub
 #define NRO_PATH_2 "/switch/Calculator_NX/Calculator_NX.nro" // This is for if the user downloaded this app from HB App Store

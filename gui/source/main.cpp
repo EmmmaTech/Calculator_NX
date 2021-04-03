@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
     socketInitializeDefault();
 
     // Set up the logger 
-    brls::Logger::setLogLevel(brls::LogLevel::INFO);
+    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
     std::string version_from_api = getLatestTag(std::string(API_URL));
     std::string currentVersion = std::string(APP_VERSION);

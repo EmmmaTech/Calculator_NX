@@ -28,15 +28,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <Project name>.jpg
 #     - icon.jpg
 #     - <libnx folder>/default_icon.jpg
-#---------------------------------------------------------------------------------
-VERSION := 1.3.2
-STABLE := Beta 2
-
-APP_TITLE := Calculator_NX
-APP_AUTHOR := EmreTech
-APP_VERSION := ${VERSION} ${STABLE}
-ICON := resources/icon/Calculator_NX_Icon.jpg
-#---------------------------------------------------------------------------------
+#
 # CONFIG_JSON is the filename of the NPDM config file (.json), relative to the project folder.
 #   If not set, it attempts to use one of the following (in this order):
 #     - <Project name>.json
@@ -45,6 +37,14 @@ ICON := resources/icon/Calculator_NX_Icon.jpg
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
+VERSION := 1.3.2
+STABLE := Beta 2
+
+APP_TITLE := Calculator_NX
+APP_AUTHOR := EmreTech
+APP_VERSION := ${VERSION} ${STABLE}
+ICON := resources/icon/Calculator_NX_Icon.jpg
+
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	core/source gui/source
