@@ -11,15 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Get libraries
-        run: |
-          sudo dkp-pacman -Syu
-          sudo dkp-pacman -S switch-dev
-          sudo dkp-pacman -S switch-glfw switch-mesa switch-glm
-      
       - name: Build Calculator_NX
-        run: |
-          make -j$(nproc)
+        run: make -j$(nproc)
           
-    
 
