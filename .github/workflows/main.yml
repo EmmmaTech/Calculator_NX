@@ -10,11 +10,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Get libraries
+        run: |
+          sudo dkp-pacman -Syu
+          sudo dkp-pacman -S switch-dev
+          sudo dkp-pacman -S switch-glfw switch-mesa switch-glm
+      
+      - name: Build Calculator_NX
+        run: |
+          make -j$(nproc)
+          
+    
 
-      - name: Build
-        run: make -j$(nproc)
-        
-      - uses: actions/upload-artifact@master
-        with:
-          name: Calculator_NX
-          path: Calculator_NX.nro
