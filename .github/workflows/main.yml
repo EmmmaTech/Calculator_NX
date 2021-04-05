@@ -11,7 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Install all libraries
+        run : |
+              sudo dkp-pacman -S $(dkp-pacman -Ssq switch-*) --noconfirm
+      
       - name: Build Calculator_NX
-        run: make -j$(nproc)
+        run : |
+              make -j$(nproc)
           
 
