@@ -49,7 +49,7 @@ TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	core/source gui/source
 DATA		:=	data
-INCLUDES	:=	core/include gui/include lib/json
+INCLUDES	:=	core/include gui/include $(BOREALIS_PATH)/library/include/borealis/extern/nlohmann/
 ROMFS	    :=	resources
 BOREALIS_PATH := lib/borealis
 
