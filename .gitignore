@@ -2,8 +2,4 @@ build/*
 *.elf
 *.nacp
 *.nro
-*.dksh
-*.dksh
 .vscode/*
-./resources/shaders/**
-resources/shaders/fill_vsh.dksh
