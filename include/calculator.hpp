@@ -4,7 +4,7 @@
 #include <string>
 #include <cmath>
 
-#include "singleton.hpp"
+#include <singleton.hpp>
 
 /**
  * @brief A class that can solve mathematical expressions.

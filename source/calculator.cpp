@@ -52,6 +52,8 @@ double Calculator::evaluateExpression(std::string &exp)
 
         else pos++;
     }
+
+    return vStack.top();
 }
 
 void Calculator::ExecuteOperation()

@@ -47,12 +47,12 @@ ICON        := resources/icon/Calculator_NX_Icon.jpg
 
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	src
+SOURCES		:=	source
 DATA		:=	data
-INCLUDES	:=	src
+INCLUDES	:=	include
 
 ROMFS		       := resources
-BOREALIS_PATH      := src/lib/borealis
+BOREALIS_PATH      := lib/borealis
 BOREALIS_RESOURCES := romfs:/
 
 #---------------------------------------------------------------------------------
