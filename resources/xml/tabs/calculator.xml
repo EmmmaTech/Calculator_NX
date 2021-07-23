@@ -1,0 +1,179 @@
+<brls:Box
+    width="auto"
+    height="auto"
+    axis="column">
+
+    <brls:Box
+        width="500" 
+        height="500"
+        axis="column">
+
+        <brls:Box
+            width="100%"
+            height="20%">
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                text="@i18n/text/calculator/expression_enter"
+                fontSize="25"/>
+
+        </brls:Box>
+
+        <brls:Box
+            width="100%"
+            height="80%">
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="("/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text=")"/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="9"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="6"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="3"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="0"/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="8"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="5"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="2"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="."/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="7"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="4"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="1"/>
+
+                <brls:Rectangle
+                    width="auto"
+                    height="auto"
+                    color="#000000"/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="+"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="-"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="*"/>
+
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="/"/>
+                    
+                <brls:Button
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="="/>
+
+            </brls:Box>
+
+        </brls:Box>
+
+    </brls:Box>
+
+</brls:Box>

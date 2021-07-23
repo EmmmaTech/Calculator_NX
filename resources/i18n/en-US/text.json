@@ -1,0 +1,13 @@
+{
+    "title": "Calculator_NX Rewrite",
+
+    "tabs": {
+        "calculator": "Calculator",
+        "settings": "Settings",
+        "about": "About Calculator_NX"
+    },
+
+    "calculator": {
+        "expression_enter": "Enter an expression"
+    }
+}
