@@ -92,4 +92,5 @@ void CalculatorTab::updateScreenBufferFromExpStr()
     screenBuffer = expressionStr;
     if (expressionStr.length() >= 30)
         screenBuffer = expressionStr.substr(29);
+    updateScreen();
 }

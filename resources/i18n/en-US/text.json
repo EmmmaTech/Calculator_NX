@@ -1,5 +1,6 @@
 {
     "title": "Calculator_NX Rewrite",
+    "update_title": "Calculator_NX Updater",
 
     "tabs": {
         "calculator": "Calculator",
@@ -14,5 +15,11 @@
     "about": {
         "appname": "Calculator_NX",
         "developer": "Developed by EmreTech"
+    },
+
+    "updater": {
+        "starting_update": "Starting update...",
+        "downloading_update": "Downloading the latest version...",
+        "restarting_to_finish": "About to restart to finish the update."
     }
 }

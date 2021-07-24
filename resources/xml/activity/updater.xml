@@ -1,0 +1,7 @@
+<brls:AppletFrame
+    title="@i18n/text/update_title"
+    icon="@res/icon/Calculator_NX_Icon_Alt.jpg">
+
+    <UpdaterTab />
+
+</brls:AppletFrame>

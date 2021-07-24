@@ -1,5 +1,4 @@
 #include <borealis.hpp>
-#include <nlohmann/json.hpp>
 
 #include <calculatorTab.hpp>
 #include <aboutTab.hpp>
