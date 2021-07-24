@@ -11,6 +11,8 @@
 
     <brls:Separator/>
 
-    <brls:Tab label="@i18n/text/tabs/about"/>
+    <brls:Tab label="@i18n/text/tabs/about">
+        <AboutTab />
+    </brls:Tab>
 
 </brls:TabFrame>

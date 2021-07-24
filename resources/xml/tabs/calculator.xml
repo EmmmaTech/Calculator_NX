@@ -13,6 +13,7 @@
             height="20%">
 
             <brls:Label
+                id="screen"
                 width="auto"
                 height="auto"
                 text="@i18n/text/calculator/expression_enter"
@@ -30,16 +31,25 @@
                 axis="column">
 
                 <brls:Button
+                    id="(Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="("/>
 
                 <brls:Button
+                    id=")Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text=")"/>
+
+                <brls:Button
+                    id="DelButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="DEL"/>
 
             </brls:Box>
 
@@ -49,24 +59,28 @@
                 axis="column">
 
                 <brls:Button
+                    id="9Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="9"/>
 
                 <brls:Button
+                    id="6Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="6"/>
 
                 <brls:Button
+                    id="3Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="3"/>
 
                 <brls:Button
+                    id="0Button"
                     width="auto"
                     height="auto"
                     style="primary"
@@ -80,24 +94,28 @@
                 axis="column">
 
                 <brls:Button
+                    id="8Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="8"/>
 
                 <brls:Button
+                    id="5Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="5"/>
 
                 <brls:Button
+                    id="2Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="2"/>
 
                 <brls:Button
+                    id="DotButton"
                     width="auto"
                     height="auto"
                     style="primary"
@@ -111,18 +129,21 @@
                 axis="column">
 
                 <brls:Button
+                    id="7Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="7"/>
 
                 <brls:Button
+                    id="4Button"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="4"/>
 
                 <brls:Button
+                    id="1Button"
                     width="auto"
                     height="auto"
                     style="primary"
@@ -141,30 +162,35 @@
                 axis="column">
 
                 <brls:Button
+                    id="PlusButton"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="+"/>
 
                 <brls:Button
+                    id="MinusButton"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="-"/>
 
                 <brls:Button
+                    id="MultiplyButton"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="*"/>
 
                 <brls:Button
+                    id="DivideButton"
                     width="auto"
                     height="auto"
                     style="primary"
                     text="/"/>
                     
                 <brls:Button
+                    id="EqualButton"
                     width="auto"
                     height="auto"
                     style="primary"

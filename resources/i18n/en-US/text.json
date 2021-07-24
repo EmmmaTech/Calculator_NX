@@ -9,5 +9,10 @@
 
     "calculator": {
         "expression_enter": "Enter an expression"
+    },
+
+    "about": {
+        "appname": "Calculator_NX",
+        "developer": "Developed by EmreTech"
     }
 }
