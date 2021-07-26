@@ -1,4 +1,5 @@
 build/*
+cnx_forwarder/build/*
 *.elf
 *.nacp
 *.nro

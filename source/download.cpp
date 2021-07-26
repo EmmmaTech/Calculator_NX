@@ -76,5 +76,5 @@ std::string getLatestDownload(bool nightly)
     api_file >> api_data;
     api_file.close();
 
-    return api_data["assets"][12/*"browser_download_url"*/];
+    return api_data["assets"][0]["browser_download_url"];
 }

@@ -1,6 +1,8 @@
 #pragma once
 
 #define CALCULATOR_NX_PATH "/switch/Calculator_NX"
+#define PATH_1 "/switch/Calculator_NX/Calculator_NX.nro"
+#define PATH_2 "/switch/Calculator_NX.nro"
 
 #define CONFIG_PATH "/config/Calculator_NX"
 #define DOWNLOAD_PATH "/config/Calculator_NX/download"
