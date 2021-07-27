@@ -9,5 +9,4 @@ struct AboutTab : public brls::Box
     static brls::View* create();
 
     private:
-    BRLS_BIND(brls::Label, versionLabel, "Version Label");
 };

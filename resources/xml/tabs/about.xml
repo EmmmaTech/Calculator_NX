@@ -1,55 +1,38 @@
 <brls:Box
     width="auto"
     height="auto"
-    alignItems="center"
-    justifyContent="center">
+    axis="column"
+    paddingLeft="@style/brls/tab_frame/content_padding_sides"
+    paddingRight="@style/brls/tab_frame/content_padding_sides"
+    paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
+    paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
+
+    <brls:Image
+        width="auto"
+        height="auto"
+        image="@res/Calculator_NX.jpg"
+        marginBottom="20px"/>
 
     <brls:Box
         width="auto"
         height="auto"
         axis="column"
-        paddingLeft="@style/brls/tab_frame/content_padding_sides"
-        paddingRight="@style/brls/tab_frame/content_padding_sides"
-        paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
-        paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
+        justifyContent="spaceEvenly">
 
-        <brls:Image
+        <brls:Label
             width="auto"
             height="auto"
-            image="@res/Calculator_NX.jpg"
-            marginBottom="20px"/>
+            horizontalAlign="center"
+            fontSize="40"
+            marginBottom="20px"
+            text="@i18n/text/about/appname"/>
 
-        <brls:Box
+        <brls:Label
             width="auto"
             height="auto"
-            axis="column"
-            justifyContent="spaceEvenly">
-
-            <brls:Label
-                width="auto"
-                height="auto"
-                horizontalAlign="center"
-                fontSize="40"
-                marginBottom="10px"
-                text="@i18n/text/about/appname"/>
-
-            <brls:Label
-                id="Version Label"
-                width="auto"
-                height="auto"
-                horizontalAlign="center"
-                fontSize="15"
-                text="Unknown"/>
-
-            <brls:Label
-                width="auto"
-                height="auto"
-                horizontalAlign="center"
-                fontSize="20"
-                text="@i18n/text/about/developer"/>
+            horizontalAlign="center"
+            text="@i18n/text/about/developer"/>
             
-        </brls:Box>
-
     </brls:Box>
 
 </brls:Box>

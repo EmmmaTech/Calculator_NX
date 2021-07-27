@@ -1,8 +1,7 @@
 #include <borealis.hpp>
 #include <switch.h>
 
-#include <filesystem>
-
+#include <fs.hpp>
 #include <constants.hpp>
 #include <calculatorTab.hpp>
 #include <aboutTab.hpp>
@@ -19,10 +18,10 @@ int main(int argc, char *argv[])
     if (!std::filesystem::exists(PATH_1))
     {
         std::filesystem::create_directory(CALCULATOR_NX_PATH);
-        std::filesystem::copy_file(PATH_2, PATH_1);
+        fs::copyFile(PATH_1, PATH_2);
         envSetNextLoad(PATH_1, ("\"" + std::string(PATH_1) + "\"").c_str());
     }
-
+ 
     if (std::filesystem::exists(PATH_2))
         std::filesystem::remove(PATH_2);
 
