@@ -10,8 +10,6 @@ using namespace brls::literals;
 
 int main(int argc, char *argv[])
 {
-    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
-
     // File-related checks before booting
 
     /*
@@ -26,8 +24,8 @@ int main(int argc, char *argv[])
         std::filesystem::remove(PATH_2);
     */
 
-    if (!std::filesystem::exists(CONFIG_PATH))
-        std::filesystem::create_directories(CONFIG_PATH);
+    if (!std::filesystem::exists(DOWNLOAD_PATH))
+        std::filesystem::create_directories(DOWNLOAD_PATH);
 
     // Init the borealis application
 

@@ -17,11 +17,7 @@
     "updater": {
         "checking": "Checking for new updates...",
         "no_update": "No updates are available right now.",
-        "new_update": "A new update is available! Would you like to install it right now?",
-        "yes": "Yes",
-        "no": "No",
-        "downloading": "Downloading the update...",
-        "restart": "A restart is required to continue." 
+        "new_update": "A new update is available!"
     },
 
     "about": {
