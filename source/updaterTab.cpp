@@ -20,8 +20,7 @@ const std::string updaterTabXml = R"xml(
             id="mainLabel"
             width="auto"
             height="auto"
-            fontSize="15"
-            text="@i18n/text/updater/checking"/>
+            fontSize="25"/>
 
     </brls:Box>
 )xml";
@@ -30,22 +29,13 @@ UpdaterTab::UpdaterTab()
 {
     this->inflateFromXMLString(updaterTabXml);
 
-    std::string currentTagVersion = "v{0}{1}";
+    std::string currentTagVersion = "v{}";
     if (STABLE == std::string("Nightly"))
-        currentTagVersion = fmt::format(currentTagVersion, VERSION_NUM, "-nightly");
+        currentTagVersion = fmt::format(currentTagVersion, VERSION_NUM) + "-nightly";
     else
         currentTagVersion = fmt::format(currentTagVersion, VERSION_NUM);
 
-    brls::Logger::debug("Current version in GitHub tag format: {}", currentTagVersion);
-
-    if (getLatestTag(STABLE == std::string("Nightly")) != currentTagVersion)
-    {
-        std::string downloadUrl = getLatestDownload(STABLE == std::string("Nightly"));
-        downloadFile(downloadUrl, DOWNLOAD_PATH + std::string("/Calculator_NX.nro"));
-        fs::copyFile(CONFIG_FORWARDER_PATH, ROMFS_FORWARDER_PATH);
-        brls::Application::quit();
-        envSetNextLoad(CONFIG_FORWARDER_PATH, ("\"" + std::string(CONFIG_FORWARDER_PATH) + "\"").c_str());
-    }
+    MainLabel->setText(fmt::format("Current version in GitHub tag format: {}", currentTagVersion));
 }
 
 brls::View* UpdaterTab::create()

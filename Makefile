@@ -37,7 +37,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
-VERSION := 2.0.0
+VERSION := 2.0.0.3
 STABLE := Nightly
 
 APP_TITLE   := Calculator_NX Rewrite
@@ -63,7 +63,7 @@ OUT_SHADERS	:=	shaders
 ARCH	:=	-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -fPIE
 
 CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
-			$(ARCH) $(DEFINES)
+			$(ARCH) $(DEFINES) `curl-config --cflags`
 
 CFLAGS	+=	$(INCLUDE) -D__SWITCH__ -DVERSION_NUM=\"$(VERSION)\" -DSTABLE=\"$(STABLE)\"
 
@@ -72,7 +72,7 @@ CXXFLAGS	:= $(CFLAGS) -std=c++17 -O2 -Wno-volatile
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lnx -lcurl
+LIBS	:= -lnx `curl-config --libs`
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing

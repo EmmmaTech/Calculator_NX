@@ -4,6 +4,7 @@
 #include <fs.hpp>
 #include <constants.hpp>
 #include <mainActivity.hpp>
+#include <download.hpp>
 
 using namespace brls::literals;
 
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
 
     // File-related checks before booting
 
+    /*
     if (!std::filesystem::exists(PATH_1))
     {
         std::filesystem::create_directory(CALCULATOR_NX_PATH);
@@ -22,10 +24,11 @@ int main(int argc, char *argv[])
  
     if (std::filesystem::exists(PATH_2))
         std::filesystem::remove(PATH_2);
+    */
 
     if (!std::filesystem::exists(CONFIG_PATH))
         std::filesystem::create_directories(CONFIG_PATH);
-    
+
     // Init the borealis application
 
     if (!brls::Application::init())
@@ -43,6 +46,6 @@ int main(int argc, char *argv[])
     // Start the main application loop
 
     while (brls::Application::mainLoop());
- 
+
     return EXIT_SUCCESS;
 }
