@@ -3,8 +3,6 @@
 
 #include <fs.hpp>
 #include <constants.hpp>
-#include <calculatorTab.hpp>
-#include <aboutTab.hpp>
 #include <mainActivity.hpp>
 
 using namespace brls::literals;
@@ -38,10 +36,7 @@ int main(int argc, char *argv[])
     brls::Application::createWindow("text/title"_i18n);
     brls::Application::setGlobalQuit(true);
 
-    // Register XML views and push activity
-
-    brls::Application::registerXMLView("CalculatorTab", CalculatorTab::create);
-    brls::Application::registerXMLView("AboutTab", AboutTab::create);
+    // Push activity
 
     brls::Application::pushActivity(new MainActivity());
 

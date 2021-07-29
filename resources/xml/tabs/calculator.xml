@@ -45,6 +45,13 @@
                     text=")"/>
 
                 <brls:Button
+                    id="ExprButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="^"/>
+
+                <brls:Button
                     id="DelButton"
                     width="auto"
                     height="auto"

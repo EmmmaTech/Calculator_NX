@@ -11,6 +11,7 @@ bool isOperator(char c)
         case '-':
         case '*':
         case '/':
+        case '^':
         case '(':
         return true;
         break;
@@ -84,6 +85,10 @@ void Calculator::ExecuteOperation()
         case '/':
         result = leftOper / rightOper;
         break;
+
+        case '^':
+        result = pow(leftOper, rightOper);
+        break;
     }
 
     vStack.push(result);
@@ -102,7 +107,11 @@ bool Calculator::OperatorCausesEvaluation(char op, char preOp)
 
         case '*':
         case '/':
-        eval = (preOp == '*' || preOp == '/');
+        eval = (preOp == '*' || preOp == '/' || preOp == '^');
+        break;
+
+        case '^':
+        eval = (preOp == '^');
         break;
 
         case ')':

@@ -16,23 +16,44 @@
     <brls:Box
         width="auto"
         height="auto"
-        axis="column"
-        justifyContent="spaceEvenly">
+        axis="row"
+        justifyContent="spaceEvenly"
+        marginBottom="30px">
 
         <brls:Label
             width="auto"
             height="auto"
             horizontalAlign="center"
             fontSize="40"
-            marginBottom="20px"
+            marginRight="20px"
             text="@i18n/text/about/appname"/>
 
         <brls:Label
             width="auto"
             height="auto"
             horizontalAlign="center"
+            marginLeft="20px"
             text="@i18n/text/about/developer"/>
             
+    </brls:Box>
+
+    <brls:Box
+        width="auto"
+        height="auto"
+        axis="column"
+        alignItems="center"
+        justifyContent="spaceEvenly">
+
+        <brls:Label
+            width="auto"
+            height="auto"
+            text="@i18n/text/about/github"/>
+
+        <brls:Label
+            width="auto"
+            height="auto"
+            text="@i18n/text/about/license"/>
+
     </brls:Box>
 
 </brls:Box>

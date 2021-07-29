@@ -8,6 +8,7 @@
 std::vector<std::pair<std::string,char>> allButtons {
     std::make_pair("(Button", '('),
     std::make_pair(")Button", ')'),
+    std::make_pair("ExprButton", '^'),
     std::make_pair("9Button", '9'),
     std::make_pair("6Button", '6'),
     std::make_pair("3Button", '3'),
@@ -34,7 +35,7 @@ CalculatorTab::CalculatorTab()
         char c = e.second;
 
         this->getView(e.first)->registerAction(
-            "", brls::BUTTON_A, 
+            "OK", brls::BUTTON_A, 
             [this, c](brls::View *view) {
                 onButtonPressed(c); 
                 return true;
