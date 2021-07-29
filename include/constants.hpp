@@ -6,6 +6,8 @@
 
 #define CONFIG_PATH "/config/Calculator_NX"
 #define DOWNLOAD_PATH "/config/Calculator_NX/download"
+#define CONFIG_FORWARDER_PATH "/config/Calculator_NX/cnx_forwarder.nro"
+#define ROMFS_FORWARDER_PATH "romfs:/cnx_forwarder.nro"
 
 #define TAGS_API_LINK "https://api.github.com/repos/EmreTech/Calculator_NX/tags"
 #define LATEST_RELEASE_API_LINK "https://api.github.com/repos/EmreTech/Calculator_NX/releases/latest"

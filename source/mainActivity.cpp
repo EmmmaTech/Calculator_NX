@@ -2,6 +2,7 @@
 
 #include <calculatorTab.hpp>
 #include <aboutTab.hpp>
+#include <updaterTab.hpp>
 
 using namespace brls::literals;
 
@@ -15,7 +16,7 @@ brls::View* MainActivity::createContentView()
     frame->addTab("text/tabs/calculator"_i18n, CalculatorTab::create);
     frame->addTab("text/tabs/about"_i18n, AboutTab::create);
     frame->addSeparator();
-    frame->addTab("text/tabs/updater"_i18n, []{return nullptr;});
+    frame->addTab("text/tabs/updater"_i18n, UpdaterTab::create);
 
     return frame;
 }

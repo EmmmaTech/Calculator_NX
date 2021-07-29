@@ -9,7 +9,7 @@ using namespace brls::literals;
 
 int main(int argc, char *argv[])
 {
-    //brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
+    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
     // File-related checks before booting
 
