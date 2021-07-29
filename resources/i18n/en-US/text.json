@@ -17,7 +17,8 @@
     "updater": {
         "checking": "Checking for new updates...",
         "no_update": "No updates are available right now.",
-        "new_update": "A new update is available!"
+        "new_update": "A new update is available!",
+        "exit_message": "Please exit to launch the updated app."
     },
 
     "about": {

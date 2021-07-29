@@ -77,5 +77,8 @@ bool UpdaterTab::onContinueButton(brls::View *view)
     downloadFile(urlLink, DOWNLOAD_PATH + std::string("/Calculator_NX.nro"));
     fs::copyFile(CONFIG_FORWARDER_PATH, ROMFS_FORWARDER_PATH);
     envSetNextLoad(CONFIG_FORWARDER_PATH, ("\"" + std::string(CONFIG_FORWARDER_PATH) + "\"").c_str());
+
+    ContinButton->hide([]{});
+    MainLabel->setText("text/updater/exit_message"_i18n);
     return true;
 }
