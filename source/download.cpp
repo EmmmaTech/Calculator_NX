@@ -3,51 +3,25 @@
 #include <borealis.hpp>
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
-#include <curl/curl.h>
+#include <http.hpp>
 
-#include <cstdio>
 #include <fstream>
-#include <chrono>
 
 #include <constants.hpp>
 
 constexpr const char *API_AGENT = "EmreTech";
 
-size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
+bool downloadFile(const std::string &url, const std::string &filename)
 {
-    size_t written = fwrite(ptr, size, nmemb, stream);
-    return written;
-}
-
-void downloadFile(const std::string &url, const std::string &filename)
-{
-    CURL *curl = curl_easy_init();
-    if (curl)
-    {
-        FILE *fp = fopen(filename.c_str(), "wb");
-
-        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-
-        curl_easy_setopt(curl, CURLOPT_USERAGENT, API_AGENT);
-        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-        curl_easy_setopt(curl, CURLOPT_NOBODY, 0L);
-
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-
-        curl_easy_perform(curl);
-        curl_easy_cleanup(curl);
-        fclose(fp);
-    }
+    return httpDownloadFile(filename.c_str(), url.c_str(), false, NULL, NULL);
 }
 
 std::string getLatestTag(bool nightly)
 {
-    downloadFile(
+    if (!downloadFile(
         (nightly ? TAGS_API_LINK : LATEST_RELEASE_API_LINK), DOWNLOAD_PATH + std::string("/github_api.json")
-    );
+    ))
+        return "";
 
     nlohmann::json api_data;
     std::ifstream api_file(DOWNLOAD_PATH + std::string("/github_api.json"));
@@ -69,9 +43,10 @@ std::string getLatestDownload(bool nightly)
         return fmt::format(BASE_DOWNLOAD_URL, latestTag);
     }
 
-    downloadFile(
+    if (!downloadFile(
         LATEST_RELEASE_API_LINK, DOWNLOAD_PATH + std::string("/github_api_two.json")
-    );
+    ))
+        return "";
 
     nlohmann::json api_data;
     std::ifstream api_file(DOWNLOAD_PATH + std::string("/github_api_two.json"));

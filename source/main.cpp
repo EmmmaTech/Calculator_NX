@@ -1,5 +1,6 @@
 #include <borealis.hpp>
 #include <switch.h>
+#include <http.hpp>
 
 #include <fs.hpp>
 #include <constants.hpp>
@@ -11,18 +12,6 @@ using namespace brls::literals;
 int main(int argc, char *argv[])
 {
     // File-related checks before booting
-
-    /*
-    if (!std::filesystem::exists(PATH_1))
-    {
-        std::filesystem::create_directory(CALCULATOR_NX_PATH);
-        fs::copyFile(PATH_1, PATH_2);
-        envSetNextLoad(PATH_1, ("\"" + std::string(PATH_1) + "\"").c_str());
-    }
- 
-    if (std::filesystem::exists(PATH_2))
-        std::filesystem::remove(PATH_2);
-    */
 
     if (!std::filesystem::exists(DOWNLOAD_PATH))
         std::filesystem::create_directories(DOWNLOAD_PATH);
@@ -37,6 +26,13 @@ int main(int argc, char *argv[])
     brls::Application::createWindow("text/title"_i18n);
     brls::Application::setGlobalQuit(true);
 
+    if (!httpInitialize())
+    {
+        brls::Logger::error("Could not initialize CURL, quitting...");
+        brls::Application::quit();
+        return EXIT_FAILURE;
+    }
+
     // Push activity
 
     brls::Application::pushActivity(new MainActivity());
@@ -45,5 +41,6 @@ int main(int argc, char *argv[])
 
     while (brls::Application::mainLoop());
 
+    httpExit();
     return EXIT_SUCCESS;
 }

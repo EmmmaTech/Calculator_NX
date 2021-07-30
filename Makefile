@@ -47,9 +47,9 @@ ICON        := resources/icon/Calculator_NX_Icon.jpg
 
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source
+SOURCES		:=	source lib/nxdumptool
 DATA		:=	data
-INCLUDES	:=	include
+INCLUDES	:=	include lib/nxdumptool
 
 ROMFS		       := resources
 BOREALIS_PATH      := lib/borealis

@@ -36,6 +36,8 @@ const std::string updaterTabXml = R"xml(
     </brls:Box>
 )xml";
 
+// TODO: Fix crash when selecting the updater tab in main frame
+
 UpdaterTab::UpdaterTab()
 {
     this->inflateFromXMLString(updaterTabXml);
@@ -61,8 +63,6 @@ UpdaterTab::UpdaterTab()
     else
     {
         MainLabel->setText("text/updater/no_update"_i18n);
-        brls::Application::pushActivity(new MainActivity());
-        brls::Application::popActivity();
     }
 }
 
