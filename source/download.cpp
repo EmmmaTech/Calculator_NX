@@ -16,11 +16,9 @@ bool downloadFile(const std::string &url, const std::string &filename)
     return httpDownloadFile(filename.c_str(), url.c_str(), false, NULL, NULL);
 }
 
-std::string getLatestTag(bool nightly)
+std::string getLatestTag(int nightly)
 {
-    if (!downloadFile(
-        (nightly ? TAGS_API_LINK : LATEST_RELEASE_API_LINK), DOWNLOAD_PATH + std::string("/github_api.json")
-    ))
+    if (!downloadFile(TAGS_API_LINK, DOWNLOAD_PATH + std::string("/github_api.json")))
         return "";
 
     nlohmann::json api_data;
@@ -28,31 +26,39 @@ std::string getLatestTag(bool nightly)
 
     api_file >> api_data;
     api_file.close();
-
-    if (nightly)
-        return api_data[0]["name"].get<std::string>();
-
-    return api_data["tag_name"];
-}
-
-std::string getLatestDownload(bool nightly)
-{
-    if (nightly)
+    
+    std::string ret;
+    for (auto &e : api_data)
     {
-        std::string latestTag = getLatestTag(nightly);
-        return fmt::format(BASE_DOWNLOAD_URL, latestTag);
+        if (IS_TRUE(nightly))
+        {
+            if (e["name"].get<std::string>().find("-nightly") == std::string::npos)
+                continue;
+            else
+            {
+                ret = e["name"].get<std::string>();
+                break;
+            }
+        }
+        else if (IS_FALSE(nightly))
+        {
+            if (e["name"].get<std::string>().find("-nightly") != std::string::npos || e["name"].get<std::string>().find("-beta") != std::string::npos)
+                continue;
+            else
+            {
+                ret = e["name"].get<std::string>();
+                break;
+            }
+        }
+        else if (IS_NEITHER(nightly))
+            ret = e["name"].get<std::string>();
     }
 
-    if (!downloadFile(
-        LATEST_RELEASE_API_LINK, DOWNLOAD_PATH + std::string("/github_api_two.json")
-    ))
-        return "";
+    return ret;
+}
 
-    nlohmann::json api_data;
-    std::ifstream api_file(DOWNLOAD_PATH + std::string("/github_api_two.json"));
-
-    api_file >> api_data;
-    api_file.close();
-
-    return api_data["assets"][0]["browser_download_url"];
+std::string getLatestDownload(int nightly)
+{
+    std::string latestTag = getLatestTag(nightly);
+    return fmt::format(BASE_DOWNLOAD_URL, latestTag);
 }

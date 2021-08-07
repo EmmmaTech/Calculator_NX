@@ -1,6 +1,8 @@
 build/*
 cnx_forwarder/build/*
+overlay/build/*
 *.elf
 *.nacp
 *.nro
+*.ovl
 .vscode/*

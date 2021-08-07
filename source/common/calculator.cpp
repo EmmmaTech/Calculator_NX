@@ -1,4 +1,4 @@
-#include "calculator.hpp"
+#include <calculator.hpp>
 
 namespace
 {
@@ -34,9 +34,9 @@ double Calculator::evaluateExpression(std::string &exp)
     opStack.push('(');
 
     int pos = 0;
-    while (pos <= exp.length())
+    while ((size_t)pos <= exp.length())
     {
-        if (pos == exp.length() || exp[pos] == ')')
+        if ((size_t)pos == exp.length() || exp[pos] == ')')
         {
             ProcessClosingParenthesis();
             pos++;
@@ -136,7 +136,7 @@ int Calculator::ProcessInputNumber(std::string &exp, int pos)
     int posOfDecimalPoint = -1;
 
     double val = 0.0;
-    while (pos < exp.length() && (exp[pos] >= '0' && exp[pos] <= '9' || exp[pos] == '.'))
+    while ((size_t)pos < exp.length() && ((exp[pos] >= '0' && exp[pos] <= '9') || exp[pos] == '.'))
     {
         if (exp[pos] == '.')
         {

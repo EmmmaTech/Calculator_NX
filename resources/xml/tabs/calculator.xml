@@ -156,10 +156,12 @@
                     style="primary"
                     text="1"/>
 
-                <brls:Rectangle
+                <brls:Button
+                    id="EqualButton"
                     width="auto"
                     height="auto"
-                    color="#000000"/>
+                    style="primary"
+                    text="="/>
 
             </brls:Box>
 
@@ -195,13 +197,6 @@
                     height="auto"
                     style="primary"
                     text="/"/>
-                    
-                <brls:Button
-                    id="EqualButton"
-                    width="auto"
-                    height="auto"
-                    style="primary"
-                    text="="/>
 
             </brls:Box>
 
