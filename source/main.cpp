@@ -6,7 +6,6 @@
 #include <constants.hpp>
 #include <mainActivity.hpp>
 #include <download.hpp>
-#include <config.hpp>
 
 using namespace brls::literals;
 
@@ -16,12 +15,6 @@ int main(int argc, char *argv[])
 
     if (!std::filesystem::exists(DOWNLOAD_PATH))
         std::filesystem::create_directories(DOWNLOAD_PATH);
-
-    if (std::filesystem::exists(UPDATER_SETTINGS_PATH))
-    {
-        auto settingsFile = fs::parseJsonFile(UPDATER_SETTINGS_PATH);
-        Config::getInstance().parseFromJson(settingsFile);
-    }
 
     // Init the borealis application
 

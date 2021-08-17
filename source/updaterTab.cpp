@@ -7,7 +7,6 @@
 #include <constants.hpp>
 #include <fs.hpp>
 #include <mainActivity.hpp>
-#include <config.hpp>
 
 using namespace brls::literals;
 
@@ -37,8 +36,6 @@ const std::string updaterTabXml = R"xml(
     </brls:Box>
 )xml";
 
-// TODO: Fix crash when selecting the updater tab in main frame
-
 UpdaterTab::UpdaterTab()
 {
     this->inflateFromXMLString(updaterTabXml);
@@ -52,7 +49,7 @@ UpdaterTab::UpdaterTab()
     else
         currentTagVersion = fmt::format(currentTagVersion, VERSION_NUM);
 
-    newTag = getLatestTag(Config::getInstance().isNightly);
+    newTag = getLatestTag((STABLE == std::string("Nightly") ? TRUE : FALSE));
 
    if (currentTagVersion != newTag)
    {
@@ -71,7 +68,7 @@ brls::View* UpdaterTab::create()
 
 bool UpdaterTab::onContinueButton(brls::View *view)
 {
-    std::string urlLink = getLatestDownload(Config::getInstance().isNightly);
+    std::string urlLink = getLatestDownload((STABLE == std::string("Nightly") ? TRUE : FALSE));
     downloadFile(urlLink, DOWNLOAD_PATH "Calculator_NX.nro");
     fs::copy(CONFIG_FORWARDER_PATH, ROMFS_FORWARDER_PATH);
     envSetNextLoad(CONFIG_FORWARDER_PATH, ("\"" + std::string(CONFIG_FORWARDER_PATH) + "\"").c_str());

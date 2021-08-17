@@ -5,14 +5,22 @@
 
 namespace fs
 {
-    void copy(const char *to, const char *from)
+    bool copy(const char *to, const char *from)
     {
-        // To be implemented...
+        std::ifstream src(from, std::ios::binary);
+        std::ofstream dst(to, std::ios::binary);
+
+        if (src.good() && dst.good())
+        {
+            dst << src.rdbuf();
+            return true;
+        }
+        return false;
     }
 
-    void move(const char *to, const char *from)
+    bool move(const char *to, const char *from)
     {
-        // To be implemented...
+        return copy(to, from) && std::filesystem::remove(from);
     }
 
     nlohmann::json parseJsonFile(const std::string &filepath)
