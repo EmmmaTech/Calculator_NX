@@ -1,0 +1,30 @@
+{
+    "title": "Calculator_NX Rewrite",
+    "update_title": "Calculator_NX Updater",
+
+    "footer_text": "v{0} | {1}",
+
+    "tabs": {
+        "calculator": "Calculator",
+        "updater": "Updater",
+        "about": "About Calculator_NX"
+    },
+
+    "calculator": {
+        "expression_enter": "Enter an expression"
+    },
+
+    "updater": {
+        "checking": "Checking for new updates...",
+        "no_update": "No updates are available right now.",
+        "new_update": "A new update is available!",
+        "exit_message": "Please exit to launch the updated app."
+    },
+
+    "about": {
+        "appname": "Calculator_NX",
+        "developer": "Developed by EmreTech",
+        "github": "Find it on github.com/EmreTech/Calculator_NX",
+        "license": "Calculator_NX is licensed under the MIT License."
+    }
+}

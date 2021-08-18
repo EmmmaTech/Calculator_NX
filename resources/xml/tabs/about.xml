@@ -1,46 +1,60 @@
+<!--TODO: Add Discord Server link as promotion-->
+
 <brls:Box
     width="auto"
     height="auto"
-    alignItems="center"
-    justifyContent="center">
+    axis="column"
+    paddingLeft="@style/brls/tab_frame/content_padding_sides"
+    paddingRight="@style/brls/tab_frame/content_padding_sides"
+    paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
+    paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
+
+    <brls:Image
+        width="auto"
+        height="auto"
+        image="@res/Calculator_NX.jpg"
+        marginBottom="20px"/>
+
+    <brls:Box
+        width="auto"
+        height="auto"
+        axis="row"
+        justifyContent="spaceEvenly"
+        marginBottom="30px">
+
+        <brls:Label
+            width="auto"
+            height="auto"
+            horizontalAlign="center"
+            fontSize="40"
+            marginRight="20px"
+            text="@i18n/text/about/appname"/>
+
+        <brls:Label
+            width="auto"
+            height="auto"
+            horizontalAlign="center"
+            marginLeft="20px"
+            text="@i18n/text/about/developer"/>
+            
+    </brls:Box>
 
     <brls:Box
         width="auto"
         height="auto"
         axis="column"
-        paddingLeft="@style/brls/tab_frame/content_padding_sides"
-        paddingRight="@style/brls/tab_frame/content_padding_sides"
-        paddingTop="@style/brls/tab_frame/content_padding_top_bottom"
-        paddingBottom="@style/brls/tab_frame/content_padding_top_bottom">
-
-        <brls:Image
-            id="image"
-            width="auto"
-            height="auto"
-            focusable="false"
-            marginBottom="20px"/>
+        alignItems="center"
+        justifyContent="spaceEvenly">
 
         <brls:Label
             width="auto"
             height="auto"
-            textAlign="center"
-            fontSize="40"
-            marginBottom="10px"
-            text="@i18n/nxgui/components/labels_appname"/>
+            text="@i18n/text/about/github"/>
 
         <brls:Label
             width="auto"
             height="auto"
-            textAlign="center"
-            fontSize="15"
-            text="@i18n/nxgui/components/labels_version"/>
-
-        <brls:Label
-            width="auto"
-            height="auto"
-            textAlign="center"
-            fontSize="15"
-            text="@i18n/nxgui/components/labels_developer"/>
+            text="@i18n/text/about/license"/>
 
     </brls:Box>
 

@@ -1,61 +1,207 @@
 <brls:Box
     width="auto"
     height="auto"
-    axis="column"
-    justifyContent="center">
+    axis="column">
+
+    <brls:Box
+        width="500" 
+        height="500"
+        axis="column">
 
         <brls:Box
-            width="auto"
-            height="auto"
-            axis="column">
+            width="100%"
+            height="20%">
 
-            <brls:Button
-                id="cal_screen"
+            <brls:Label
+                id="screen"
                 width="auto"
                 height="auto"
-                shrink="1.0"
-                style="primary"
-                text="Calculate!"/>           
+                text="@i18n/text/calculator/expression_enter"
+                fontSize="25"/>
 
         </brls:Box>
 
         <brls:Box
-            width="auto"
-            height="auto"
-            axis="column">
+            width="100%"
+            height="80%">
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
 
                 <brls:Button
-                    id="button_add"
+                    id="(Button"
                     width="auto"
                     height="auto"
-                    shrink="1.0"
-                    style="highlight"
-                    text="@i18n/nxgui/components/buttons_addition"/>
+                    style="primary"
+                    text="("/>
 
                 <brls:Button
-                    id="button_subtract"
+                    id=")Button"
                     width="auto"
                     height="auto"
-                    shrink="1.0"
-                    style="highlight"
-                    text="@i18n/nxgui/components/buttons_subtraction"/>
+                    style="primary"
+                    text=")"/>
 
                 <brls:Button
-                    id="button_mutiply"
+                    id="ExprButton"
                     width="auto"
                     height="auto"
-                    shrink="1.0"
-                    style="highlight"
-                    text="@i18n/nxgui/components/buttons_mutiplication"/>
+                    style="primary"
+                    text="^"/>
 
                 <brls:Button
-                    id="button_divide"
+                    id="DelButton"
                     width="auto"
                     height="auto"
-                    shrink="1.0"
-                    style="highlight"
-                    text="@i18n/nxgui/components/buttons_division"/>
+                    style="primary"
+                    text="DEL"/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    id="9Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="9"/>
+
+                <brls:Button
+                    id="6Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="6"/>
+
+                <brls:Button
+                    id="3Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="3"/>
+
+                <brls:Button
+                    id="0Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="0"/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    id="8Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="8"/>
+
+                <brls:Button
+                    id="5Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="5"/>
+
+                <brls:Button
+                    id="2Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="2"/>
+
+                <brls:Button
+                    id="DotButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="."/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    id="7Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="7"/>
+
+                <brls:Button
+                    id="4Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="4"/>
+
+                <brls:Button
+                    id="1Button"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="1"/>
+
+                <brls:Button
+                    id="EqualButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="="/>
+
+            </brls:Box>
+
+            <brls:Box
+                width="20%"
+                height="100%"
+                axis="column">
+
+                <brls:Button
+                    id="PlusButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="+"/>
+
+                <brls:Button
+                    id="MinusButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="-"/>
+
+                <brls:Button
+                    id="MultiplyButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="*"/>
+
+                <brls:Button
+                    id="DivideButton"
+                    width="auto"
+                    height="auto"
+                    style="primary"
+                    text="/"/>
+
+            </brls:Box>
 
         </brls:Box>
+
+    </brls:Box>
 
 </brls:Box>

@@ -1,9 +1,8 @@
 build/*
+cnx_forwarder/build/*
+overlay/build/*
 *.elf
 *.nacp
 *.nro
-*.dksh
-*.dksh
+*.ovl
 .vscode/*
-./resources/shaders/**
-resources/shaders/fill_vsh.dksh

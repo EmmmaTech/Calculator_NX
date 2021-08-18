@@ -1,0 +1,7 @@
+[submodule "lib/borealis"]
+	path = lib/borealis
+	url = https://github.com/EmreTech/borealis.git
+	branch = working-yoga
+[submodule "overlay/lib/libtesla"]
+	path = overlay/lib/libtesla
+	url = https://github.com/WerWolv/libtesla.git
