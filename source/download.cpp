@@ -50,8 +50,6 @@ std::string getLatestTag(int nightly)
                 break;
             }
         }
-        else if (IS_NEITHER(nightly))
-            ret = e["name"].get<std::string>();
     }
 
     return ret;
