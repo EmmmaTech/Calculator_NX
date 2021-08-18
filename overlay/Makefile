@@ -37,8 +37,8 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
-VERSION := 2.0.0.3
-STABLE := Nightly
+VERSION := 2.0.0
+STABLE := Stable
 
 APP_TITLE	:=	Calculator_NX
 APP_AUTHOR  :=  EmreTech
