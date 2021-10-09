@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////
+// BBBBBBB   RRRRRRR  EEEEEEEE      A      DDDDDD   //
+// B      B  R     R  E            A A     D     D  //
+// BBBBBBB   RRRRRRR  EEEEEEEE    A   A    D      D //
+// B      B  R  RR    E          AAAAAAA   D     D  //
+// BBBBBBB   R    RR  EEEEEEEE  A       A  DDDDDD   //
+//////////////////////////////////////////////////////                 
+
+// Decicated to the love of bread in RetroNX.
+
 #include <borealis.hpp>
 #include <http.hpp>
 #include <nlohmann/json.hpp>
