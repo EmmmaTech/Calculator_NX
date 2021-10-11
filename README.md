@@ -2,8 +2,6 @@
 
 # Calculator_NX
 
-### Currently under a rewrite. All features may not be implemented or work correctly.
-
 ## Features
 
 Calculator_NX can calculate any expression with the addition, subtraction, multiplication, division and exopoint operators.
@@ -20,6 +18,10 @@ After it's fully installed, please install the dependencies below.
 ```
 
 Finally, run the `build.sh` file which will build the cnx_forwarder, the Calculator_NX app, and the Calculator_NX overlay.
+
+### Cleaning
+
+Run the `clean.sh` file to clean all the build files.
 
 ## License
 

@@ -6,6 +6,7 @@
 #include <download.hpp>
 #include <constants.hpp>
 #include <fs.hpp>
+#include <shouldQuit.hpp>
 #include <mainActivity.hpp>
 
 using namespace brls::literals;
@@ -75,5 +76,7 @@ bool UpdaterTab::onContinueButton(brls::View *view)
 
     ContinButton->hide([]{});
     MainLabel->setText("text/updater/exit_message"_i18n);
+    ShouldQuit::getInstance().set(true);
+
     return true;
 }

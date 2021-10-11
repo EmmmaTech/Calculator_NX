@@ -16,6 +16,7 @@
 #include <constants.hpp>
 #include <mainActivity.hpp>
 #include <download.hpp>
+#include <shouldQuit.hpp>
 
 using namespace brls::literals;
 
@@ -49,7 +50,12 @@ int main(int argc, char *argv[])
 
     // Start the main application loop
 
-    while (brls::Application::mainLoop());
+    ShouldQuit::getInstance().set(false);
+    while (brls::Application::mainLoop())
+    {
+        if (ShouldQuit::getInstance().get())
+            brls::Application::quit();
+    }
 
     httpExit();
     return EXIT_SUCCESS;
