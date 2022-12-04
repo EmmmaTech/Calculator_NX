@@ -1,0 +1,30 @@
+{
+    "title": "Calculator_NX 재작성",
+    "update_title": "Calculator_NX 업데이터",
+
+    "footer_text": "v{0} | {1}",
+
+    "tabs": {
+        "calculator": "계산기",
+        "updater": "업데이터",
+        "about": "Calculator_NX 정보"
+    },
+
+    "calculator": {
+        "expression_enter": "표현식 입력"
+    },
+
+    "updater": {
+        "checking": "새 업데이트 확인 중...",
+        "no_update": "현재 사용 가능한 업데이트가 없습니다.",
+        "new_update": "새로운 업데이트가 있습니다!",
+        "exit_message": "업데이트된 앱을 실행하려면 종료하세요."
+    },
+
+    "about": {
+        "appname": "Calculator_NX",
+        "developer": "EmreTech에 의해 개발",
+        "github": "github.com/EmreTech/Calculator_NX에서 찾으세요",
+        "license": "Calculator_NX는 MIT 라이센스에 따라 사용이 허가되었습니다."
+    }
+}
