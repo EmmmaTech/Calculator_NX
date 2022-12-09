@@ -1,0 +1,15 @@
+{
+    "hints": {
+        "ok": "わかたん",
+        "back": "むどぅいん",
+        "exit": "やみーん"
+    },
+
+    "crash_frame": {
+        "button": "わかたん"
+    },
+
+    "thumbnail_sidebar": {
+        "save": "保存"
+    }
+}
