@@ -1,15 +1,15 @@
 {
     "hints": {
-        "ok": "OK",
-        "back": "Back",
-        "exit": "Exit"
+        "ok": "わかった",
+        "back": "戻る",
+        "exit": "やめる"
     },
 
     "crash_frame": {
-        "button": "OK"
+        "button": "わかった"
     },
 
     "thumbnail_sidebar": {
-        "save": "Save"
+        "save": "保存"
     }
 }
