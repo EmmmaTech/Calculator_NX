@@ -1,0 +1,30 @@
+{
+    "title": "Calculator_NX リライト",
+    "update_title": "Calculator_NX アップデーター",
+
+    "footer_text": "v{0} | {1}",
+
+    "tabs": {
+        "calculator": "電卓",
+        "updater": "アップデーター",
+        "about": "Calculator_NXにちいてぃ"
+    },
+
+    "calculator": {
+        "expression_enter": "式入力しくぃみそーれー"
+    },
+
+    "updater": {
+        "checking": "みーさるアップデートチェックそーいびーん...",
+        "no_update": "現在利用可能なアップデートーあいびらん。",
+        "new_update": "みーさるアップデートぬ利用可能やいびーん！",
+        "exit_message": "終了し、更新さったるアプリ起動しくぃみそーれー。"
+    },
+
+    "about": {
+        "appname": "Calculator_NX",
+        "developer": "EmreTechが開発",
+        "github": "github.com/EmreTech/Calculator_NXっし見ーちきてぃくぃみそーれー。",
+        "license": "Calculator_NX ー、MITライセンスぬしちゃうぅてぃライセンスさりとーいびーん。"
+    }
+}
