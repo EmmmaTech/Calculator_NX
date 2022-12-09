@@ -1,0 +1,30 @@
+{
+    "title": "Calculator_NX 改写",
+    "update_title": "Calculator_NX 更新器",
+
+    "footer_text": "v{0} | {1}",
+
+    "tabs": {
+        "calculator": "计算器",
+        "updater": "更新器",
+        "about": "Calculator_NX关于"
+    },
+
+    "calculator": {
+        "expression_enter": "输入表达式"
+    },
+
+    "updater": {
+        "checking": "检查新更新...",
+        "no_update": "目前没有可用的更新。",
+        "new_update": "有新的更新可用！",
+        "exit_message": "请退出以启动更新的应用程序。"
+    },
+
+    "about": {
+        "appname": "Calculator_NX",
+        "developer": "由 EmreTech 开发",
+        "github": "在 github.com/EmreTech/Calculator_NX 上找到它",
+        "license": "Calculator_NX 已根据 MIT 许可证获得许可。"
+    }
+}
