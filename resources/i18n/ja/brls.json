@@ -1,0 +1,15 @@
+{
+    "hints": {
+        "ok": "わかった",
+        "back": "戻る",
+        "exit": "やめる"
+    },
+
+    "crash_frame": {
+        "button": "わかった"
+    },
+
+    "thumbnail_sidebar": {
+        "save": "保存"
+    }
+}
